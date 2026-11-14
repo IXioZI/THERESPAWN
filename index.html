@@ -8557,6 +8557,33 @@ function updateRelapseCountOnDateChange() {
     renderRelapseInstances(newCount, relapseDetails[dateStr] || null);
 }
 
+// НОВАЯ ФУНКЦИЯ: Рендер тегов (причин срыва)
+function renderRelapseTags() {
+    const container = document.getElementById('relapse-tags-container');
+    if (!container) return;
+    
+    container.innerHTML = relapseTags.map(tag => {
+        const isSelected = selectedRelapseTags.includes(tag.id);
+        return `<div class="relapse-tag ${isSelected ? 'selected' : ''}" data-id="${tag.id}" onclick="toggleRelapseTag(this, '${tag.id}')">${tag.label}</div>`;
+    }).join('');
+}
+
+// НОВАЯ ФУНКЦИЯ: Переключение тега
+function toggleRelapseTag(el, id) {
+    playSound('click');
+    if (selectedRelapseTags.includes(id)) {
+        selectedRelapseTags = selectedRelapseTags.filter(t => t !== id);
+        el.classList.remove('selected');
+    } else {
+        if (selectedRelapseTags.length >= 5) {
+            showAppNotification('Лимит', 'Максимум 5 причин', '#f8b500');
+            return;
+        }
+        selectedRelapseTags.push(id);
+        el.classList.add('selected');
+    }
+}
+
 function openRelapseModal() { 
     if (isClaiming) return; 
     playSound('click'); 
@@ -8564,6 +8591,9 @@ function openRelapseModal() {
     document.getElementById('relapse-date-picker').value = isoStr.split('T')[0]; 
     document.getElementById('relapse-time-picker').value = isoStr.slice(11, 16); 
     document.getElementById('relapse-warning').style.display = 'none'; 
+    document.getElementById('relapse-note-input').value = ''; // Очищаем текст заметки
+    selectedRelapseTags = []; // ВАЖНО: Очищаем выбранные теги перед открытием!
+    
     try {
         updateRelapseCountOnDateChange(); 
         renderRelapseTags(); 
@@ -9169,7 +9199,7 @@ function saveData() {
 document.addEventListener('DOMContentLoaded', loadData);
 
 // ==========================================
-// НОВОЕ: РЕГИСТРАЦИЯ SERVICE WORKER ДЛЯ PWA
+// РЕГИСТРАЦИЯ SERVICE WORKER ДЛЯ PWA
 // ==========================================
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
