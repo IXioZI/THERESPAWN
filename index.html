@@ -142,6 +142,9 @@
         .crisis-log-row-meta { font-size: 11px; font-family: monospace; color: #ccc; display: flex; flex-wrap: wrap; gap: 6px; }
         .crisis-log-del-btn { background: rgba(255, 68, 68, 0.12); border: 1px solid rgba(255, 68, 68, 0.35); color: #ff8a8a; border-radius: 5px; font-size: 11px; padding: 2px 6px; cursor: pointer; font-family: inherit; flex-shrink: 0; }
         .crisis-log-del-btn:hover { background: rgba(255, 68, 68, 0.28); color: #fff; }
+        .crisis-log-edit-btn { background: rgba(248, 181, 0, 0.12); border: 1px solid rgba(248, 181, 0, 0.4); color: #ffd166; border-radius: 5px; font-size: 11px; padding: 2px 6px; cursor: pointer; font-family: inherit; flex-shrink: 0; }
+        .crisis-log-edit-btn:hover { background: rgba(248, 181, 0, 0.28); color: #fff; }
+        .crisis-log-actions { display: flex; align-items: center; gap: 5px; flex-shrink: 0; }
         .crisis-log-summary { font-size: 11px; font-family: monospace; color: #bbb; border-top: 1px dashed #3a3a3a; padding-top: 6px; }
 
         /* Ежедневные квесты */
@@ -226,6 +229,31 @@
             color: var(--main-accent);
             font-weight: 300;
             opacity: 0.8;
+        }
+        .app-version-tag {
+            display: inline-block;
+            vertical-align: middle;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 0.8px;
+            color: #ffffff;
+            -webkit-text-stroke: 2.2px #000000;
+            paint-order: stroke fill;
+            background: linear-gradient(135deg, #ffd166 0%, #f8b500 55%, #d99b00 100%);
+            border: 1px solid #ffe49c;
+            border-radius: 999px;
+            padding: 4px 10px;
+            margin-left: 8px;
+            box-shadow: 0 0 10px rgba(248, 181, 0, 0.35);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+            line-height: 1;
+            cursor: pointer;
+            font-family: inherit;
+            transition: transform 0.18s ease, box-shadow 0.18s ease;
+        }
+        .app-version-tag:hover {
+            transform: scale(1.07);
+            box-shadow: 0 0 14px rgba(248, 181, 0, 0.6);
         }
         .app-subtitle {
             font-size: 12px;
@@ -1292,9 +1320,16 @@
         .relapse-instance-arrow { transition: transform 0.3s; font-size: 12px; }
         .relapse-instance-header.active .relapse-instance-arrow { transform: rotate(180deg); }
         .relapse-instance-time-badge { font-family: monospace; font-size: 12px; opacity: 0.9; font-weight: 600; }
-        .relapse-instance-time-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px solid #333; }
+        .relapse-instance-time-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 10px; }
         .relapse-instance-time-row label { font-size: 12px; color: #aaa; margin: 0; }
         .relapse-instance-time-row input[type="time"] { width: auto; min-width: 110px; margin: 0; padding: 6px 10px; font-size: 14px; font-family: monospace; }
+        .relapse-advanced-toggle-btn { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 8px 12px; background: #262626; border: 1px solid #444; border-radius: 8px; color: #ddd; font-size: 12px; font-weight: 600; cursor: pointer; font-family: inherit; transition: background 0.2s, border-color 0.2s; }
+        .relapse-advanced-toggle-btn:hover { background: #303030; border-color: #f8b500; }
+        .relapse-advanced-toggle-btn.open { border-color: #f8b500; color: #ffd166; background: rgba(248, 181, 0, 0.1); }
+        .relapse-adv-meta { font-size: 11px; color: #999; font-weight: 500; }
+        .relapse-advanced-toggle-btn.open .relapse-adv-meta { color: #ffd166; }
+        .relapse-advanced-sliders { display: none; margin-top: 12px; padding-top: 12px; border-top: 1px solid #333; }
+        .relapse-advanced-sliders.open { display: block; }
 
         /* СТИЛИ ДЛЯ ГАЙДА (КАРУСЕЛИ) */
         .guide-modal { max-width: 550px; padding: 20px; text-align: center; }
@@ -1646,6 +1681,22 @@
             flex-shrink: 0;
         }
         .note-crisis-del-btn:hover { background: rgba(255, 68, 68, 0.3); color: #fff; }
+        .note-crisis-edit-btn {
+            background: rgba(248, 181, 0, 0.15);
+            border: 1px solid #f8b500;
+            color: #ffd166;
+            border-radius: 6px;
+            padding: 3px 8px;
+            font-size: 11px;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+        .note-crisis-edit-btn:hover { background: rgba(248, 181, 0, 0.3); color: #fff; }
+        .changelog-ver-block { background: #232323; border: 1px solid #383838; border-left: 4px solid #f8b500; border-radius: 10px; padding: 12px 14px; margin-bottom: 12px; }
+        .changelog-ver-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; font-weight: bold; color: #fff; font-size: 14px; }
+        .changelog-ver-badge { font-size: 11px; padding: 2px 8px; border-radius: 999px; background: rgba(248,181,0,0.18); color: #ffd166; border: 1px solid rgba(248,181,0,0.45); }
+        .changelog-list { margin: 0; padding-left: 18px; color: #ccc; font-size: 13px; line-height: 1.55; }
+        .changelog-list li { margin-bottom: 5px; }
 
     </style>
 <script src="/_aistudio-iframe.js?v=1f94f900"></script><script src="/_aistudio-iframe.js?v=29045eb3"></script></head>
@@ -1698,7 +1749,7 @@
         <!-- БРЕНДИНГ ПРИЛОЖЕНИЯ -->
         <div class="app-branding">
             <h1 class="app-title">
-                <span class="accent-bracket">[</span> THE RESPAWN <span class="accent-bracket">]</span>
+                <span class="accent-bracket">[</span> THE RESPAWN <span class="accent-bracket">]</span><button type="button" class="app-version-tag" id="app-version-tag" onclick="openChangelogModal()" title="Что нового в обновлении">v486</button>
             </h1>
             <div class="app-subtitle">Трекер Восстановления</div>
         </div>
@@ -2353,6 +2404,20 @@
             <div style="font-size: 12px; color: #666; text-align: center;">Нет данных о срывах</div>
         </div>
     </div>
+
+    <div class="stats-list-card" id="stats-crises-card">
+        <div class="stats-list-title">
+            ⚡ Статистика ломок
+            <span class="info-icon" onclick="toggleTooltip(event, 'tooltip-stat-crises')">?</span>
+            <div class="tooltip stat-tooltip" id="tooltip-stat-crises" style="text-align: left; line-height: 1.5; text-transform: none;">
+                Показывает процент преодолённых фаз ломки, среднюю силу волны, длительность выдержки и самые опасные часы суток, когда чаще всего начинается накат.
+            </div>
+        </div>
+        <div id="stats-crises-total-badge" class="analysis-total-badge" style="display: none; border-color: rgba(248,181,0,0.4); color: #ffd166; background: rgba(248,181,0,0.12);">Зафиксировано: 0 ломок</div>
+        <div class="stats-list-items" id="stats-crises-list">
+            <div style="font-size: 12px; color: #666; text-align: center;">Нет записей о ломках</div>
+        </div>
+    </div>
     
     <!-- ========================================================= -->
 <!-- [ЧАСТЬ 26] HTML: Статистика (График)                      -->
@@ -2663,6 +2728,7 @@
             <div class="toggle-row"><label>Средние значения (Сложность, Ломка)</label><label class="switch"><input type="checkbox" id="showStatsAvg-toggle" checked onchange="toggleStatsSection('showStatsAvg', this.checked)"><span class="slider"></span></label></div>
             <div class="toggle-row"><label>Анализ срывов</label><label class="switch"><input type="checkbox" id="showStatsAnalysis-toggle" checked onchange="toggleStatsSection('showStatsAnalysis', this.checked)"><span class="slider"></span></label></div>
             <div class="toggle-row"><label>Частые триггеры</label><label class="switch"><input type="checkbox" id="showStatsTriggers-toggle" checked onchange="toggleStatsSection('showStatsTriggers', this.checked)"><span class="slider"></span></label></div>
+            <div class="toggle-row"><label>Статистика ломок</label><label class="switch"><input type="checkbox" id="showStatsCrises-toggle" checked onchange="toggleStatsSection('showStatsCrises', this.checked)"><span class="slider"></span></label></div>
             <div class="toggle-row" style="border-top: 1px solid #333; margin-top: 5px; padding-top: 10px;"><label>Показывать график динамики</label><label class="switch"><input type="checkbox" id="show-chart-toggle" checked onchange="toggleChartVisibility(this.checked)"><span class="slider"></span></label></div>
             <div class="toggle-row"><label>Показывать карту года (365 дней)</label><label class="switch"><input type="checkbox" id="show-heatmap-toggle" checked onchange="toggleHeatmapVisibility(this.checked)"><span class="slider"></span></label></div>
             
@@ -2856,6 +2922,48 @@
     </div>
 </div>
 
+<!-- Модалка редактирования записи о ломке -->
+<div id="edit-crisis-modal" class="modal-overlay" style="display: none; z-index: 2150;" onclick="closeEditCrisisModal(event)">
+    <div class="modal-content" onclick="event.stopPropagation()">
+        <button class="modal-close" onclick="closeEditCrisisModal(event)">×</button>
+        <h2 class="modal-title" style="color: #ffd166;">✏️ Редактировать ломку</h2>
+
+        <label style="display: block; margin-bottom: 5px;">Начало ломки:</label>
+        <div class="time-input-row" style="flex-direction: column; gap: 6px; align-items: stretch; margin-bottom: 12px;">
+            <input type="date" id="edit-crisis-start-date" oninput="updateEditCrisisPreview()">
+            <input type="time" id="edit-crisis-start-time" oninput="updateEditCrisisPreview()">
+        </div>
+
+        <div class="crisis-intensity-head">
+            <label style="margin: 0;">Сила ломки (1–10):</label>
+            <span class="crisis-intensity-badge" id="edit-crisis-intensity-badge">5 / 10</span>
+        </div>
+        <input type="range" id="edit-crisis-intensity-input" class="crisis-range" min="1" max="10" step="1" value="5" oninput="updateEditCrisisPreview()" style="margin-bottom: 12px;">
+
+        <label style="display: block; margin-bottom: 5px;">Статус:</label>
+        <select id="edit-crisis-outcome" onchange="toggleEditCrisisEndFields(); updateEditCrisisPreview()" style="width: 100%; padding: 9px 10px; background: #1e1e1e; border: 1px solid #444; border-radius: 8px; color: #fff; font-size: 13px; margin-bottom: 12px; font-family: inherit;">
+            <option value="survived">✅ Преодолена</option>
+            <option value="active">⚡ Активна</option>
+            <option value="relapsed">💥 Завершилась срывом</option>
+        </select>
+
+        <div id="edit-crisis-end-wrap" style="margin-bottom: 12px;">
+            <label style="display: block; margin-bottom: 5px;">Окончание ломки:</label>
+            <div class="time-input-row" style="flex-direction: column; gap: 6px; align-items: stretch;">
+                <input type="date" id="edit-crisis-end-date" oninput="updateEditCrisisPreview()">
+                <input type="time" id="edit-crisis-end-time" oninput="updateEditCrisisPreview()">
+            </div>
+        </div>
+
+        <div class="crisis-preview-box" id="edit-crisis-preview"></div>
+
+        <div style="display: flex; gap: 10px;">
+            <button type="button" class="action-btn" style="background: #444; border: none;" onclick="closeEditCrisisModal(event)">Отмена</button>
+            <button type="button" class="action-btn" style="background: linear-gradient(135deg, #ffd166, #f8b500); color: #111; border: none;" onclick="confirmEditCrisis()">💾 Сохранить</button>
+        </div>
+    </div>
+</div>
+
 <div id="relapse-modal" class="modal-overlay" style="display: none;" onclick="closeRelapseModal(event)">
     <div class="modal-content" onclick="event.stopPropagation()">
         <button class="modal-close" onclick="closeRelapseModal(event)">×</button>
@@ -2975,9 +3083,12 @@
     <div class="modal-content" onclick="event.stopPropagation()">
         <button class="modal-close" onclick="closeExportModal(event)">×</button>
         <h2 class="modal-title" style="color: #2196F3;">Экспорт данных</h2>
-        <p style="font-size: 14px; color: #ccc; margin-bottom: 15px;">Скопируйте этот код и сохраните его в надежном месте.</p>
+        <p style="font-size: 14px; color: #ccc; margin-bottom: 15px;">Скопируйте код или скачайте готовый файл бэкапа <code style="color:#ffd166;">.json</code> — удобно для телефона и PWA.</p>
         <textarea id="export-textarea" readonly onclick="this.select()"></textarea>
-        <button class="action-btn" style="background-color: #2196F3; box-shadow: 0 0 10px rgba(33,150,243,0.4);" onclick="copyExportData()">Скопировать код</button>
+        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <button type="button" class="action-btn" style="flex: 1; background-color: #2196F3; box-shadow: 0 0 10px rgba(33,150,243,0.4);" onclick="copyExportData()">📋 Скопировать код</button>
+            <button type="button" class="action-btn" style="flex: 1; background: linear-gradient(135deg, #f8b500, #e69c00); color: #111;" onclick="downloadExportFile()">📥 Скачать файл (.json)</button>
+        </div>
     </div>
 </div>
 
@@ -2985,12 +3096,65 @@
     <div class="modal-content" onclick="event.stopPropagation()">
         <button class="modal-close" onclick="closeImportModal(event)">×</button>
         <h2 class="modal-title" style="color: #4CAF50;">Импорт данных</h2>
-        <p style="font-size: 14px; color: #ccc; margin-bottom: 15px;">Вставьте сюда код вашего бэкапа. <b style="color: #ff4444;">Текущий прогресс будет заменен!</b></p>
-        <textarea id="import-textarea" placeholder="Вставьте сюда ваш код..."></textarea>
+        <p style="font-size: 14px; color: #ccc; margin-bottom: 12px;">Загрузите файл бэкапа <code style="color:#ffd166;">.json</code> или вставьте код вручную. <b style="color: #ff4444;">Текущий прогресс будет заменен!</b></p>
+        <input type="file" id="import-file-input" accept=".json,application/json,text/plain" style="display: none;" onchange="handleImportFile(event)">
+        <button type="button" class="action-btn" style="background: #283545; border: 1px solid #4facfe; color: #9cd2ff; margin-bottom: 10px;" onclick="triggerImportFile()">📤 Выбрать файл бэкапа (.json)</button>
+        <div id="import-file-status" style="display: none; font-size: 12px; color: #6ee7b7; background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.35); border-radius: 6px; padding: 6px 10px; margin-bottom: 10px;"></div>
+        <textarea id="import-textarea" placeholder="Или вставьте сюда ваш код..."></textarea>
         <div style="display: flex; gap: 10px;">
             <button class="action-btn" style="background: #444;" onclick="closeImportModal(event)">Отмена</button>
             <button class="action-btn" style="background-color: #4CAF50; box-shadow: 0 0 10px rgba(76,175,80,0.4);" onclick="confirmImport()">Восстановить</button>
         </div>
+    </div>
+</div>
+
+<div id="changelog-modal" class="modal-overlay" style="display: none; z-index: 3200;" onclick="closeChangelogModal(event)">
+    <div class="modal-content" onclick="event.stopPropagation()" style="max-width: 480px;">
+        <button class="modal-close" onclick="closeChangelogModal(event)">×</button>
+        <h2 class="modal-title" style="color: #ffd166;">✨ История обновлений</h2>
+        <div class="changelog-ver-block">
+            <div class="changelog-ver-head">
+                <span>Версия v486</span>
+                <span class="changelog-ver-badge">Актуальная</span>
+            </div>
+            <ul class="changelog-list">
+                <li><b>Расширенные настройки срыва:</b> в окнах фиксации и редактирования срыва все полоски (1–10) по умолчанию скрыты под кнопкой «⚙️ Расширенные настройки» со значением <b>5</b>.</li>
+                <li><b>3 новые шкалы срыва:</b> добавлены «Импульсивность / автопилот», «Стресс до срыва» и «Туман в голове после срыва» — теперь все 10 характеристик реагируют на конкретные факторы без перекоса базового баланса.</li>
+            </ul>
+        </div>
+        <div class="changelog-ver-block" style="border-left-color: #4facfe; opacity: 0.9;">
+            <div class="changelog-ver-head">
+                <span>Версия v485</span>
+                <span class="changelog-ver-badge" style="color:#9cd2ff; background:rgba(79,172,254,0.14); border-color:rgba(79,172,254,0.35);">Предыдущая</span>
+            </div>
+            <ul class="changelog-list">
+                <li><b>Исправление фаз восстановления:</b> после завершения ломки баннер больше не переключается ошибочно на «Стабильный рост» на ранних днях, а возвращается к реальной текущей фазе (Абстиненция, Адаптация, Flatline и др.).</li>
+            </ul>
+        </div>
+        <div class="changelog-ver-block" style="border-left-color: #888; opacity: 0.8;">
+            <div class="changelog-ver-head">
+                <span>Версия v484</span>
+                <span class="changelog-ver-badge" style="color:#bbb; background:rgba(255,255,255,0.08); border-color:rgba(255,255,255,0.2);">Архив</span>
+            </div>
+            <ul class="changelog-list">
+                <li><b>Бэкап файлом (.json):</b> скачивание и загрузка резервной копии в 1 нажатие (работает в браузере и PWA).</li>
+                <li><b>Статистика ломок:</b> % побед над накатами, средняя сила, выдержка и опасные часы суток во вкладке «Статистика».</li>
+                <li><b>Редактирование ломок:</b> правка времени начала/конца, статуса и силы (1–10) без удаления записи.</li>
+                <li><b>Кликабельный значок версии:</b> окно с историей изменений прямо из шапки приложения.</li>
+            </ul>
+        </div>
+        <div class="changelog-ver-block" style="border-left-color: #666; opacity: 0.72;">
+            <div class="changelog-ver-head">
+                <span>Версия v483</span>
+                <span class="changelog-ver-badge" style="color:#aaa; background:rgba(255,255,255,0.06); border-color:rgba(255,255,255,0.16);">Архив</span>
+            </div>
+            <ul class="changelog-list">
+                <li>Система из 4 фаз восстановления и ручная фиксация фазы ломки с бонусом за длительность.</li>
+                <li>3-я вкладка журнала «⚡ Записи о ломках» с фильтром по дням и сохранением после перерасчёта.</li>
+                <li>Поэкземплярное время для каждого срыва за день и подтверждение удаления записи о ломке.</li>
+            </ul>
+        </div>
+        <button type="button" class="action-btn" style="background: #333; color: #fff; border: 1px solid #555;" onclick="closeChangelogModal(event)">Закрыть</button>
     </div>
 </div>
 
@@ -3310,6 +3474,7 @@
 <div id="toast-container" class="toast-container"></div>
 
 <script>
+const APP_VERSION = '486';
 
 // =========================================================
 // [ЧАСТЬ 35] JS: Переменные профиля и настроек
@@ -3347,6 +3512,7 @@ let trackerSettings = {
     showStatsAvg: true,
     showStatsAnalysis: true,
     showStatsTriggers: true,
+    showStatsCrises: true,
 
     showChart: true, showHeatmap: true, chartPeriod: 30, chartActiveStats: { selfcontrol: true, anxiety: true, craving: false, pfk: false, energy: false, mindfulness: false, reward: false, clarity: false, motivation: false, esteem: false },
     soundEnabled: true, volume: 0.5, vibrationEnabled: true, showToasts: true, showRecalcIndicator: true, animSpeed: 'adaptive',
@@ -3499,40 +3665,122 @@ function showAppNotification(title, message, color = '#2196F3', duration = 3000)
     setTimeout(() => { toast.classList.remove('show'); setTimeout(() => toast.remove(), 300); }, duration);
 }
 
-function openExportModal() {
-    const data = { 
-        userProfile, trackerSettings, stats, logs, questLogs, calendarData, calendarNotes, 
-        calendarNoteTitles, calendarMoods, calendarDifficulty, relapseDetails, 
-        relapseReasons, relapseTimes, relapseTags, isRecalcPending 
+function buildExportPayload() {
+    return {
+        appVersion: APP_VERSION,
+        exportedAt: new Date().toISOString(),
+        userProfile, trackerSettings, stats, logs, questLogs, calendarData, calendarNotes,
+        calendarNoteTitles, calendarMoods, calendarDifficulty, relapseDetails,
+        relapseReasons, relapseTimes, relapseTags, isRecalcPending
     };
-    document.getElementById('export-textarea').value = JSON.stringify(data); 
+}
+
+function openExportModal() {
+    const data = buildExportPayload();
+    document.getElementById('export-textarea').value = JSON.stringify(data);
     document.getElementById('export-modal').style.display = 'flex';
 }
 
-function closeExportModal(event) { 
-    document.getElementById('export-modal').style.display = 'none'; 
+function closeExportModal(event) {
+    document.getElementById('export-modal').style.display = 'none';
 }
 
-function copyExportData() { 
-    const ta = document.getElementById('export-textarea'); 
+function copyExportData() {
+    const ta = document.getElementById('export-textarea');
     const val = ta.value;
-    ta.select(); 
+    ta.select();
     if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(val).catch(() => { try { document.execCommand('copy'); } catch(e) {} });
     } else {
         try { document.execCommand('copy'); } catch(e) {}
     }
-    closeExportModal(); 
-    showAppNotification('Успех', 'Код скопирован в буфер обмена!', '#2196F3'); 
+    closeExportModal();
+    showAppNotification('Успех', 'Код скопирован в буфер обмена!', '#2196F3');
 }
 
-function openImportModal() { 
-    document.getElementById('import-textarea').value = ''; 
-    document.getElementById('import-modal').style.display = 'flex'; 
+function downloadExportFile() {
+    try {
+        const ta = document.getElementById('export-textarea');
+        const jsonStr = (ta && ta.value) ? ta.value : JSON.stringify(buildExportPayload(), null, 2);
+        const datePart = getLocalDateString(new Date());
+        const fileName = `respawn-backup-v${APP_VERSION}-${datePart}.json`;
+        const blob = new Blob([jsonStr], { type: 'application/json;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = fileName;
+        a.style.display = 'none';
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        setTimeout(() => { try { URL.revokeObjectURL(url); } catch(e) {} }, 1500);
+        closeExportModal();
+        showAppNotification('Успех', `Файл ${fileName} сохранён!`, '#f8b500');
+    } catch (e) {
+        showAppNotification('Ошибка', 'Не удалось сохранить файл. Используйте копирование кода.', '#ff4444');
+    }
 }
 
-function closeImportModal(event) { 
-    document.getElementById('import-modal').style.display = 'none'; 
+function openImportModal() {
+    document.getElementById('import-textarea').value = '';
+    const fileInput = document.getElementById('import-file-input');
+    if (fileInput) fileInput.value = '';
+    const statusEl = document.getElementById('import-file-status');
+    if (statusEl) { statusEl.style.display = 'none'; statusEl.innerText = ''; }
+    document.getElementById('import-modal').style.display = 'flex';
+}
+
+function closeImportModal(event) {
+    document.getElementById('import-modal').style.display = 'none';
+}
+
+function triggerImportFile() {
+    playSound('click');
+    const fileInput = document.getElementById('import-file-input');
+    if (fileInput) {
+        fileInput.value = '';
+        fileInput.click();
+    }
+}
+
+function handleImportFile(event) {
+    const file = event && event.target && event.target.files ? event.target.files[0] : null;
+    if (!file) return;
+    const statusEl = document.getElementById('import-file-status');
+    const reader = new FileReader();
+    reader.onload = () => {
+        try {
+            const text = String(reader.result || '').trim();
+            const parsed = JSON.parse(text);
+            if (!parsed || typeof parsed !== 'object' || !parsed.userProfile || typeof parsed.userProfile !== 'object') {
+                throw new Error('Неверная структура файла');
+            }
+            document.getElementById('import-textarea').value = text;
+            if (statusEl) {
+                statusEl.innerText = `✅ Загружен: ${file.name} — нажмите «Восстановить»`;
+                statusEl.style.display = 'block';
+            }
+        } catch (err) {
+            if (statusEl) statusEl.style.display = 'none';
+            showAppNotification('Ошибка', 'Файл не является корректным бэкапом THE RESPAWN.', '#ff4444');
+        }
+    };
+    reader.onerror = () => {
+        showAppNotification('Ошибка', 'Не удалось прочитать выбранный файл.', '#ff4444');
+    };
+    reader.readAsText(file, 'utf-8');
+}
+
+function openChangelogModal() {
+    playSound('click');
+    const modal = document.getElementById('changelog-modal');
+    if (modal) modal.style.display = 'flex';
+}
+
+function closeChangelogModal(event) {
+    playSound('click');
+    const modal = document.getElementById('changelog-modal');
+    if (modal) modal.style.display = 'none';
 }
 
 function confirmImport() {
@@ -7623,7 +7871,10 @@ function renderCrisisLogs(container) {
             return `<div class="crisis-log-row">
                 <div class="crisis-log-row-top">
                     <span>${statusBadge} · Сила ${ep.intensity}/10</span>
-                    <button type="button" class="crisis-log-del-btn" title="Удалить запись" onclick="requestDeleteCrisisEpisode('${ep.id}')">Удалить</button>
+                    <div class="crisis-log-actions">
+                        <button type="button" class="crisis-log-edit-btn" title="Редактировать запись" onclick="openEditCrisisModal('${ep.id}')">✏️</button>
+                        <button type="button" class="crisis-log-del-btn" title="Удалить запись" onclick="requestDeleteCrisisEpisode('${ep.id}')">Удалить</button>
+                    </div>
                 </div>
                 <div class="crisis-log-row-time">${timeLine}</div>
                 ${metaParts.length > 0 ? `<div class="crisis-log-row-meta">${metaParts.join('')}</div>` : ''}
@@ -8814,7 +9065,7 @@ function advancePhaseTimelineDay(state, dateStr, isRelapse, relapseCount, streak
     }
 
     const sDay = Math.max(1, Number(streakDayAfterStep) || 1);
-    const activeCrisis = crisisEp || getCrisisForDayIndex(dateStr);
+    const activeCrisis = (crisisEp === false) ? null : (crisisEp || getCrisisForDayIndex(dateStr));
 
     let phaseResult;
     if (activeCrisis) {
@@ -9089,7 +9340,7 @@ function getCurrentPhaseInfo() {
         }
     } else {
         const simState = { ...state };
-        preview = advancePhaseTimelineDay(simState, todayStr, false, 0, actualStreak);
+        preview = advancePhaseTimelineDay(simState, todayStr, false, 0, actualStreak, false);
     }
 
     const mods = getPhaseModifiers(preview);
@@ -9498,6 +9749,179 @@ function deleteCrisisEpisode(episodeId) {
     showAppNotification('Удалено', 'Запись о ломке удалена.', '#4facfe', 1800);
 }
 
+let editingCrisisId = null;
+
+function openEditCrisisModal(episodeId) {
+    if (!userProfile || !Array.isArray(userProfile.cravingEpisodes)) return;
+    const ep = userProfile.cravingEpisodes.find(item => item.id === episodeId);
+    if (!ep) return;
+    playSound('click');
+    editingCrisisId = episodeId;
+    const [sDate, sTime] = (ep.startAt || '').split('T');
+    const nowDt = getLocalDateTimeString(new Date()).split('T');
+    document.getElementById('edit-crisis-start-date').value = sDate || nowDt[0];
+    document.getElementById('edit-crisis-start-time').value = (sTime || '00:00').slice(0, 5);
+    document.getElementById('edit-crisis-intensity-input').value = ep.intensity || 5;
+    document.getElementById('edit-crisis-outcome').value = ep.outcome || 'survived';
+    if (ep.endAt && ep.endAt.includes('T')) {
+        const [eDate, eTime] = ep.endAt.split('T');
+        document.getElementById('edit-crisis-end-date').value = eDate;
+        document.getElementById('edit-crisis-end-time').value = eTime.slice(0, 5);
+    } else {
+        document.getElementById('edit-crisis-end-date').value = nowDt[0];
+        document.getElementById('edit-crisis-end-time').value = nowDt[1];
+    }
+    toggleEditCrisisEndFields();
+    updateEditCrisisPreview();
+    document.getElementById('edit-crisis-modal').style.display = 'flex';
+}
+
+function closeEditCrisisModal(event) {
+    playSound('click');
+    editingCrisisId = null;
+    const modal = document.getElementById('edit-crisis-modal');
+    if (modal) modal.style.display = 'none';
+}
+
+function toggleEditCrisisEndFields() {
+    const outcome = document.getElementById('edit-crisis-outcome').value;
+    const wrap = document.getElementById('edit-crisis-end-wrap');
+    if (wrap) wrap.style.display = (outcome === 'active') ? 'none' : 'block';
+}
+
+function updateEditCrisisPreview() {
+    const slider = document.getElementById('edit-crisis-intensity-input');
+    const badge = document.getElementById('edit-crisis-intensity-badge');
+    const preview = document.getElementById('edit-crisis-preview');
+    if (!slider || !badge || !preview) return;
+    const lvl = Math.min(10, Math.max(1, parseInt(slider.value) || 5));
+    let label = 'Средняя волна', color = '#ffd166', bg = 'rgba(248,181,0,0.2)';
+    if (lvl <= 3) { label = 'Умеренная тяга'; color = '#6ee7b7'; bg = 'rgba(16,185,129,0.2)'; }
+    else if (lvl >= 8) { label = 'Сильный накат'; color = '#ff8a8a'; bg = 'rgba(255,68,68,0.22)'; }
+    badge.innerText = `${lvl} / 10 · ${label}`;
+    badge.style.color = color;
+    badge.style.background = bg;
+
+    const sDate = document.getElementById('edit-crisis-start-date').value;
+    const sTime = document.getElementById('edit-crisis-start-time').value;
+    const outcome = document.getElementById('edit-crisis-outcome').value;
+    if (!sDate || !sTime) {
+        preview.innerHTML = 'Укажите дату и время старта.';
+        return;
+    }
+    const startAt = `${sDate}T${sTime}`;
+    const startMs = new Date(startAt).getTime();
+    if (isNaN(startMs)) {
+        preview.innerHTML = '<span style="color:#ff8a8a;">⚠️ Некорректная дата начала.</span>';
+        return;
+    }
+    if (outcome === 'active') {
+        const durHrs = Math.max(0, (Date.now() - startMs) / 3600000);
+        preview.innerHTML = `<b>⚡ Активная волна:</b> прошло ${formatCrisisDurationShort(durHrs)} · Сила <b>${lvl}/10</b>`;
+        return;
+    }
+    const eDate = document.getElementById('edit-crisis-end-date').value;
+    const eTime = document.getElementById('edit-crisis-end-time').value;
+    if (!eDate || !eTime) {
+        preview.innerHTML = 'Укажите дату и время окончания.';
+        return;
+    }
+    const endMs = new Date(`${eDate}T${eTime}`).getTime();
+    if (isNaN(endMs) || endMs < startMs) {
+        preview.innerHTML = '<span style="color:#ff8a8a;">⚠️ Время окончания не может быть раньше начала ломки.</span>';
+        return;
+    }
+    const durHrs = (endMs - startMs) / 3600000;
+    if (outcome === 'relapsed') {
+        preview.innerHTML = `<b>💥 Завершилась срывом:</b> выдержка ${formatCrisisDurationShort(durHrs)} · Сила <b>${lvl}/10</b>`;
+        return;
+    }
+    const sim = { ...stats };
+    const bonus = applyCrisisSurvivalBonus(sim, lvl, getCurrentJourneyDayNum(), durHrs);
+    const durBonusHint = bonus.durationFactor > 1 ? ` <span style="color:#ffd166;">(бонус длит. ×${bonus.durationFactor.toFixed(2)})</span>` : '';
+    preview.innerHTML = `<b>Длительность:</b> ${formatCrisisDurationShort(durHrs)}${durBonusHint}<br>` +
+        `<b>Оценка бонуса:</b> 🧠 +${bonus.pfk.toFixed(2)}% · 🛡️ +${bonus.selfcontrol.toFixed(2)}% · ⭐ +${bonus.xp} XP`;
+}
+
+function confirmEditCrisis() {
+    if (!editingCrisisId || !userProfile || !Array.isArray(userProfile.cravingEpisodes)) return;
+    const ep = userProfile.cravingEpisodes.find(item => item.id === editingCrisisId);
+    if (!ep) { closeEditCrisisModal(); return; }
+
+    const sDate = document.getElementById('edit-crisis-start-date').value;
+    const sTime = document.getElementById('edit-crisis-start-time').value;
+    const eDate = document.getElementById('edit-crisis-end-date').value;
+    const eTime = document.getElementById('edit-crisis-end-time').value;
+    const intensity = Math.min(10, Math.max(1, parseInt(document.getElementById('edit-crisis-intensity-input').value) || 5));
+    const outcome = document.getElementById('edit-crisis-outcome').value;
+    const todayStr = getLocalDateString(new Date());
+
+    if (!sDate || !sTime) {
+        showAppNotification('Ошибка', 'Укажите дату и время начала.', '#ff4444');
+        return;
+    }
+    if (sDate > todayStr) {
+        showAppNotification('Ошибка', 'Дата начала не может быть в будущем.', '#ff4444');
+        return;
+    }
+    if (outcome === 'active') {
+        const otherActive = userProfile.cravingEpisodes.find(item => item.outcome === 'active' && item.id !== ep.id);
+        if (otherActive) {
+            showAppNotification('Уже есть активная ломка', 'Сначала завершите другую активную фазу ломки.', '#f8b500');
+            return;
+        }
+    }
+
+    const newStartAt = `${sDate}T${sTime}`;
+    let newEndAt = null;
+    if (outcome !== 'active') {
+        if (!eDate || !eTime) {
+            showAppNotification('Ошибка', 'Укажите дату и время окончания.', '#ff4444');
+            return;
+        }
+        if (eDate > todayStr) {
+            showAppNotification('Ошибка', 'Дата окончания не может быть в будущем.', '#ff4444');
+            return;
+        }
+        newEndAt = `${eDate}T${eTime}`;
+        if (new Date(newEndAt).getTime() < new Date(newStartAt).getTime()) {
+            showAppNotification('Ошибка', 'Время окончания не может быть раньше начала.', '#ff4444');
+            return;
+        }
+    }
+
+    ep.startAt = newStartAt;
+    ep.endAt = newEndAt;
+    ep.intensity = intensity;
+    ep.outcome = outcome;
+    if (outcome !== 'survived') delete ep.survivalBonus;
+    userProfile.cravingEpisodes = sanitizeCravingEpisodes(userProfile.cravingEpisodes);
+
+    if (!userProfile.lowestStartDate || sDate < userProfile.lowestStartDate.split('T')[0]) {
+        userProfile.lowestStartDate = sDate;
+    }
+
+    playSound('click');
+    vibrate(50);
+    closeEditCrisisModal();
+
+    if (trackerSettings.autoRecalc) {
+        recalculateAll(true);
+        updateAllStatsUI();
+    } else {
+        isRecalcPending = true;
+        updateClaimTimer();
+    }
+    updateProfileUI();
+    renderCalendar();
+    renderCalendarNotes();
+    renderLogs();
+    if (currentNoteDateStr) renderNoteModalCrises(currentNoteDateStr);
+    if (document.getElementById('stats-view') && document.getElementById('stats-view').classList.contains('active')) renderStats();
+    saveData();
+    showAppNotification('Сохранено', 'Запись о ломке обновлена.', '#ffd166', 2000);
+}
+
 function renderNoteModalCrises(dateStr) {
     const sec = document.getElementById('note-crises-section');
     if (!sec) return;
@@ -9517,7 +9941,10 @@ function renderNoteModalCrises(dateStr) {
                 <div><b>⚠️ Фаза ломки (${ep.intensity}/10)</b> · ${statusTxt}</div>
                 <div style="font-size:11px; color:#aaa; font-family:monospace;">Старт: ${ep.startAt.split('T')[0]} ${sTime} → ${ePart}</div>
             </div>
-            <button type="button" class="note-crisis-del-btn" onclick="requestDeleteCrisisEpisode('${ep.id}')">Удалить</button>
+            <div class="crisis-log-actions">
+                <button type="button" class="note-crisis-edit-btn" title="Редактировать" onclick="openEditCrisisModal('${ep.id}')">✏️</button>
+                <button type="button" class="note-crisis-del-btn" onclick="requestDeleteCrisisEpisode('${ep.id}')">Удалить</button>
+            </div>
         </div>`;
     }).join('');
     sec.innerHTML = rows;
@@ -10129,7 +10556,8 @@ function applySettings() {
         showStatsCleanPath: ['stats-clean-path-card'],
         showStatsAvg: ['stats-difficulty-card', 'stats-urge-card'],
         showStatsAnalysis: ['stats-analysis-card'],
-        showStatsTriggers: ['stats-triggers-card']
+        showStatsTriggers: ['stats-triggers-card'],
+        showStatsCrises: ['stats-crises-card']
     };
 
     for (const [settingKey, elementIds] of Object.entries(statSections)) {
@@ -10727,6 +11155,75 @@ function renderStats() {
         let tagCounts = {}; for (let date in relapseReasons) { let reasons = relapseReasons[date]; if (!Array.isArray(reasons)) reasons = [reasons]; reasons.forEach(tagId => { if(typeof tagId === 'string') tagCounts[tagId] = (tagCounts[tagId] || 0) + 1; }); }
         let sortedTags = Object.keys(tagCounts).map(id => { let t = relapseTags.find(x => x.id === id); return { name: t ? t.label : 'Другое', count: tagCounts[id] }; }).sort((a,b) => b.count - a.count).slice(0, 3);
         const triggersContainer = document.getElementById('stats-triggers-list'); if (sortedTags.length === 0) { triggersContainer.innerHTML = '<div style="font-size: 12px; color: #666; text-align: center;">Нет данных о срывах</div>'; } else { triggersContainer.innerHTML = sortedTags.map(t => `<div class="stats-list-item"><span class="stats-list-name">🏷️ ${t.name}</span><span class="stats-list-count">${formatNumber(t.count)} раз</span></div>`).join(''); }
+
+        const crisesCardList = document.getElementById('stats-crises-list');
+        const crisesBadge = document.getElementById('stats-crises-total-badge');
+        const allCrises = sanitizeCravingEpisodes(userProfile && userProfile.cravingEpisodes);
+        if (crisesBadge) {
+            if (allCrises.length > 0) {
+                const cN = allCrises.length;
+                let cWord = 'ломок';
+                if (cN % 10 === 1 && cN % 100 !== 11) cWord = 'ломка';
+                else if ([2, 3, 4].includes(cN % 10) && ![12, 13, 14].includes(cN % 100)) cWord = 'ломки';
+                crisesBadge.innerText = `Зафиксировано: ${formatNumber(cN)} ${cWord}`;
+                crisesBadge.style.display = 'inline-block';
+            } else {
+                crisesBadge.style.display = 'none';
+            }
+        }
+        if (crisesCardList) {
+            if (allCrises.length === 0) {
+                crisesCardList.innerHTML = '<div style="font-size: 12px; color: #666; text-align: center;">Нет записей о ломках</div>';
+            } else {
+                const survivedCnt = allCrises.filter(e => e.outcome === 'survived').length;
+                const relapsedCnt = allCrises.filter(e => e.outcome === 'relapsed').length;
+                const activeCnt = allCrises.filter(e => e.outcome === 'active').length;
+                const finishedCnt = survivedCnt + relapsedCnt;
+                const winRate = finishedCnt > 0 ? Math.round((survivedCnt / finishedCnt) * 100) : (activeCnt > 0 ? 100 : 0);
+                const avgIntensity = (allCrises.reduce((acc, e) => acc + (Number(e.intensity) || 5), 0) / allCrises.length).toFixed(1);
+
+                const durations = allCrises
+                    .filter(e => e.outcome !== 'active' && e.endAt)
+                    .map(e => getCrisisDurationHours(e.startAt, e.endAt))
+                    .filter(h => h >= 0);
+                const avgDurHrs = durations.length > 0 ? durations.reduce((a, b) => a + b, 0) / durations.length : 0;
+                const maxDurHrs = durations.length > 0 ? Math.max(...durations) : 0;
+
+                const cTime = { morning: 0, day: 0, evening: 0, night: 0 };
+                allCrises.forEach(ep => {
+                    const tPart = ep.startAt.split('T')[1] || '12:00';
+                    const h = parseInt(tPart.split(':')[0]);
+                    if (h >= 0 && h < 6) cTime.night++;
+                    else if (h >= 6 && h < 12) cTime.morning++;
+                    else if (h >= 12 && h < 18) cTime.day++;
+                    else cTime.evening++;
+                });
+                const cDenom = Math.max(1, allCrises.length);
+                const cpM = Math.round((cTime.morning / cDenom) * 100);
+                const cpD = Math.round((cTime.day / cDenom) * 100);
+                const cpE = Math.round((cTime.evening / cDenom) * 100);
+                const cpN = Math.round((cTime.night / cDenom) * 100);
+                const cMax = Math.max(cpM, cpD, cpE, cpN);
+
+                const crisisTimeGrid = `<div class="analysis-time-grid">
+                    <div class="analysis-time-quadrant ${cpM === cMax && cMax > 0 ? 'hot' : ''}" style="border-color: rgba(248,181,0,0.4); background: rgba(248,181,0,0.05);"><div class="q-label" style="color:#f8b500;">Утро (06-12)</div><div class="q-val">${cpM}%</div></div>
+                    <div class="analysis-time-quadrant ${cpD === cMax && cMax > 0 ? 'hot' : ''}" style="border-color: rgba(76,175,80,0.4); background: rgba(76,175,80,0.05);"><div class="q-label" style="color:#4CAF50;">День (12-18)</div><div class="q-val">${cpD}%</div></div>
+                    <div class="analysis-time-quadrant ${cpE === cMax && cMax > 0 ? 'hot' : ''}" style="border-color: rgba(178,36,239,0.4); background: rgba(178,36,239,0.05);"><div class="q-label" style="color:#b224ef;">Вечер (18-24)</div><div class="q-val">${cpE}%</div></div>
+                    <div class="analysis-time-quadrant ${cpN === cMax && cMax > 0 ? 'hot' : ''}" style="border-color: rgba(79,172,254,0.4); background: rgba(79,172,254,0.05);"><div class="q-label" style="color:#4facfe;">Ночь (00-06)</div><div class="q-val">${cpN}%</div></div>
+                </div>`;
+
+                crisesCardList.innerHTML = `
+                    <div class="stats-list-item analysis-stat-oval-card gold">
+                        <div class="analysis-stat-oval-title">🛡️ Процент побед над ломкой</div>
+                        <div class="analysis-stat-oval-value gold">${winRate}%</div>
+                        <div class="analysis-stat-oval-sub">✅ ${survivedCnt} преодолено · 💥 ${relapsedCnt} срывов${activeCnt > 0 ? ` · ⚡ ${activeCnt} активна` : ''}</div>
+                    </div>
+                    <div class="stats-list-item"><span class="stats-list-name">🔥 Средняя сила волны</span><span class="stats-list-count" style="color:#ffd166;">${avgIntensity} / 10</span></div>
+                    <div class="stats-list-item"><span class="stats-list-name">⏱️ Средняя / макс. выдержка</span><span class="stats-list-count" style="color:#6ee7b7;">${formatCrisisDurationShort(avgDurHrs)} / ${formatCrisisDurationShort(maxDurHrs)}</span></div>
+                    <div class="stats-list-item" style="flex-direction: column; align-items: stretch; gap: 5px;"><div style="display:flex; justify-content: center;"><span class="stats-list-name">⏰ Опасное время накатов</span></div>${crisisTimeGrid}</div>
+                `;
+            }
+        }
         
         if (trackerSettings.showHeatmap) { 
             document.querySelectorAll('#heatmap-period-90, #heatmap-period-180, #heatmap-period-365').forEach(btn => btn.classList.remove('active'));
@@ -11623,9 +12120,51 @@ function validateEditRelapseCount(input) {
     }
 }
 
+function getRelapseAdvMetaText(blockOrData, isOpen) {
+    if (isOpen) return 'скрыть ▲';
+    if (!blockOrData) return 'по умолч. 5/10 ▼';
+    const keys = ['urge', 'shame', 'duration', 'dopamine', 'sleep', 'impulse', 'stress', 'fog'];
+    let isModified = false;
+    if (typeof blockOrData.querySelector === 'function') {
+        isModified = keys.some(k => {
+            const inp = blockOrData.querySelector(`.${k}-slider`);
+            return inp && (parseInt(inp.value, 10) || 5) !== 5;
+        });
+    } else {
+        isModified = keys.some(k => {
+            const v = blockOrData[k];
+            return typeof v === 'number' && !isNaN(v) && v !== 5;
+        });
+    }
+    return isModified ? 'изменено ▼' : 'по умолч. 5/10 ▼';
+}
+
+function toggleRelapseAdvancedSliders(btn) {
+    playSound('click');
+    const block = btn ? btn.closest('.relapse-instance-block') : null;
+    const panel = block ? block.querySelector('.relapse-advanced-sliders') : null;
+    if (!panel || !btn) return;
+    const willOpen = !panel.classList.contains('open');
+    panel.classList.toggle('open', willOpen);
+    btn.classList.toggle('open', willOpen);
+    const metaEl = btn.querySelector('.relapse-adv-meta');
+    if (metaEl) metaEl.innerText = getRelapseAdvMetaText(block, willOpen);
+}
+
 // Генерация HTML для настроек срыва
-function generateRelapseInstanceHTML(index, data, defaultTime = '12:00') {
+function generateRelapseInstanceHTML(index, data, defaultTime = '12:00', advOpen = false) {
     const instTime = normalizeRelapseTimeStr(data && data.time, defaultTime);
+    const val = (k) => (data && typeof data[k] === 'number' && !isNaN(data[k])) ? Math.min(10, Math.max(1, Math.round(data[k]))) : 5;
+    const dUrge = val('urge');
+    const dShame = val('shame');
+    const dDuration = val('duration');
+    const dDopamine = val('dopamine');
+    const dSleep = val('sleep');
+    const dImpulse = val('impulse');
+    const dStress = val('stress');
+    const dFog = val('fog');
+    const advMeta = getRelapseAdvMetaText({ urge: dUrge, shame: dShame, duration: dDuration, dopamine: dDopamine, sleep: dSleep, impulse: dImpulse, stress: dStress, fog: dFog }, advOpen);
+
     return `
         <div class="relapse-instance-block">
             <div class="relapse-instance-header ${index === 0 ? 'active' : ''}" onclick="toggleRelapseInstance(this)">
@@ -11637,47 +12176,74 @@ function generateRelapseInstanceHTML(index, data, defaultTime = '12:00') {
                     <label>Время срыва (чч:мм):</label>
                     <input type="time" class="relapse-instance-time" data-index="${index}" value="${instTime}" oninput="syncRelapseInstanceHeaderTime(this)" onchange="syncRelapseInstanceHeaderTime(this)">
                 </div>
-                <div>
-                    <label style="font-size: 12px; color: #aaa; display: block; margin-bottom: 5px;">Насколько сильной была ломка? (1-10)</label>
-                    <div class="urge-slider-container" style="margin-bottom: 0;">
-                        <input type="range" class="urge-slider segmented-slider" data-index="${index}" min="1" max="10" value="${data.urge}" oninput="this.nextElementSibling.innerText = this.value;">
-                        <span class="urge-value">${data.urge}</span>
+                <button type="button" class="relapse-advanced-toggle-btn ${advOpen ? 'open' : ''}" onclick="toggleRelapseAdvancedSliders(this)">
+                    <span>⚙️ Расширенные настройки</span>
+                    <span class="relapse-adv-meta">${advMeta}</span>
+                </button>
+                <div class="relapse-advanced-sliders ${advOpen ? 'open' : ''}">
+                    <div>
+                        <label style="font-size: 12px; color: #aaa; display: block; margin-bottom: 5px;">Насколько сильной была ломка? (1-10)</label>
+                        <div class="urge-slider-container" style="margin-bottom: 0;">
+                            <input type="range" class="urge-slider segmented-slider" data-index="${index}" min="1" max="10" value="${dUrge}" oninput="this.nextElementSibling.innerText = this.value;">
+                            <span class="urge-value">${dUrge}</span>
+                        </div>
                     </div>
-                </div>
-                <div>
-                    <label style="font-size: 12px; color: #aaa; display: block; margin-bottom: 5px;">Насколько сильным было чувство стыда/вины? (1-10)</label>
-                    <div class="urge-slider-container" style="margin-bottom: 0;">
-                        <input type="range" class="shame-slider segmented-slider" data-index="${index}" min="1" max="10" value="${data.shame}" oninput="this.nextElementSibling.innerText = this.value;">
-                        <span class="urge-value">${data.shame}</span>
+                    <div>
+                        <label style="font-size: 12px; color: #aaa; display: block; margin-bottom: 5px;">Насколько сильным было чувство стыда/вины? (1-10)</label>
+                        <div class="urge-slider-container" style="margin-bottom: 0;">
+                            <input type="range" class="shame-slider segmented-slider" data-index="${index}" min="1" max="10" value="${dShame}" oninput="this.nextElementSibling.innerText = this.value;">
+                            <span class="urge-value">${dShame}</span>
+                        </div>
                     </div>
-                </div>
-                <div>
-                    <label style="font-size: 12px; color: #aaa; display: block; margin-bottom: 5px;">Как долго длился срыв? (1-10)</label>
-                    <div class="urge-slider-container" style="margin-bottom: 0;">
-                        <input type="range" class="duration-slider segmented-slider" data-index="${index}" min="1" max="10" value="${data.duration}" oninput="this.nextElementSibling.innerText = this.value;">
-                        <span class="urge-value">${data.duration}</span>
+                    <div>
+                        <label style="font-size: 12px; color: #aaa; display: block; margin-bottom: 5px;">Как долго длился срыв? (1-10)</label>
+                        <div class="urge-slider-container" style="margin-bottom: 0;">
+                            <input type="range" class="duration-slider segmented-slider" data-index="${index}" min="1" max="10" value="${dDuration}" oninput="this.nextElementSibling.innerText = this.value;">
+                            <span class="urge-value">${dDuration}</span>
+                        </div>
+                        <div class="duration-labels">
+                            <span>1-5м</span>
+                            <span>5-15м</span>
+                            <span>15-30м</span>
+                            <span>1ч</span>
+                            <span>2ч</span>
+                            <span>&gt;3ч</span>
+                        </div>
                     </div>
-                    <div class="duration-labels">
-                        <span>1-5м</span>
-                        <span>5-15м</span>
-                        <span>15-30м</span>
-                        <span>1ч</span>
-                        <span>2ч</span>
-                        <span>&gt;3ч</span>
+                    <div>
+                        <label style="font-size: 12px; color: #aaa; display: block; margin-bottom: 5px;">Насколько сильным было удовольствие? (1-10)</label>
+                        <div class="urge-slider-container" style="margin-bottom: 0;">
+                            <input type="range" class="dopamine-slider segmented-slider" data-index="${index}" min="1" max="10" value="${dDopamine}" oninput="this.nextElementSibling.innerText = this.value;">
+                            <span class="urge-value">${dDopamine}</span>
+                        </div>
                     </div>
-                </div>
-                <div>
-                    <label style="font-size: 12px; color: #aaa; display: block; margin-bottom: 5px;">Насколько сильным было удовольствие? (1-10)</label>
-                    <div class="urge-slider-container" style="margin-bottom: 0;">
-                        <input type="range" class="dopamine-slider segmented-slider" data-index="${index}" min="1" max="10" value="${data.dopamine}" oninput="this.nextElementSibling.innerText = this.value;">
-                        <span class="urge-value">${data.dopamine}</span>
+                    <div>
+                        <label style="font-size: 12px; color: #aaa; display: block; margin-bottom: 5px;">Как вы спали накануне? (10 = хорошо, 1 = не спал)</label>
+                        <div class="urge-slider-container" style="margin-bottom: 0;">
+                            <input type="range" class="sleep-slider segmented-slider" data-index="${index}" min="1" max="10" value="${dSleep}" oninput="this.nextElementSibling.innerText = this.value;">
+                            <span class="urge-value">${dSleep}</span>
+                        </div>
                     </div>
-                </div>
-                <div>
-                    <label style="font-size: 12px; color: #aaa; display: block; margin-bottom: 5px;">Как вы спали накануне? (10 = хорошо, 1 = не спал)</label>
-                    <div class="urge-slider-container" style="margin-bottom: 0;">
-                        <input type="range" class="sleep-slider segmented-slider" data-index="${index}" min="1" max="10" value="${data.sleep}" oninput="this.nextElementSibling.innerText = this.value;">
-                        <span class="urge-value">${data.sleep}</span>
+                    <div>
+                        <label style="font-size: 12px; color: #aaa; display: block; margin-bottom: 5px;">Импульсивность / на автопилоте? (1 = долго боролся, 10 = на автомате)</label>
+                        <div class="urge-slider-container" style="margin-bottom: 0;">
+                            <input type="range" class="impulse-slider segmented-slider" data-index="${index}" min="1" max="10" value="${dImpulse}" oninput="this.nextElementSibling.innerText = this.value;">
+                            <span class="urge-value">${dImpulse}</span>
+                        </div>
+                    </div>
+                    <div>
+                        <label style="font-size: 12px; color: #aaa; display: block; margin-bottom: 5px;">Стресс и перегруз до срыва? (1-10)</label>
+                        <div class="urge-slider-container" style="margin-bottom: 0;">
+                            <input type="range" class="stress-slider segmented-slider" data-index="${index}" min="1" max="10" value="${dStress}" oninput="this.nextElementSibling.innerText = this.value;">
+                            <span class="urge-value">${dStress}</span>
+                        </div>
+                    </div>
+                    <div>
+                        <label style="font-size: 12px; color: #aaa; display: block; margin-bottom: 5px;">Туман в голове / упадок сил после срыва? (1-10)</label>
+                        <div class="urge-slider-container" style="margin-bottom: 0;">
+                            <input type="range" class="fog-slider segmented-slider" data-index="${index}" min="1" max="10" value="${dFog}" oninput="this.nextElementSibling.innerText = this.value;">
+                            <span class="urge-value">${dFog}</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -11702,17 +12268,20 @@ function toggleRelapseInstance(header) {
 function renderRelapseInstances(count, existingData = null, defaultTime = null) {
     const container = document.getElementById('relapse-details-container');
     if (!container) return;
+    const advOpenFlags = existingData === null
+        ? Array.from(container.querySelectorAll('.relapse-advanced-sliders')).map(el => el.classList.contains('open'))
+        : [];
     const sourceData = existingData !== null ? existingData : getRelapseInstancesDataFromDOM('relapse-details-container', window.currentRelapseDefaultTime || getCurrentHHMM());
     const baseTime = defaultTime || window.currentRelapseDefaultTime || getCurrentHHMM();
     container.innerHTML = '';
     const limit = Math.min(Math.max(1, parseInt(count, 10) || 1), 20);
     for (let i = 0; i < limit; i++) {
-        let data = { time: baseTime, urge: 5, shame: 5, duration: 5, dopamine: 5, sleep: 5 };
+        let data = { time: baseTime, urge: 5, shame: 5, duration: 5, dopamine: 5, sleep: 5, impulse: 5, stress: 5, fog: 5 };
         if (sourceData) {
             if (Array.isArray(sourceData) && sourceData[i]) data = { ...data, ...sourceData[i] };
             else if (!Array.isArray(sourceData) && i === 0) data = { ...data, ...sourceData };
         }
-        container.innerHTML += generateRelapseInstanceHTML(i, data, baseTime);
+        container.innerHTML += generateRelapseInstanceHTML(i, data, baseTime, !!advOpenFlags[i]);
     }
 }
 
@@ -11720,16 +12289,19 @@ function renderEditRelapseInstances(count, existingData = null, defaultTime = nu
     const container = document.getElementById('edit-relapse-details-container');
     if (!container) return;
     const baseTime = defaultTime || window.currentEditRelapseDefaultTime || '12:00';
+    const advOpenFlags = existingData === null
+        ? Array.from(container.querySelectorAll('.relapse-advanced-sliders')).map(el => el.classList.contains('open'))
+        : [];
     const sourceData = existingData !== null ? existingData : getRelapseInstancesDataFromDOM('edit-relapse-details-container', baseTime);
     container.innerHTML = '';
     const limit = Math.min(Math.max(1, parseInt(count, 10) || 1), 20);
     for (let i = 0; i < limit; i++) {
-        let data = { time: baseTime, urge: 5, shame: 5, duration: 5, dopamine: 5, sleep: 5 };
+        let data = { time: baseTime, urge: 5, shame: 5, duration: 5, dopamine: 5, sleep: 5, impulse: 5, stress: 5, fog: 5 };
         if (sourceData) {
             if (Array.isArray(sourceData) && sourceData[i]) data = { ...data, ...sourceData[i] };
             else if (!Array.isArray(sourceData) && i === 0) data = { ...data, ...sourceData };
         }
-        container.innerHTML += generateRelapseInstanceHTML(i, data, baseTime);
+        container.innerHTML += generateRelapseInstanceHTML(i, data, baseTime, !!advOpenFlags[i]);
     }
 }
 
@@ -11738,17 +12310,25 @@ function getRelapseInstancesDataFromDOM(containerId, fallbackTime = null) {
     if (!container) return [];
     const blocks = container.querySelectorAll('.relapse-instance-block');
     const defTime = fallbackTime || getCurrentHHMM();
+    const readSlider = (block, sel) => {
+        const el = block.querySelector(sel);
+        const parsed = el ? parseInt(el.value, 10) : 5;
+        return (!isNaN(parsed) && parsed >= 1 && parsed <= 10) ? parsed : 5;
+    };
     let result = [];
     blocks.forEach(block => {
         const timeEl = block.querySelector('.relapse-instance-time');
         const timeVal = normalizeRelapseTimeStr(timeEl ? timeEl.value : '', defTime);
         result.push({
             time: timeVal,
-            urge: parseInt(block.querySelector('.urge-slider').value) || 5,
-            shame: parseInt(block.querySelector('.shame-slider').value) || 5,
-            duration: parseInt(block.querySelector('.duration-slider').value) || 5,
-            dopamine: parseInt(block.querySelector('.dopamine-slider').value) || 5,
-            sleep: parseInt(block.querySelector('.sleep-slider').value) || 5
+            urge: readSlider(block, '.urge-slider'),
+            shame: readSlider(block, '.shame-slider'),
+            duration: readSlider(block, '.duration-slider'),
+            dopamine: readSlider(block, '.dopamine-slider'),
+            sleep: readSlider(block, '.sleep-slider'),
+            impulse: readSlider(block, '.impulse-slider'),
+            stress: readSlider(block, '.stress-slider'),
+            fog: readSlider(block, '.fog-slider')
         });
     });
     return result;
@@ -11910,25 +12490,28 @@ function applyRelapsePenalty(count, detailsArray, targetStats = null, options = 
     let stepLogs = [];
     if (!Array.isArray(detailsArray)) { detailsArray = detailsArray ? [detailsArray] : []; }
     for (let i = 0; i < count; i++) {
-        const details = detailsArray[i] || detailsArray[detailsArray.length - 1] || { urge: 5, shame: 5, duration: 5, dopamine: 5, sleep: 5 };
+        const details = detailsArray[i] || detailsArray[detailsArray.length - 1] || { urge: 5, shame: 5, duration: 5, dopamine: 5, sleep: 5, impulse: 5, stress: 5, fog: 5 };
         const instTimeLabel = details.time ? ` (${details.time})` : '';
-        paramsHTML += `<b style="color: #ff4444;">Срыв ${i+1}${instTimeLabel}</b> – Ломка: ${details.urge}, Стыд: ${details.shame}, Длит: ${details.duration}, Пик: ${details.dopamine}, Сон: ${details.sleep}<br>`;
         const prev = { self: s.selfcontrol || 0, anx: s.anxiety || 0, crav: s.craving || 0, pfk: s.pfk || 0, energy: s.energy || 0, mind: s.mindfulness || 0, reward: s.reward || 0, clarity: s.clarity || 0, mot: s.motivation || 0, esteem: s.esteem || 0 };
         let dUrge = typeof details.urge === 'number' && !isNaN(details.urge) ? details.urge : 5;
         let dShame = typeof details.shame === 'number' && !isNaN(details.shame) ? details.shame : 5;
         let dDuration = typeof details.duration === 'number' && !isNaN(details.duration) ? details.duration : 5;
         let dDopamine = typeof details.dopamine === 'number' && !isNaN(details.dopamine) ? details.dopamine : 5;
         let dSleep = typeof details.sleep === 'number' && !isNaN(details.sleep) ? details.sleep : 5;
-        let selfRaw = -(2.5 + (10 - dSleep) * 0.5) * chaserBoost;
-        let pfkRaw = -(2.5 + (10 - dSleep) * 0.5);
-        let energyRaw = -(2.5 + dDuration * 0.5);
-        let mindRaw = -(2.0 + dDuration * 0.45 + dUrge * 0.25);
-        let rewardRaw = -(5.0 + dDopamine * 0.5) * chaserBoost;
-        let clarityRaw = -(3.5 + dDuration * 0.5);
-        let motRaw = -(3.5 + dDopamine * 0.35 + dDuration * 0.35) * chaserBoost;
-        let esteemRaw = -(2.5 + dShame * 0.5);
-        let anxRaw = (2.5 + dUrge * 0.5);
-        let cravRaw = (3.0 + dUrge * 0.4 + dDopamine * 0.3) * chaserBoost;
+        let dImpulse = typeof details.impulse === 'number' && !isNaN(details.impulse) ? details.impulse : 5;
+        let dStress = typeof details.stress === 'number' && !isNaN(details.stress) ? details.stress : 5;
+        let dFog = typeof details.fog === 'number' && !isNaN(details.fog) ? details.fog : 5;
+        paramsHTML += `<b style="color: #ff4444;">Срыв ${i+1}${instTimeLabel}</b> – Ломка: ${dUrge}, Стыд: ${dShame}, Длит: ${dDuration}, Пик: ${dDopamine}, Сон: ${dSleep}, Импульс: ${dImpulse}, Стресс: ${dStress}, Туман: ${dFog}<br>`;
+        let selfRaw = -(2.0 + dImpulse * 0.30 + (10 - dSleep) * 0.30) * chaserBoost;
+        let pfkRaw = -(2.0 + dStress * 0.30 + (10 - dSleep) * 0.30);
+        let energyRaw = -(1.8 + dDuration * 0.30 + dFog * 0.20 + (10 - dSleep) * 0.14);
+        let mindRaw = -(1.75 + dImpulse * 0.35 + dDuration * 0.25 + dUrge * 0.15);
+        let rewardRaw = -(4.5 + dDopamine * 0.45 + dDuration * 0.15) * chaserBoost;
+        let clarityRaw = -(2.0 + dFog * 0.45 + dDuration * 0.25 + (10 - dSleep) * 0.10);
+        let motRaw = -(2.75 + dDopamine * 0.30 + dFog * 0.30 + dDuration * 0.25) * chaserBoost;
+        let esteemRaw = -(2.0 + dShame * 0.45 + dImpulse * 0.15);
+        let anxRaw = (1.75 + dUrge * 0.30 + dStress * 0.25 + dShame * 0.10);
+        let cravRaw = (2.5 + dUrge * 0.35 + dDopamine * 0.30 + dStress * 0.15) * chaserBoost;
         const selfMult = Math.max(0.25, (100 - Math.abs(prev.self)) / 100);
         const anxMult = Math.max(0, (100 - Math.abs(prev.anx)) / 100);
         const cravMult = Math.max(0, (100 - Math.abs(prev.crav)) / 100);
@@ -12616,7 +13199,7 @@ function loadData() {
             const oldUrges = safeParse(localStorage.getItem('trackerUrges'), {}) || {};
             const oldShames = safeParse(localStorage.getItem('trackerShames'), {}) || {};
             let keys = new Set([...Object.keys(oldUrges), ...Object.keys(oldShames)]);
-            for (let key of keys) { relapseDetails[key] = { urge: oldUrges[key] || 5, shame: oldShames[key] || 5, duration: 5, dopamine: 5, sleep: 5 }; }
+            for (let key of keys) { relapseDetails[key] = { urge: oldUrges[key] || 5, shame: oldShames[key] || 5, duration: 5, dopamine: 5, sleep: 5, impulse: 5, stress: 5, fog: 5 }; }
         }
         const savedReasons = localStorage.getItem('trackerRelapseReasons');
         if (savedReasons) relapseReasons = safeParse(savedReasons, {}) || {};
@@ -12695,6 +13278,8 @@ function loadData() {
         isLoadingData = false;
 
         applySettings();
+        const verEl = document.getElementById('app-version-tag');
+        if (verEl && typeof APP_VERSION !== 'undefined') verEl.innerText = 'v' + APP_VERSION;
         restoreAccordions();
         ensureQuestDailyState();
         updateProfileUI();
