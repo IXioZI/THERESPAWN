@@ -104,13 +104,15 @@
         .log-item.relapse-log { border-left: 4px solid var(--cal-relapse-color); background: linear-gradient(90deg, rgba(255, 68, 68, 0.08) 0%, #2a2a2a 100%); box-shadow: 0 0 15px rgba(255, 68, 68, 0.15); }
         .log-item.past-relapse-log { border-left: 4px solid var(--focus-ring-color); background: linear-gradient(90deg, rgba(248, 181, 0, 0.08) 0%, #2a2a2a 100%); box-shadow: 0 0 15px rgba(248, 181, 0, 0.15); }
         .log-item.recalc-log { border-left: 4px solid #b224ef; background: linear-gradient(90deg, rgba(178, 36, 239, 0.08) 0%, #2a2a2a 100%); box-shadow: 0 0 15px rgba(178, 36, 239, 0.15); }
+        .log-item.crisis-log { border-left: 4px solid #f8b500; background: linear-gradient(90deg, rgba(248, 181, 0, 0.08) 0%, #2a2a2a 100%); box-shadow: 0 0 15px rgba(248, 181, 0, 0.15); }
         .log-item-header { display: flex; justify-content: space-between; align-items: center; }
         .log-day { font-weight: bold; color: #fff; }
         .log-timestamp { font-size: 10px; color: #777; font-weight: normal; margin-left: 6px; }
         .log-stats { display: flex; flex-wrap: wrap; gap: 8px; font-family: monospace;}
         .log-xp { margin-top: 4px; padding-top: 6px; border-top: 1px dashed #444; font-size: 12px; line-height: 1.6; }
-        .log-tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 12px; background: #161616; padding: 4px; border-radius: 999px; border: 1px solid #333; }
-        .log-tab-btn { background: transparent; border: none; color: #999; font-size: 12px; font-weight: bold; padding: 7px 10px; border-radius: 999px; cursor: pointer; font-family: inherit; transition: all 0.2s ease; user-select: none; white-space: nowrap; }
+        .log-tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; margin-bottom: 12px; background: #161616; padding: 4px; border-radius: 12px; border: 1px solid #333; }
+        .log-tab-btn { background: transparent; border: none; color: #999; font-size: 12px; font-weight: bold; padding: 7px 10px; border-radius: 8px; cursor: pointer; font-family: inherit; transition: all 0.2s ease; user-select: none; white-space: nowrap; }
+        .log-tab-btn.full-row { grid-column: 1 / -1; }
         .log-tab-btn:hover { color: #fff; }
         .log-tab-btn.active { background: #303030; color: #ffffff; border: 1px solid #555; box-shadow: 0 2px 6px rgba(0,0,0,0.3); }
         .quest-log-group { background: #262626; border-left: 4px solid #10b981; border-radius: 8px; padding: 10px 12px; display: flex; flex-direction: column; gap: 8px; animation: fadeIn 0.3s ease; }
@@ -123,6 +125,24 @@
         .quest-log-row-top { display: flex; justify-content: space-between; align-items: center; gap: 6px; font-weight: bold; }
         .quest-log-row-meta { font-size: 11px; font-family: monospace; color: #aaa; display: flex; flex-wrap: wrap; gap: 8px; }
         .quest-log-summary { font-size: 11px; font-family: monospace; color: #bbb; border-top: 1px dashed #3a3a3a; padding-top: 6px; }
+        .crisis-log-filter-bar { display: flex; align-items: center; gap: 6px; background: #171717; border: 1px solid #333; border-radius: 8px; padding: 6px 8px; }
+        .crisis-day-select { flex: 1; background: #242424; color: #eee; border: 1px solid #444; border-radius: 6px; padding: 5px 8px; font-size: 12px; font-family: inherit; cursor: pointer; outline: none; }
+        .crisis-day-select:focus { border-color: #f8b500; }
+        .crisis-filter-reset-btn { background: #2c2c2c; border: 1px solid #444; color: #ddd; font-size: 11px; border-radius: 6px; padding: 5px 8px; cursor: pointer; font-family: inherit; white-space: nowrap; }
+        .crisis-filter-reset-btn:hover { border-color: #f8b500; color: #fff; }
+        .crisis-log-group { background: #262626; border-left: 4px solid #f8b500; border-radius: 8px; padding: 10px 12px; display: flex; flex-direction: column; gap: 8px; animation: fadeIn 0.3s ease; }
+        .crisis-log-group.has-active { border-left-color: #ff6b6b; background: linear-gradient(90deg, rgba(255, 68, 68, 0.08) 0%, #262626 100%); }
+        .crisis-log-group-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; border-bottom: 1px solid #333; padding-bottom: 6px; }
+        .crisis-log-date-btn { background: transparent; border: none; color: #fff; font-weight: bold; font-size: 13px; padding: 0; cursor: pointer; font-family: inherit; text-align: left; }
+        .crisis-log-date-btn:hover { color: #ffd166; text-decoration: underline; }
+        .crisis-log-count { font-size: 11px; font-weight: bold; color: #ffd166; background: rgba(248, 181, 0, 0.16); padding: 2px 8px; border-radius: 999px; white-space: nowrap; }
+        .crisis-log-row { font-size: 12px; color: #ddd; line-height: 1.45; display: flex; flex-direction: column; gap: 4px; background: #1e1e1e; padding: 8px 9px; border-radius: 6px; border: 1px solid #333; }
+        .crisis-log-row-top { display: flex; justify-content: space-between; align-items: center; gap: 6px; font-weight: bold; }
+        .crisis-log-row-time { font-size: 11px; font-family: monospace; color: #bbb; }
+        .crisis-log-row-meta { font-size: 11px; font-family: monospace; color: #ccc; display: flex; flex-wrap: wrap; gap: 6px; }
+        .crisis-log-del-btn { background: rgba(255, 68, 68, 0.12); border: 1px solid rgba(255, 68, 68, 0.35); color: #ff8a8a; border-radius: 5px; font-size: 11px; padding: 2px 6px; cursor: pointer; font-family: inherit; flex-shrink: 0; }
+        .crisis-log-del-btn:hover { background: rgba(255, 68, 68, 0.28); color: #fff; }
+        .crisis-log-summary { font-size: 11px; font-family: monospace; color: #bbb; border-top: 1px dashed #3a3a3a; padding-top: 6px; }
 
         /* Ежедневные квесты */
         .quest-accordion { margin-top: 18px; background: #242424; border: 1px solid #383838; border-radius: 14px; overflow: hidden; }
@@ -701,6 +721,7 @@
         
         .cal-relapse-count { font-size: 18px; font-weight: bold; color: var(--cal-relapse-count-color); text-shadow: 0 0 5px rgba(0,0,0,0.5); }
         .cal-note-indicator { position: absolute; top: 1px; right: 2px; font-size: 10px; opacity: 0.8; z-index: 5; }
+        .cal-crisis-indicator { position: absolute; bottom: 1px; left: 2px; font-size: 10px; line-height: 1; z-index: 6; pointer-events: none; filter: drop-shadow(0 0 2px rgba(0,0,0,0.9)); }
         .cal-cell.focused { outline: 3px solid var(--focus-ring-color); outline-offset: 2px; z-index: 20; transform: scale(1.15); box-shadow: 0 0 20px var(--focus-ring-color); transition: all 0.3s ease; }
 
 /* ========================================================= */
@@ -1270,6 +1291,10 @@
         .relapse-instance-content.active { display: block; }
         .relapse-instance-arrow { transition: transform 0.3s; font-size: 12px; }
         .relapse-instance-header.active .relapse-instance-arrow { transform: rotate(180deg); }
+        .relapse-instance-time-badge { font-family: monospace; font-size: 12px; opacity: 0.9; font-weight: 600; }
+        .relapse-instance-time-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px solid #333; }
+        .relapse-instance-time-row label { font-size: 12px; color: #aaa; margin: 0; }
+        .relapse-instance-time-row input[type="time"] { width: auto; min-width: 110px; margin: 0; padding: 6px 10px; font-size: 14px; font-family: monospace; }
 
         /* СТИЛИ ДЛЯ ГАЙДА (КАРУСЕЛИ) */
         .guide-modal { max-width: 550px; padding: 20px; text-align: center; }
@@ -1491,8 +1516,139 @@
             transform: translateX(-50%) translateY(0) !important;
         }
 
+        /* ========================================================= */
+        /* СТИЛИ ДЛЯ СИСТЕМЫ ФАЗ И ФАЗЫ ЛОМКИ                        */
+        /* ========================================================= */
+        .phase-banner {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            background: #252525;
+            border: 1px solid #444;
+            border-left: 4px solid #4facfe;
+            border-radius: 10px;
+            padding: 10px 14px;
+            margin: 0 0 14px 0;
+            cursor: pointer;
+            transition: border-color 0.25s, box-shadow 0.25s, background-color 0.25s;
+        }
+        .phase-banner:hover { background: #2b2b2b; }
+        .phase-banner-left { display: flex; align-items: center; gap: 10px; min-width: 0; flex: 1; }
+        .phase-icon { font-size: 20px; line-height: 1; flex-shrink: 0; }
+        .phase-text-col { display: flex; flex-direction: column; min-width: 0; gap: 2px; }
+        .phase-title { font-size: 13px; font-weight: bold; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .phase-sub { font-size: 11px; color: #aaa; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .phase-banner.phase-crisis { border-color: #ff4444; border-left-color: #ff4444; background: rgba(255, 68, 68, 0.1); box-shadow: 0 0 14px rgba(255, 68, 68, 0.25); }
+        .phase-banner.phase-crisis .phase-title { color: #ff8a8a; }
+        .phase-banner.phase-chaser { border-color: #ff7a33; border-left-color: #ff7a33; background: rgba(255, 122, 51, 0.1); box-shadow: 0 0 12px rgba(255, 122, 51, 0.2); }
+        .phase-banner.phase-chaser .phase-title { color: #ffa06a; }
+        .phase-banner.phase-withdrawal { border-color: #4facfe; border-left-color: #4facfe; background: rgba(79, 172, 254, 0.08); }
+        .phase-banner.phase-withdrawal .phase-title { color: #84c5ff; }
+        .phase-banner.phase-adaptation { border-color: #38bdf8; border-left-color: #38bdf8; }
+        .phase-banner.phase-adaptation .phase-title { color: #7dd3fc; }
+        .phase-banner.phase-flatline { border-color: #b224ef; border-left-color: #b224ef; background: rgba(178, 36, 239, 0.08); }
+        .phase-banner.phase-flatline .phase-title { color: #d896ff; }
+        .phase-banner.phase-thaw { border-color: #10b981; border-left-color: #10b981; background: rgba(16, 185, 129, 0.08); }
+        .phase-banner.phase-thaw .phase-title { color: #6ee7b7; }
+        .phase-banner.phase-remission { border-color: #96c93d; border-left-color: #96c93d; background: rgba(150, 201, 61, 0.08); }
+        .phase-banner.phase-remission .phase-title { color: #bfe878; }
+        .phase-tooltip {
+            top: calc(100% + 8px) !important;
+            left: 50% !important;
+            transform: translateX(-50%) translateY(-8px) !important;
+            width: 310px;
+            max-width: 90vw;
+            white-space: normal;
+            text-align: left;
+            line-height: 1.45;
+            font-size: 12px;
+            z-index: 250;
+            box-sizing: border-box;
+        }
+        .phase-tooltip.show { transform: translateX(-50%) translateY(0) !important; }
+
+        .crisis-action-btn {
+            width: 100%;
+            background: rgba(248, 181, 0, 0.12);
+            border: 1.5px solid #f8b500;
+            color: #ffd166;
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.25s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .crisis-action-btn:hover { background: rgba(248, 181, 0, 0.22); box-shadow: 0 0 12px rgba(248, 181, 0, 0.3); }
+        .crisis-action-btn:active { transform: scale(0.98); }
+        .crisis-action-btn.active-crisis {
+            background: rgba(16, 185, 129, 0.15);
+            border-color: #10b981;
+            color: #6ee7b7;
+            box-shadow: 0 0 14px rgba(16, 185, 129, 0.3);
+            animation: pulseCrisisBtn 2.2s infinite;
+        }
+        .crisis-action-btn.active-crisis:hover { background: rgba(16, 185, 129, 0.28); }
+        @keyframes pulseCrisisBtn {
+            0%, 100% { box-shadow: 0 0 10px rgba(16, 185, 129, 0.25); }
+            50% { box-shadow: 0 0 18px rgba(16, 185, 129, 0.5); }
+        }
+        .crisis-preview-box {
+            background: #1a1a1a;
+            border: 1px solid #383838;
+            border-radius: 8px;
+            padding: 10px 12px;
+            margin-bottom: 14px;
+            font-size: 12px;
+            color: #ccc;
+            line-height: 1.5;
+        }
+        .crisis-intensity-badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+            font-family: monospace;
+        }
+        .note-crises-section {
+            background: rgba(248, 181, 0, 0.08);
+            border: 1px solid rgba(248, 181, 0, 0.35);
+            border-radius: 8px;
+            padding: 10px 12px;
+            margin-bottom: 12px;
+            font-size: 12px;
+            color: #ddd;
+        }
+        .note-crisis-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 0;
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+        .note-crisis-row:first-child { border-top: none; padding-top: 0; }
+        .note-crisis-del-btn {
+            background: rgba(255, 68, 68, 0.15);
+            border: 1px solid #ff4444;
+            color: #ff8a8a;
+            border-radius: 6px;
+            padding: 3px 8px;
+            font-size: 11px;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+        .note-crisis-del-btn:hover { background: rgba(255, 68, 68, 0.3); color: #fff; }
+
     </style>
-<script src="/_aistudio-iframe.js?v=1f94f900"></script></head>
+<script src="/_aistudio-iframe.js?v=1f94f900"></script><script src="/_aistudio-iframe.js?v=29045eb3"></script></head>
 <body data-theme="default">
 
 <!-- ========================================================= -->
@@ -1509,12 +1665,13 @@
                 <h2>Журнал</h2>
                 <span class="journal-info-icon" onclick="toggleTooltip(event, 'tooltip-journal')">?</span>
                 <div class="journal-tooltip" id="tooltip-journal">
-                    <b>Журнал событий (2 вкладки):</b><br>
+                    <b>Журнал событий (3 вкладки):</b><br>
                     <b>📊 Дни и срывы</b> — награды за чистые дни, штрафы за срывы и перерасчёты.<br>
-                    <b>🎯 Квесты</b> — постоянная история выполненных квестов по датам.<br><br>
+                    <b>🎯 Квесты</b> — постоянная история выполненных квестов по датам.<br>
+                    <b>⚡ Записи о ломках</b> — постоянный журнал фаз ломки по дням (не пропадает после перерасчёта).<br><br>
                     <b>Значение цветных полосок:</b><br>
                     <span style="color:#4facfe">🔵 Синяя</span> — обычный сбор награды (за 1 день).<br>
-                    <span style="color:#f8b500">🟡 Золотая</span> — сбор награды сразу за несколько дней.<br>
+                    <span style="color:#f8b500">🟡 Золотая</span> — сбор награды сразу за несколько дней или ломка.<br>
                     <span style="color:#ff4444">🔴 Красная</span> — зафиксирован срыв.<br>
                     <span style="color:#b224ef">🟣 Фиолетовая</span> — пройденные дни при перерасчёте базы.
                 </div>
@@ -1527,6 +1684,7 @@
         <div class="log-tabs">
             <button type="button" class="log-tab-btn active" id="log-tab-days" onclick="switchLogTab('days')">📊 Дни и срывы</button>
             <button type="button" class="log-tab-btn" id="log-tab-quests" onclick="switchLogTab('quests')">🎯 Квесты</button>
+            <button type="button" class="log-tab-btn full-row" id="log-tab-crises" onclick="switchLogTab('crises')">⚡ Записи о ломках</button>
         </div>
         <div id="log-container"></div>
     </div>
@@ -1635,6 +1793,18 @@
 <!-- ========================================================= -->
             <h1>Статус Восстановления</h1>
 
+            <div class="phase-banner phase-remission" id="phase-banner" onclick="toggleTooltip(event, 'tooltip-phase')">
+                <div class="phase-banner-left">
+                    <span class="phase-icon" id="phase-icon">🛡️</span>
+                    <div class="phase-text-col">
+                        <div class="phase-title" id="phase-title">Фаза: Стабильный рост</div>
+                        <div class="phase-sub" id="phase-sub">Загрузка...</div>
+                    </div>
+                </div>
+                <span class="info-icon" onclick="toggleTooltip(event, 'tooltip-phase')">?</span>
+                <div class="tooltip phase-tooltip" id="tooltip-phase"></div>
+            </div>
+
             <!-- БЛОК КНОПОК -->
             <div class="input-group">
                 <div id="standard-actions" class="button-group">
@@ -1652,6 +1822,8 @@
                     <button class="action-btn relapse-btn" id="btn-relapse-recalc" onclick="openRelapseModal()">Я сорвался</button>
                     <button class="action-btn" id="btn-skip-recalc" style="display:none; background:#f8b500; color:#fff; border:none;" onclick="skipRecalc()">⏭️ Пропустить анимацию</button>
                 </div>
+
+                <button type="button" class="crisis-action-btn" id="btn-crisis-toggle" onclick="handleCrisisActionClick()">⚡ Зафиксировать ломку</button>
 
                 <div class="claim-timer" id="claim-timer"></div>
                 <div id="error-msg" class="error-msg">Количество дней не изменилось</div>
@@ -2309,6 +2481,10 @@
                 <label>Скрыть звание</label>
                 <label class="switch"><input type="checkbox" id="hide-rank-toggle" onchange="toggleHideElement('hideRank', this.checked)"><span class="slider"></span></label>
             </div>
+            <div class="toggle-row">
+                <label>Скрыть индикатор фазы</label>
+                <label class="switch"><input type="checkbox" id="hide-phase-toggle" onchange="toggleHideElement('hidePhase', this.checked)"><span class="slider"></span></label>
+            </div>
             
             <div class="settings-group-title">🔢 Формат данных</div>
             <div class="toggle-row">
@@ -2610,6 +2786,8 @@
         <input type="text" id="note-title-input" placeholder="Заголовок заметки (макс. 54 символа)" maxlength="54" style="margin-bottom: 10px;">
 
         <textarea id="note-textarea" placeholder="Как вы себя чувствуете? Что нового заметили?" style="min-height: 150px; max-height: 40vh;"></textarea>
+
+        <div id="note-crises-section" class="note-crises-section" style="display: none;"></div>
         
         <button class="action-btn" id="edit-relapse-btn" style="display: none; background: #f8b500; border: none; color: #fff; box-shadow: 0 0 10px rgba(248, 181, 0, 0.4); margin-bottom: 10px;" onclick="openEditRelapseModal()">✏️ Редактировать срыв</button>
         
@@ -2619,14 +2797,73 @@
     </div>
 </div>
 
+<!-- Модалка фиксации начала ломки -->
+<div id="crisis-start-modal" class="modal-overlay" style="display: none;" onclick="closeCrisisStartModal(event)">
+    <div class="modal-content" onclick="event.stopPropagation()">
+        <button class="modal-close" onclick="closeCrisisStartModal(event)">×</button>
+        <h2 class="modal-title" style="color: #f8b500;">⚡ Фиксация фазы ломки</h2>
+        <p style="font-size: 13px; color: #bbb; margin-top: 0; line-height: 1.45;">
+            Укажите время начала острой волны и субъективную силу. Ломка — это не срыв: при удержании без срыва <b>ПФК</b> и <b>Самоконтроль</b> получают повышенную закалку.
+        </p>
+
+        <label style="display: block; margin-bottom: 5px;">Дата и время начала ломки:</label>
+        <div class="time-input-row" style="flex-direction: column; gap: 6px; align-items: stretch;">
+            <input type="date" id="crisis-start-date">
+            <input type="time" id="crisis-start-time">
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <label style="margin: 0;">Сила ломки (от 1 до 10):</label>
+            <span class="crisis-intensity-badge" id="crisis-intensity-badge" style="background: rgba(248,181,0,0.2); color: #ffd166;">5 / 10</span>
+        </div>
+        <div class="urge-slider-container" style="margin-bottom: 6px;">
+            <input type="range" id="crisis-intensity-input" class="segmented-slider" min="1" max="10" value="5" oninput="updateCrisisStartPreview()">
+        </div>
+        <div style="display: flex; justify-content: space-between; font-size: 10px; color: #777; margin-bottom: 14px;">
+            <span>1 — фоновая</span>
+            <span>5 — заметная</span>
+            <span>10 — предельная</span>
+        </div>
+
+        <div class="crisis-preview-box" id="crisis-start-preview"></div>
+
+        <div style="display: flex; gap: 10px;">
+            <button type="button" class="action-btn" style="background-color: #333; color: #fff; border: 1px solid #555;" onclick="closeCrisisStartModal(event)">Отмена</button>
+            <button type="button" class="action-btn" style="background: linear-gradient(135deg, #f8b500, #ff7a33); color: #111;" onclick="confirmCrisisStart()">⚡ Начать фазу</button>
+        </div>
+    </div>
+</div>
+
+<!-- Модалка подтверждения завершения ломки -->
+<div id="crisis-end-modal" class="modal-overlay" style="display: none;" onclick="closeCrisisEndModal(event)">
+    <div class="modal-content" onclick="event.stopPropagation()">
+        <button class="modal-close" onclick="closeCrisisEndModal(event)">×</button>
+        <h2 class="modal-title" style="color: #10b981;">✅ Завершение фазы ломки</h2>
+        <div class="crisis-preview-box" id="crisis-end-summary" style="border-color: rgba(248,181,0,0.35);"></div>
+
+        <label style="display: block; margin-bottom: 5px;">Укажите дату и время, когда ломка отступила:</label>
+        <div class="time-input-row" style="flex-direction: column; gap: 6px; align-items: stretch;">
+            <input type="date" id="crisis-end-date" oninput="updateCrisisEndPreview()">
+            <input type="time" id="crisis-end-time" oninput="updateCrisisEndPreview()">
+        </div>
+
+        <div class="crisis-preview-box" id="crisis-end-preview" style="border-color: rgba(16,185,129,0.4);"></div>
+
+        <div style="display: flex; gap: 10px;">
+            <button type="button" class="action-btn" style="background-color: #333; color: #fff; border: 1px solid #555;" onclick="closeCrisisEndModal(event)">Отмена</button>
+            <button type="button" class="action-btn" style="background: linear-gradient(135deg, #10b981, #059669); color: #fff;" onclick="confirmCrisisEnd()">✅ Подтвердить завершение</button>
+        </div>
+    </div>
+</div>
+
 <div id="relapse-modal" class="modal-overlay" style="display: none;" onclick="closeRelapseModal(event)">
     <div class="modal-content" onclick="event.stopPropagation()">
         <button class="modal-close" onclick="closeRelapseModal(event)">×</button>
         <h2 class="modal-title" style="color: var(--cal-relapse-color);">Фиксация срыва</h2>
         
         <div class="time-input-row" style="flex-direction: column; gap: 5px; align-items: stretch;">
+            <label style="font-size: 13px; color: #aaa; margin-bottom: 2px;">Дата срыва:</label>
             <input type="date" id="relapse-date-picker" onchange="updateRelapseCountOnDateChange()" style="margin-bottom: 5px;">
-            <input type="time" id="relapse-time-picker">
         </div>
 
         <p style="font-size: 14px; color: #ccc; margin-bottom: 10px;">Сколько раз вы сорвались?</p>
@@ -2656,8 +2893,8 @@
         <h2 class="modal-title" style="color: #f8b500;">✏️ Редактирование срыва</h2>
         
         <div class="time-input-row" style="flex-direction: column; gap: 5px; align-items: stretch;">
+            <label style="font-size: 13px; color: #aaa; margin-bottom: 2px;">Дата срыва:</label>
             <input type="date" id="edit-relapse-date-picker" style="margin-bottom: 5px;">
-            <input type="time" id="edit-relapse-time-picker">
         </div>
 
         <p style="font-size: 14px; color: #ccc; margin-bottom: 10px;">Сколько раз вы сорвались?</p>
@@ -2797,6 +3034,21 @@
     </div>
 </div>
 
+<div id="delete-crisis-modal" class="modal-overlay" style="display: none; z-index: 2200;" onclick="closeDeleteCrisisModal(event)">
+    <div class="modal-content" onclick="event.stopPropagation()">
+        <button class="modal-close" onclick="closeDeleteCrisisModal(event)">×</button>
+        <h2 class="modal-title" style="color: #ff6b6b;">🗑️ Удаление записи о ломке</h2>
+        <div id="delete-crisis-summary" class="crisis-preview-box" style="margin-bottom: 15px; border-color: rgba(255, 68, 68, 0.35);"></div>
+        <p style="font-size: 14px; color: #ccc; margin-bottom: 18px; line-height: 1.5;">
+            Вы уверены, что хотите удалить эту запись о фазе ломки? Если ломка была преодолена, бонусы за неё уберутся при перерасчёте.
+        </p>
+        <div style="display: flex; gap: 10px;">
+            <button class="action-btn" style="background: #444; border: none;" onclick="closeDeleteCrisisModal(event)">Отмена</button>
+            <button class="action-btn" style="background-color: #ff4444 !important; color: #ffffff !important; border: none; box-shadow: 0 0 10px rgba(255,68,68,0.45) !important;" onclick="confirmDeleteCrisisEpisode()">Удалить запись</button>
+        </div>
+    </div>
+</div>
+
 <div id="clear-risk-history-modal" class="modal-overlay" style="display: none; z-index: 2100;" onclick="closeClearRiskHistoryModal(event)">
     <div class="modal-content" onclick="event.stopPropagation()">
         <button class="modal-close" onclick="closeClearRiskHistoryModal(event)">×</button>
@@ -2805,73 +3057,6 @@
         <div style="display: flex; gap: 10px;">
             <button class="action-btn" style="background: #444; border: none;" onclick="closeClearRiskHistoryModal(event)">Отмена</button>
             <button class="action-btn" style="background-color: #ff4444 !important; color: #ffffff !important; border: none; box-shadow: 0 0 10px rgba(255,68,68,0.5) !important;" onclick="confirmClearRiskHistory()">Очистить</button>
-        </div>
-    </div>
-</div>
-
-<div id="edit-relapse-modal" class="modal-overlay" style="display: none; z-index: 2100;" onclick="closeEditRelapseModal(event)">
-    <div class="modal-content" onclick="event.stopPropagation()">
-        <button class="modal-close" onclick="closeEditRelapseModal(event)">×</button>
-        <h2 class="modal-title" style="color: #f8b500;">✏️ Редактирование срыва</h2>
-        
-        <div class="time-input-row" style="flex-direction: column; gap: 5px; align-items: stretch;">
-            <input type="date" id="edit-relapse-date-picker" style="margin-bottom: 5px;">
-            <input type="time" id="edit-relapse-time-picker">
-        </div>
-
-        <p style="font-size: 14px; color: #ccc; margin-bottom: 10px;">Сколько раз вы сорвались?</p>
-        <input type="number" id="edit-relapse-count-input" min="1" max="50" value="1" style="margin-bottom: 5px;">
-        <div id="edit-relapse-count-hint" style="font-size: 12px; color: #f8b500; margin-bottom: 15px; display: none; font-weight: bold;"></div>
-        
-        <div class="warning-text" id="edit-relapse-warning">⚠️ Вы труп 💀</div>
-
-        <label style="font-size: 13px; color: #aaa; display: block; margin-bottom: 5px;">Причины (выберите подходящие):</label>
-        <div id="edit-relapse-tags-container" class="relapse-tags-container"></div>
-
-        <details id="edit-advanced-relapse-fields" style="margin-bottom: 15px; background: #1e1e1e; border-radius: 8px; border: 1px solid #444;">
-            <summary style="padding: 12px; cursor: pointer; color: #f8b500; font-size: 14px; font-weight: bold; user-select: none;">⚙️ Точная настройка срыва</summary>
-            <div style="padding: 0 12px 12px 12px; display: flex; flex-direction: column; gap: 12px;">
-                <div>
-                    <label style="font-size: 12px; color: #aaa; display: block; margin-bottom: 5px;">Насколько сильной была ломка? (1-10)</label>
-                    <div class="urge-slider-container" style="margin-bottom: 0;">
-                        <input type="range" id="edit-urge-slider" min="1" max="10" value="5" oninput="document.getElementById('edit-urge-val').innerText = this.value;">
-                        <span class="urge-value" id="edit-urge-val">5</span>
-                    </div>
-                </div>
-                <div>
-                    <label style="font-size: 12px; color: #aaa; display: block; margin-bottom: 5px;">Насколько сильным было чувство стыда/вины? (1-10)</label>
-                    <div class="urge-slider-container" style="margin-bottom: 0;">
-                        <input type="range" id="edit-shame-slider" min="1" max="10" value="5" oninput="document.getElementById('edit-shame-val').innerText = this.value;">
-                        <span class="urge-value" id="edit-shame-val">5</span>
-                    </div>
-                </div>
-                <div>
-                    <label style="font-size: 12px; color: #aaa; display: block; margin-bottom: 5px;">Как долго длился срыв? (1-10)</label>
-                    <div class="urge-slider-container" style="margin-bottom: 0;">
-                        <input type="range" id="edit-duration-slider" min="1" max="10" value="5" oninput="document.getElementById('edit-duration-val').innerText = this.value;">
-                        <span class="urge-value" id="edit-duration-val">5</span>
-                    </div>
-                </div>
-                <div>
-                    <label style="font-size: 12px; color: #aaa; display: block; margin-bottom: 5px;">Насколько сильным было удовольствие? (1-10)</label>
-                    <div class="urge-slider-container" style="margin-bottom: 0;">
-                        <input type="range" id="edit-dopamine-slider" min="1" max="10" value="5" oninput="document.getElementById('edit-dopamine-val').innerText = this.value;">
-                        <span class="urge-value" id="edit-dopamine-val">5</span>
-                    </div>
-                </div>
-                <div>
-                    <label style="font-size: 12px; color: #aaa; display: block; margin-bottom: 5px;">Как вы спали накануне? (10 = хорошо, 1 = не спал)</label>
-                    <div class="urge-slider-container" style="margin-bottom: 0;">
-                        <input type="range" id="edit-sleep-slider" min="1" max="10" value="5" oninput="document.getElementById('edit-sleep-val').innerText = this.value;">
-                        <span class="urge-value" id="edit-sleep-val">5</span>
-                    </div>
-                </div>
-            </div>
-        </details>
-
-        <div style="display: flex; gap: 10px; margin-top: 15px;">
-            <button class="action-btn" style="background-color: var(--main-accent); color: var(--accent-text-color); border: none;" onclick="closeEditRelapseModal(event)">Отмена</button>
-            <button class="action-btn" style="background-color: #f8b500; border: none; color: #fff; box-shadow: 0 0 10px rgba(248, 181, 0, 0.5);" onclick="confirmEditRelapse()">Сохранить изменения</button>
         </div>
     </div>
 </div>
@@ -3138,6 +3323,7 @@ let userProfile = {
     initialStats: null, diagnosticCompleted: false, diagnosticSeverity: null,
     questTokens: 0, questTotalCompleted: 0, questHardCompleted: 0, questPerfectDays: 0,
     questHistoryByDate: {}, questDailyState: null,
+    cravingEpisodes: [],
     readGlossary: [], // <--- Изученные термины
     favorites: []     // <--- Избранные термины
 };
@@ -3152,7 +3338,7 @@ let trackerSettings = {
     calendarShowDifficulty: true, statsVisibility: { selfcontrol: true, anxiety: true, craving: true, pfk: true, energy: true, mindfulness: true, reward: true, clarity: true, motivation: true, esteem: true },
     statColors: { selfcontrol: '#00FF00', anxiety: '#ff416c', craving: '#ff7a33', pfk: '#4facfe', energy: '#FFFF00', mindfulness: '#10b981', reward: '#00FFFF', clarity: '#0000FF', motivation: '#ff6b35', esteem: '#FFA500' },
     accordionState: { profile: true, appearance: false, scales: false, calendar: false, statsSettings: false, tooltips: false, data: false, notifications: false, feedback: false, donate: false, riskSettings: false, experimental: false },
-    hideTimer: false, hideStreak: false, hideRank: false,
+    hideTimer: false, hideStreak: false, hideRank: false, hidePhase: false,
     hideTooltipsTracker: false, hideTooltipsGlossary: false, hideTooltipsCalendar: false, hideTooltipsHof: false, hideTooltipsStats: false,
     
     showStatsOverview: true,
@@ -3197,6 +3383,7 @@ let currentNoteDateStr = null, currentSelectedMoods = [], currentSelectedDifficu
 let timerInterval = null, elapsedTimeInterval = null;
 let calendarData = {}, pendingCalendarAnimations = [], currentCalDate = new Date(), lastUpdateDate = null, calendarFilter = 'all', calendarSearchQuery = '';
 let isClaiming = false, isRecalcPending = false, recalcSkipRequested = false;
+let isLoadingData = false, isImportingData = false;
 let toastQueue = [], isToastShowing = false;
 let lastStatSoundTime = 0;
 
@@ -3328,8 +3515,13 @@ function closeExportModal(event) {
 
 function copyExportData() { 
     const ta = document.getElementById('export-textarea'); 
+    const val = ta.value;
     ta.select(); 
-    document.execCommand('copy'); 
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(val).catch(() => { try { document.execCommand('copy'); } catch(e) {} });
+    } else {
+        try { document.execCommand('copy'); } catch(e) {}
+    }
     closeExportModal(); 
     showAppNotification('Успех', 'Код скопирован в буфер обмена!', '#2196F3'); 
 }
@@ -3348,37 +3540,77 @@ function confirmImport() {
     if (!input) return;
     try {
         const data = JSON.parse(input); 
-        if (!data.userProfile || !data.calendarData) throw new Error('Неверный формат');
+        if (!data || typeof data !== 'object' || !data.userProfile || typeof data.userProfile !== 'object') {
+            throw new Error('Неверный формат');
+        }
+
+        // Блокируем фоновое сохранение и таймеры на время перезагрузки,
+        // чтобы старые данные в памяти не перезаписали только что восстановленный localStorage
+        isImportingData = true;
+        if (timerInterval) { clearInterval(timerInterval); timerInterval = null; }
+        if (elapsedTimeInterval) { clearInterval(elapsedTimeInterval); elapsedTimeInterval = null; }
+
+        const importedProfile = { ...data.userProfile };
+        if (importedProfile.startDate) importedProfile.startDateConfigured = true;
+        if (importedProfile.initialStats && typeof importedProfile.initialStats === 'object') {
+            importedProfile.initialStats = sanitizeInitialStats(importedProfile.initialStats);
+            if (importedProfile.diagnosticCompleted === undefined) importedProfile.diagnosticCompleted = true;
+        }
+        importedProfile.cravingEpisodes = sanitizeCravingEpisodes(importedProfile.cravingEpisodes);
+
+        const safeSettings = (data.trackerSettings && typeof data.trackerSettings === 'object') ? data.trackerSettings : {};
+        const safeCalendar = (data.calendarData && typeof data.calendarData === 'object') ? data.calendarData : {};
+        const safeNotes = (data.calendarNotes && typeof data.calendarNotes === 'object') ? data.calendarNotes : {};
+        const safeNoteTitles = (data.calendarNoteTitles && typeof data.calendarNoteTitles === 'object') ? data.calendarNoteTitles : {};
+        const safeMoods = (data.calendarMoods && typeof data.calendarMoods === 'object') ? data.calendarMoods : {};
+        const safeDifficulty = (data.calendarDifficulty && typeof data.calendarDifficulty === 'object') ? data.calendarDifficulty : {};
+        const safeLogs = Array.isArray(data.logs) ? data.logs : [];
+        const safeQuestLogs = Array.isArray(data.questLogs) ? data.questLogs : [];
+        const safeReasons = (data.relapseReasons && typeof data.relapseReasons === 'object') ? data.relapseReasons : {};
+        const safeTimes = (data.relapseTimes && typeof data.relapseTimes === 'object') ? data.relapseTimes : {};
+        const safeTags = Array.isArray(data.relapseTags) ? data.relapseTags : [...DEFAULT_RELAPSE_TAGS];
+
+        let safeStats = (data.stats && typeof data.stats === 'object') ? { ...data.stats } : null;
+        if (!safeStats && importedProfile.initialStats) {
+            safeStats = sanitizeInitialStats(importedProfile.initialStats);
+        }
+        if (!safeStats) safeStats = getDefaultBaseStats();
+
+        localStorage.setItem('userProfile', JSON.stringify(importedProfile)); 
+        localStorage.setItem('trackerSettings', JSON.stringify(safeSettings));
+        localStorage.setItem('trackerStats', JSON.stringify(safeStats)); 
+        localStorage.setItem('trackerLogs', JSON.stringify(safeLogs));
+        localStorage.setItem('trackerQuestLogs', JSON.stringify(safeQuestLogs));
+        localStorage.setItem('trackerCalendar', JSON.stringify(safeCalendar)); 
+        localStorage.setItem('trackerNotes', JSON.stringify(safeNotes));
+        localStorage.setItem('trackerNoteTitles', JSON.stringify(safeNoteTitles));
+        localStorage.setItem('trackerMoods', JSON.stringify(safeMoods));
+        localStorage.setItem('trackerDifficulty', JSON.stringify(safeDifficulty));
         
-        localStorage.setItem('userProfile', JSON.stringify(data.userProfile)); 
-        localStorage.setItem('trackerSettings', JSON.stringify(data.trackerSettings));
-        localStorage.setItem('trackerStats', JSON.stringify(data.stats)); 
-        localStorage.setItem('trackerLogs', JSON.stringify(data.logs));
-        if (data.questLogs) localStorage.setItem('trackerQuestLogs', JSON.stringify(data.questLogs));
-        localStorage.setItem('trackerCalendar', JSON.stringify(data.calendarData)); 
-        localStorage.setItem('trackerNotes', JSON.stringify(data.calendarNotes));
-        
-        if (data.calendarNoteTitles) localStorage.setItem('trackerNoteTitles', JSON.stringify(data.calendarNoteTitles));
-        if (data.calendarMoods) localStorage.setItem('trackerMoods', JSON.stringify(data.calendarMoods));
-        if (data.calendarDifficulty) localStorage.setItem('trackerDifficulty', JSON.stringify(data.calendarDifficulty));
-        
-        if (data.relapseDetails) {
+        if (data.relapseDetails && typeof data.relapseDetails === 'object') {
             localStorage.setItem('trackerRelapseDetails', JSON.stringify(data.relapseDetails));
-        } else if (data.relapseUrges) {
+        } else if (data.relapseUrges && typeof data.relapseUrges === 'object') {
             let fallbackDetails = {};
             for (let k in data.relapseUrges) fallbackDetails[k] = { urge: data.relapseUrges[k] || 5, shame: 5, duration: 5, dopamine: 5, sleep: 5 };
             localStorage.setItem('trackerRelapseDetails', JSON.stringify(fallbackDetails));
+        } else {
+            localStorage.setItem('trackerRelapseDetails', JSON.stringify({}));
         }
         
-        localStorage.setItem('trackerRelapseReasons', JSON.stringify(data.relapseReasons)); 
-        localStorage.setItem('trackerRelapseTimes', JSON.stringify(data.relapseTimes));
-        localStorage.setItem('trackerRelapseTags', JSON.stringify(data.relapseTags));
+        localStorage.setItem('trackerRelapseReasons', JSON.stringify(safeReasons)); 
+        localStorage.setItem('trackerRelapseTimes', JSON.stringify(safeTimes));
+        localStorage.setItem('trackerRelapseTags', JSON.stringify(safeTags));
         localStorage.setItem('trackerIsRecalcPending', data.isRecalcPending ? 'true' : 'false');
+
+        if (importedProfile.startDate || importedProfile.diagnosticCompleted || importedProfile.initialStats || Object.keys(safeCalendar).length > 0 || Object.keys(safeDifficulty).length > 0 || (importedProfile.cravingEpisodes && importedProfile.cravingEpisodes.length > 0)) {
+            localStorage.setItem('trackerHasSeenGuide', 'true');
+        }
         
         closeImportModal(); 
         showAppNotification('Успех', 'Данные восстановлены! Перезагрузка...', '#4CAF50'); 
-        setTimeout(() => { location.reload(); }, 1500);
+        setTimeout(() => { location.reload(); }, 600);
     } catch (e) { 
+        isImportingData = false;
         showAppNotification('Ошибка', 'Неверный формат кода.', '#ff4444'); 
     }
 }
@@ -7215,28 +7447,201 @@ function getDayNumberInStreak(dateStr) {
 // =========================================================
 // ЛОГИ (с поддержкой деталей)
 // =========================================================
-function addLog(dayString, statsHTML, xpHTML, type = 'clean', detailsHTML = '') {
-    const now = new Date(); 
-    const dateStr = now.toLocaleDateString('ru-RU', { day: '2-digit', month: '2-digit', year: 'numeric' }); 
-    const timeStr = now.toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' }); 
-    const timestamp = `${dateStr} ${timeStr}`;
+function addLog(dayString, statsHTML, xpHTML, type = 'clean', detailsHTML = '', customTimestamp = null) {
+    let timestamp = customTimestamp;
+    if (!timestamp) {
+        const now = new Date(); 
+        const dateStr = now.toLocaleDateString('ru-RU', { day: '2-digit', month: '2-digit', year: 'numeric' }); 
+        const timeStr = now.toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' }); 
+        timestamp = `${dateStr} ${timeStr}`;
+    }
     logs.unshift({ day: dayString, stats: statsHTML, xp: xpHTML, timestamp: timestamp, type: type, details: detailsHTML }); 
-    if (logs.length > 200) logs.pop(); // Лимит увеличен до 100
+    if (logs.length > 200) logs.pop();
     if (!_suppressLogSideEffects) {
         renderLogs();
         saveData();
     }
 }
 
+let crisisLogDayFilter = 'all';
+
+function setCrisisLogDayFilter(dateStr) {
+    playSound('click');
+    crisisLogDayFilter = dateStr || 'all';
+    renderLogs();
+}
+
+function updateClearLogBtnVisibility() {
+    const clearBtn = document.getElementById('clear-log-btn');
+    if (clearBtn) {
+        clearBtn.style.display = (activeLogTab === 'crises') ? 'none' : '';
+    }
+}
+
 function switchLogTab(tab) {
-    if (tab !== 'days' && tab !== 'quests') return;
+    if (tab !== 'days' && tab !== 'quests' && tab !== 'crises') return;
     playSound('click');
     activeLogTab = tab;
     const btnDays = document.getElementById('log-tab-days');
     const btnQuests = document.getElementById('log-tab-quests');
+    const btnCrises = document.getElementById('log-tab-crises');
     if (btnDays) btnDays.classList.toggle('active', tab === 'days');
     if (btnQuests) btnQuests.classList.toggle('active', tab === 'quests');
+    if (btnCrises) btnCrises.classList.toggle('active', tab === 'crises');
+    updateClearLogBtnVisibility();
     renderLogs();
+}
+
+function formatCrisisDateRU(dateStr) {
+    const parts = String(dateStr || '').split('-');
+    return parts.length === 3 ? `${parts[2]}.${parts[1]}.${parts[0]}` : dateStr;
+}
+
+function formatCrisisDurationShort(hoursVal) {
+    const totalMins = Math.max(0, Math.round((Number(hoursVal) || 0) * 60));
+    const h = Math.floor(totalMins / 60);
+    const m = totalMins % 60;
+    return `${h}ч ${String(m).padStart(2, '0')}м`;
+}
+
+function renderCrisisLogs(container) {
+    const list = sanitizeCravingEpisodes(userProfile && userProfile.cravingEpisodes);
+    if (!list || list.length === 0) {
+        crisisLogDayFilter = 'all';
+        container.innerHTML = '<p style="text-align:center; color:#555; margin-top:20px;">Записей о ломках пока нет</p>';
+        return;
+    }
+
+    const todayStr = getLocalDateString(new Date());
+    const dateCounts = {};
+    list.forEach(ep => {
+        const sDate = ep.startAt.split('T')[0];
+        let eDate = ep.endAt ? ep.endAt.split('T')[0] : todayStr;
+        if (eDate < sDate) eDate = sDate;
+        const sObj = new Date(sDate + 'T00:00:00');
+        const eObj = new Date(eDate + 'T00:00:00');
+        if (isNaN(sObj.getTime()) || isNaN(eObj.getTime())) {
+            dateCounts[sDate] = (dateCounts[sDate] || 0) + 1;
+            return;
+        }
+        let guard = 0;
+        for (let d = new Date(sObj); d <= eObj && guard < 365; d.setDate(d.getDate() + 1), guard++) {
+            const dKey = getLocalDateString(d);
+            dateCounts[dKey] = (dateCounts[dKey] || 0) + 1;
+        }
+    });
+
+    const allDates = Object.keys(dateCounts).sort((a, b) => (a < b ? 1 : (a > b ? -1 : 0)));
+    if (crisisLogDayFilter !== 'all' && !dateCounts[crisisLogDayFilter]) {
+        crisisLogDayFilter = 'all';
+    }
+
+    const optionsHtml = [`<option value="all" ${crisisLogDayFilter === 'all' ? 'selected' : ''}>Все дни (${list.length})</option>`]
+        .concat(allDates.map(dKey => `<option value="${dKey}" ${crisisLogDayFilter === dKey ? 'selected' : ''}>📅 ${formatCrisisDateRU(dKey)} (${dateCounts[dKey]})</option>`))
+        .join('');
+
+    const filterBarHtml = `<div class="crisis-log-filter-bar">
+        <select id="crisis-log-day-filter" class="crisis-day-select" onchange="setCrisisLogDayFilter(this.value)">${optionsHtml}</select>
+        ${crisisLogDayFilter !== 'all' ? `<button type="button" class="crisis-filter-reset-btn" onclick="setCrisisLogDayFilter('all')">Все дни</button>` : ''}
+    </div>`;
+
+    let grouped = {};
+    let groupOrder = [];
+    if (crisisLogDayFilter === 'all') {
+        list.forEach(ep => {
+            const dKey = ep.startAt.split('T')[0] || 'Без даты';
+            if (!grouped[dKey]) { grouped[dKey] = []; groupOrder.push(dKey); }
+            grouped[dKey].push(ep);
+        });
+        groupOrder.sort((a, b) => (a < b ? 1 : (a > b ? -1 : 0)));
+    } else {
+        const dayEpisodes = getCrisesOnDate(crisisLogDayFilter);
+        if (dayEpisodes.length > 0) {
+            grouped[crisisLogDayFilter] = dayEpisodes;
+            groupOrder = [crisisLogDayFilter];
+        }
+    }
+
+    const cardsHtml = groupOrder.map(dateKey => {
+        const items = [...grouped[dateKey]].sort((a, b) => b.startAt.localeCompare(a.startAt));
+        const hasActive = items.some(ep => ep.outcome === 'active');
+        let dayXp = 0;
+        let dayDurHrs = 0;
+
+        const rowsHtml = items.map(ep => {
+            const sDate = ep.startAt.split('T')[0];
+            const sTime = ep.startAt.split('T')[1] || '00:00';
+            const eDate = ep.endAt ? ep.endAt.split('T')[0] : null;
+            const eTime = ep.endAt ? (ep.endAt.split('T')[1] || '00:00') : null;
+
+            let durHrs = 0;
+            let timeLine = '';
+            if (ep.outcome === 'active') {
+                const startMs = new Date(ep.startAt).getTime();
+                durHrs = isNaN(startMs) ? 0 : Math.max(0, (Date.now() - startMs) / 3600000);
+                timeLine = `🕒 Старт ${formatCrisisDateRU(sDate)} ${sTime} → активна (${formatCrisisDurationShort(durHrs)})`;
+            } else {
+                durHrs = getCrisisDurationHours(ep.startAt, ep.endAt);
+                const endLabel = eDate === sDate ? eTime : `${formatCrisisDateRU(eDate)} ${eTime}`;
+                const startLabel = (crisisLogDayFilter !== 'all' && sDate !== crisisLogDayFilter) ? `${formatCrisisDateRU(sDate)} ${sTime}` : sTime;
+                timeLine = `🕒 ${startLabel} → ${endLabel} (${formatCrisisDurationShort(durHrs)})`;
+            }
+            dayDurHrs += durHrs;
+
+            const statusBadge = ep.outcome === 'survived'
+                ? '<span style="color:#10b981;">✅ Преодолена</span>'
+                : (ep.outcome === 'relapsed'
+                    ? '<span style="color:#ff6b6b;">💥 Срыв</span>'
+                    : '<span style="color:#ffd166;">⚡ Активна</span>');
+
+            const metaParts = [];
+            if (ep.startImpact && typeof ep.startImpact === 'object') {
+                const impA = Number(ep.startImpact.anxiety) || 0;
+                const impC = Number(ep.startImpact.craving) || 0;
+                if (impA !== 0 || impC !== 0) {
+                    metaParts.push(`<span style="color:#ff8a8a;">Старт: 😰 +${impA.toFixed(2)}% · 🔥 +${impC.toFixed(2)}%</span>`);
+                }
+            }
+            if (ep.outcome === 'survived') {
+                let b = ep.survivalBonus;
+                if (!b || typeof b !== 'object') {
+                    const sim = { ...stats };
+                    b = applyCrisisSurvivalBonus(sim, ep.intensity, getCurrentJourneyDayNum(), durHrs);
+                }
+                const xpVal = Number(b.xp) || 0;
+                const df = Number(b.durationFactor) || getCrisisDurationBonusFactor(durHrs);
+                dayXp += xpVal;
+                metaParts.push(
+                    `<span style="color:#4CAF50;">Откат: 😰 ${Number(b.anxiety || 0).toFixed(2)}% · 🔥 ${Number(b.craving || 0).toFixed(2)}%</span>` +
+                    `<span style="color:#00f2fe;">🧠 +${Number(b.pfk || 0).toFixed(2)}%</span>` +
+                    `<span style="color:#96c93d;">🛡️ +${Number(b.selfcontrol || 0).toFixed(2)}%</span>` +
+                    `<span style="color:#b224ef; font-weight:bold;">⭐ +${xpVal} XP</span>` +
+                    `<span style="color:#ffd166;">×${df.toFixed(2)}</span>`
+                );
+            }
+
+            return `<div class="crisis-log-row">
+                <div class="crisis-log-row-top">
+                    <span>${statusBadge} · Сила ${ep.intensity}/10</span>
+                    <button type="button" class="crisis-log-del-btn" title="Удалить запись" onclick="requestDeleteCrisisEpisode('${ep.id}')">Удалить</button>
+                </div>
+                <div class="crisis-log-row-time">${timeLine}</div>
+                ${metaParts.length > 0 ? `<div class="crisis-log-row-meta">${metaParts.join('')}</div>` : ''}
+            </div>`;
+        }).join('');
+
+        const countWord = items.length === 1 ? 'запись' : (items.length >= 2 && items.length <= 4 ? 'записи' : 'записей');
+        return `<div class="crisis-log-group ${hasActive ? 'has-active' : ''}">
+            <div class="crisis-log-group-head">
+                <button type="button" class="crisis-log-date-btn" onclick="openNoteModal('${dateKey}')" title="Открыть день в календаре">📅 ${formatCrisisDateRU(dateKey)}</button>
+                <span class="crisis-log-count">${items.length} ${countWord}</span>
+            </div>
+            ${rowsHtml}
+            <div class="crisis-log-summary">⏱️ Выдержка: ${formatCrisisDurationShort(dayDurHrs)}${dayXp > 0 ? ` · <span style="color:#b224ef;">⭐ +${dayXp} XP</span>` : ''}</div>
+        </div>`;
+    }).join('');
+
+    container.innerHTML = filterBarHtml + (cardsHtml || '<p style="text-align:center; color:#555; margin-top:20px;">За выбранный день записей нет</p>');
 }
 
 function renderQuestLogs(container) {
@@ -7304,10 +7709,15 @@ function renderQuestLogs(container) {
 }
 
 function renderLogs() {
+    updateClearLogBtnVisibility();
     const container = document.getElementById('log-container'); 
     if (!container) return; 
     if (activeLogTab === 'quests') {
         renderQuestLogs(container);
+        return;
+    }
+    if (activeLogTab === 'crises') {
+        renderCrisisLogs(container);
         return;
     }
     
@@ -7322,6 +7732,7 @@ function renderLogs() {
         else if (log.type === 'past-relapse') logClass = 'past-relapse-log'; 
         else if (log.type === 'multi') logClass = 'multi-day-log'; 
         else if (log.type === 'recalc') logClass = 'recalc-log'; 
+        else if (log.type === 'crisis') logClass = 'crisis-log'; 
         
         let detailsBtn = '';
         let detailsBlock = '';
@@ -7546,11 +7957,74 @@ const QUEST_CATALOG = {
     }
 };
 
-function getQuestRewardDelta(statKey, diffKey) {
+function getCurrentJourneyDayNum() {
+    if (!userProfile || !userProfile.startDate) return 0;
+    const startObj = new Date(userProfile.startDate);
+    startObj.setHours(0, 0, 0, 0);
+    const todayObj = new Date();
+    todayObj.setHours(0, 0, 0, 0);
+    return Math.max(0, Math.floor((todayObj - startObj) / (1000 * 60 * 60 * 24)));
+}
+
+function getQuestScaleFactor(statKey, targetStats = stats, dayNum = null) {
+    const s = targetStats || stats || {};
+    const val = (typeof s[statKey] === 'number' && !isNaN(s[statKey])) ? s[statKey] : 0;
+    const dNum = (typeof dayNum === 'number' && !isNaN(dayNum)) ? Math.max(0, dayNum) : getCurrentJourneyDayNum();
+
+    if (statKey === 'anxiety') {
+        const excess = Math.max(0, val - MIN_ANXIETY);
+        return Math.min(1.0, Math.max(0.10, excess / 15));
+    }
+    if (statKey === 'craving') {
+        const excess = Math.max(0, val);
+        return Math.min(1.0, Math.max(0.10, excess / 15));
+    }
+
+    const timeFactor = Math.max(0.25, Math.sqrt(getMultiplier(dNum)));
+
+    if (statKey === 'reward' || statKey === 'clarity' || statKey === 'motivation' || statKey === 'esteem') {
+        let levelFactor = 1.0;
+        if (val > 0 && val < 100) {
+            levelFactor = 1.0 - (val / 100) * 0.35;
+        } else if (val >= 100) {
+            levelFactor = 0.65 * Math.max(0, (MAX_SECONDARY_STAT - val) / 100);
+        }
+        return levelFactor * timeFactor;
+    }
+
+    let levelFactor = 1.0;
+    if (val > 100 && val < 300) {
+        levelFactor = 1.0 - ((val - 100) / 200) * 0.55;
+    } else if (val >= 300) {
+        levelFactor = 0.45 * Math.max(0, (MAX_UNCAPPED_STAT - val) / 200);
+    }
+    return levelFactor * timeFactor;
+}
+
+function getQuestRewardDelta(statKey, diffKey, targetStats = stats, dayNum = null) {
     const d = QUEST_DIFFICULTIES[diffKey] || QUEST_DIFFICULTIES.easy;
-    if (statKey === 'anxiety') return d.anxDrop;
-    if (statKey === 'craving') return d.cravDrop;
-    return d.gain;
+    const s = targetStats || stats || {};
+    const val = (typeof s[statKey] === 'number' && !isNaN(s[statKey])) ? s[statKey] : 0;
+    let base = d.gain;
+    if (statKey === 'anxiety') base = d.anxDrop;
+    else if (statKey === 'craving') base = d.cravDrop;
+
+    const factor = getQuestScaleFactor(statKey, s, dayNum);
+    let rounded = Math.round(base * factor * 100) / 100;
+
+    if (statKey === 'anxiety') {
+        if (val <= MIN_ANXIETY) return 0;
+        return Math.min(-0.01, rounded);
+    }
+    if (statKey === 'craving') {
+        if (val <= 0) return 0;
+        return Math.min(-0.01, rounded);
+    }
+    const maxCap = (statKey === 'reward' || statKey === 'clarity' || statKey === 'motivation' || statKey === 'esteem')
+        ? MAX_SECONDARY_STAT
+        : MAX_UNCAPPED_STAT;
+    if (val >= maxCap) return 0;
+    return Math.max(0.01, rounded);
 }
 
 function applyQuestStatBonus(targetStats, statKey, delta) {
@@ -7590,8 +8064,17 @@ function getEligibleQuestStats(excludeKeys = []) {
 
 function pickWeightedQuestStat(pool) {
     if (!pool || pool.length === 0) return 'energy';
-    const highStress = (stats.anxiety || 0) >= 18 || (stats.craving || 0) >= 15 || (userProfile.currentStreak || 0) < 7;
-    const priority = { anxiety: 2.2, craving: 2.2, mindfulness: 1.7, energy: 1.6 };
+    let activePhaseKey = null;
+    try {
+        if (typeof getCurrentPhaseInfo === 'function') {
+            activePhaseKey = getCurrentPhaseInfo().key;
+        }
+    } catch (e) {}
+    const inAcutePhase = activePhaseKey === 'crisis' || activePhaseKey === 'chaser';
+    const highStress = inAcutePhase || (stats.anxiety || 0) >= 18 || (stats.craving || 0) >= 15 || (userProfile.currentStreak || 0) < 7;
+    const priority = inAcutePhase
+        ? { craving: 2.6, anxiety: 2.3, mindfulness: 1.9, selfcontrol: 1.6 }
+        : { anxiety: 2.2, craving: 2.2, mindfulness: 1.7, energy: 1.6 };
     const weights = pool.map(k => (highStress && priority[k]) ? priority[k] : 1);
     const totalW = weights.reduce((a, b) => a + b, 0);
     let r = Math.random() * totalW;
@@ -7819,11 +8302,12 @@ function claimQuest(slotIdx) {
     const taskIdx = (slot.tasks && typeof slot.tasks[diffKey] === 'number') ? slot.tasks[diffKey] % taskArr.length : 0;
     const taskTitle = taskArr[taskIdx];
 
-    const rawDelta = getQuestRewardDelta(statKey, diffKey);
+    const rawDelta = getQuestRewardDelta(statKey, diffKey, stats, getCurrentJourneyDayNum());
     const actualDelta = applyQuestStatBonus(stats, statKey, rawDelta);
 
     slot.status = 'completed';
     slot.completedDiff = diffKey;
+    slot.completedDelta = actualDelta !== 0 ? actualDelta : rawDelta;
     slot.acceptedAt = null;
     slot.unlockAt = null;
 
@@ -7961,14 +8445,14 @@ function renderQuests() {
         const taskArr = cat[diffKey] || cat.easy;
         const taskIdx = (slot.tasks && typeof slot.tasks[diffKey] === 'number') ? slot.tasks[diffKey] % taskArr.length : 0;
         const taskText = taskArr[taskIdx];
-        const delta = getQuestRewardDelta(slot.statKey, diffKey);
-        const deltaStr = `${delta > 0 ? '+' : ''}${delta.toFixed(1)}%`;
+        const delta = getQuestRewardDelta(slot.statKey, diffKey, stats, getCurrentJourneyDayNum());
+        const deltaStr = `${delta > 0 ? '+' : ''}${delta.toFixed(2)}%`;
 
         if (slot.status === 'completed') {
             const cDiff = QUEST_DIFFICULTIES[slot.completedDiff || diffKey];
             const cArr = cat[slot.completedDiff || diffKey] || cat.easy;
             const cIdx = (slot.tasks && typeof slot.tasks[slot.completedDiff || diffKey] === 'number') ? slot.tasks[slot.completedDiff || diffKey] % cArr.length : 0;
-            const cDelta = getQuestRewardDelta(slot.statKey, slot.completedDiff || diffKey);
+            const cDelta = (typeof slot.completedDelta === 'number') ? slot.completedDelta : getQuestRewardDelta(slot.statKey, slot.completedDiff || diffKey, stats, getCurrentJourneyDayNum());
             return `<div class="quest-card completed">
                 <div class="quest-card-top">
                     <span class="quest-scale-name">${meta.icon} ${meta.name}</span>
@@ -7977,7 +8461,7 @@ function renderQuests() {
                 <div class="quest-task-box">
                     <div class="quest-task-text">${cArr[cIdx]}</div>
                     <div class="quest-reward-row">
-                        <span class="quest-reward-tag">${cDelta > 0 ? '+' : ''}${cDelta.toFixed(1)}% ${meta.icon}</span>
+                        <span class="quest-reward-tag">${cDelta > 0 ? '+' : ''}${cDelta.toFixed(2)}% ${meta.icon}</span>
                         <span class="quest-reward-tag xp">+${cDiff.xp} XP</span>
                         ${cDiff.tokens ? `<span class="quest-reward-tag token">+${cDiff.tokens} 🪙</span>` : ''}
                     </div>
@@ -8121,6 +8605,10 @@ function updateElapsedTime() {
         if (rank.rarity === 'common') { color = '#888'; bg = 'rgba(136, 136, 136, 0.1)'; } else if (rank.rarity === 'uncommon') { color = '#4CAF50'; bg = 'rgba(76, 175, 80, 0.1)'; } else if (rank.rarity === 'rare') { color = '#2196F3'; bg = 'rgba(33, 150, 243, 0.1)'; } else if (rank.rarity === 'epic') { color = '#b224ef'; bg = 'rgba(178, 36, 239, 0.1)'; } else if (rank.rarity === 'legendary') { color = '#FFB75E'; bg = 'rgba(255, 183, 94, 0.1)'; } else if (rank.rarity === 'mythic') { color = '#ff416c'; bg = 'rgba(255, 65, 108, 0.1)'; }
         hofEl.style.color = color; hofEl.style.borderColor = color; hofEl.style.backgroundColor = bg; hofEl.style.boxShadow = `0 0 15px ${bg}`;
     }
+    if (typeof updateCrisisButtonUI === 'function') updateCrisisButtonUI();
+    if (typeof getActiveCrisisEpisode === 'function' && getActiveCrisisEpisode() && typeof updatePhaseBannerUI === 'function') {
+        updatePhaseBannerUI();
+    }
 }
 
 function updateProfileUI() {
@@ -8144,6 +8632,7 @@ function updateProfileUI() {
     let xpInCurrentLevel = userProfile.totalXP - currentLevelBaseXP; let percent = (xpInCurrentLevel / reqXP) * 100;
     document.getElementById('xp-bar-fill').style.width = Math.min(100, percent) + '%'; document.getElementById('xp-text').innerText = `${formatNumber(xpInCurrentLevel)} / ${formatNumber(reqXP)} ⭐ XP`;
     updateElapsedTime();
+    if (typeof updatePhaseBannerUI === 'function') updatePhaseBannerUI();
 }
 
 const WITHDRAWAL_PROFILES = {
@@ -8198,6 +8687,840 @@ function updateCravingForCleanDay(currentCrav, streakDay) {
         return Math.min(100, val + (0.4 * cravGrowthMult));
     }
     return Math.max(0, val - Math.min(0.8, Math.max(0.08, val * 0.12)));
+}
+
+// =========================================================
+// [ЧАСТЬ 45b] JS: Система фаз и ручная Фаза ломки
+// =========================================================
+const CHASER_STREAK_THRESHOLD = 14;
+const CHASER_WINDOW_DAYS = 7;
+const CHASER_DURATION_DAYS = 5;
+
+function sanitizeCravingEpisodes(raw) {
+    if (!Array.isArray(raw)) return [];
+    return raw
+        .filter(ep => ep && typeof ep === 'object' && typeof ep.startAt === 'string' && ep.startAt.length >= 10)
+        .map((ep, idx) => {
+            const intensity = Math.min(10, Math.max(1, Math.round(Number(ep.intensity) || 5)));
+            const outcome = (ep.outcome === 'survived' || ep.outcome === 'relapsed') ? ep.outcome : 'active';
+            const cleanEp = {
+                id: ep.id || ('crisis_' + ep.startAt + '_' + idx),
+                startAt: ep.startAt.slice(0, 16),
+                endAt: (typeof ep.endAt === 'string' && ep.endAt.length >= 10) ? ep.endAt.slice(0, 16) : null,
+                intensity,
+                outcome
+            };
+            if (ep.startImpact && typeof ep.startImpact === 'object') {
+                cleanEp.startImpact = {
+                    anxiety: Number(ep.startImpact.anxiety) || 0,
+                    craving: Number(ep.startImpact.craving) || 0
+                };
+            }
+            if (ep.survivalBonus && typeof ep.survivalBonus === 'object') {
+                cleanEp.survivalBonus = {
+                    anxiety: Number(ep.survivalBonus.anxiety) || 0,
+                    craving: Number(ep.survivalBonus.craving) || 0,
+                    pfk: Number(ep.survivalBonus.pfk) || 0,
+                    selfcontrol: Number(ep.survivalBonus.selfcontrol) || 0,
+                    esteem: Number(ep.survivalBonus.esteem) || 0,
+                    xp: Number(ep.survivalBonus.xp) || 0,
+                    durationFactor: Number(ep.survivalBonus.durationFactor) || 1,
+                    durationHours: Number(ep.survivalBonus.durationHours) || 0
+                };
+            }
+            return cleanEp;
+        })
+        .sort((a, b) => a.startAt.localeCompare(b.startAt));
+}
+
+function getActiveCrisisEpisode() {
+    if (!userProfile || !Array.isArray(userProfile.cravingEpisodes)) return null;
+    for (let i = userProfile.cravingEpisodes.length - 1; i >= 0; i--) {
+        if (userProfile.cravingEpisodes[i].outcome === 'active') return userProfile.cravingEpisodes[i];
+    }
+    return null;
+}
+
+function getCrisesOnDate(dateStr) {
+    if (!userProfile || !Array.isArray(userProfile.cravingEpisodes) || !dateStr) return [];
+    const todayStr = getLocalDateString(new Date());
+    return userProfile.cravingEpisodes.filter(ep => {
+        const sDate = ep.startAt.split('T')[0];
+        let eDate = ep.endAt ? ep.endAt.split('T')[0] : todayStr;
+        if (eDate < sDate) eDate = sDate;
+        return dateStr >= sDate && dateStr <= eDate;
+    });
+}
+
+function getCrisisForDayIndex(dateStr) {
+    const list = getCrisesOnDate(dateStr);
+    if (list.length === 0) return null;
+    return list.reduce((best, cur) => (!best || cur.intensity > best.intensity) ? cur : best, null);
+}
+
+function createPhaseTimelineState() {
+    return {
+        cleanRunBeforeBreak: 0,
+        clusterWasLongStreak: false,
+        clusterRelapseCount: 0,
+        lastRelapseDate: null,
+        chaserDaysRemaining: 0
+    };
+}
+
+function diffDateDays(dateStrA, dateStrB) {
+    const a = new Date(dateStrA + 'T00:00:00');
+    const b = new Date(dateStrB + 'T00:00:00');
+    return Math.round((b - a) / (1000 * 60 * 60 * 24));
+}
+
+function advancePhaseTimelineDay(state, dateStr, isRelapse, relapseCount, streakDayAfterStep, crisisEp = null) {
+    if (!state) state = createPhaseTimelineState();
+    const wProf = getWithdrawalProfile();
+
+    if (isRelapse) {
+        const wasInChaser = state.chaserDaysRemaining > 0;
+        const count = Math.max(1, Number(relapseCount) || 1);
+        const gap = state.lastRelapseDate ? diffDateDays(state.lastRelapseDate, dateStr) : 999;
+
+        if (gap <= CHASER_WINDOW_DAYS) {
+            state.clusterRelapseCount += count;
+            if (!state.clusterWasLongStreak && state.cleanRunBeforeBreak >= CHASER_STREAK_THRESHOLD) {
+                state.clusterWasLongStreak = true;
+            }
+        } else {
+            state.clusterRelapseCount = count;
+            state.clusterWasLongStreak = state.cleanRunBeforeBreak >= CHASER_STREAK_THRESHOLD;
+        }
+
+        state.cleanRunBeforeBreak = 0;
+        state.lastRelapseDate = dateStr;
+
+        if (state.clusterWasLongStreak && state.clusterRelapseCount >= 2) {
+            state.chaserDaysRemaining = CHASER_DURATION_DAYS;
+        }
+
+        return {
+            key: wasInChaser ? 'chaser' : 'relapse',
+            wasInChaser,
+            chaserTriggered: state.chaserDaysRemaining === CHASER_DURATION_DAYS
+        };
+    }
+
+    state.cleanRunBeforeBreak++;
+    if (state.cleanRunBeforeBreak > CHASER_WINDOW_DAYS && state.chaserDaysRemaining === 0) {
+        state.clusterWasLongStreak = false;
+        state.clusterRelapseCount = 0;
+    }
+
+    const sDay = Math.max(1, Number(streakDayAfterStep) || 1);
+    const activeCrisis = crisisEp || getCrisisForDayIndex(dateStr);
+
+    let phaseResult;
+    if (activeCrisis) {
+        phaseResult = {
+            key: 'crisis',
+            intensity: activeCrisis.intensity,
+            episode: activeCrisis,
+            streakDay: sDay
+        };
+        if (state.chaserDaysRemaining > 0) state.chaserDaysRemaining--;
+    } else if (state.chaserDaysRemaining > 0) {
+        const chaserDay = CHASER_DURATION_DAYS - state.chaserDaysRemaining + 1;
+        const left = state.chaserDaysRemaining;
+        state.chaserDaysRemaining--;
+        phaseResult = {
+            key: 'chaser',
+            chaserDay,
+            chaserLeft: left,
+            chaserTotal: CHASER_DURATION_DAYS,
+            streakDay: sDay
+        };
+    } else if (sDay <= wProf.anxietyDays) {
+        phaseResult = {
+            key: 'withdrawal',
+            withdrawalDay: sDay,
+            withdrawalTotal: wProf.anxietyDays,
+            streakDay: sDay
+        };
+    } else if (sDay <= 20) {
+        phaseResult = {
+            key: 'adaptation',
+            streakDay: sDay
+        };
+    } else if (sDay <= 90) {
+        phaseResult = {
+            key: 'flatline',
+            streakDay: sDay
+        };
+    } else if (sDay <= 120) {
+        phaseResult = {
+            key: 'thaw',
+            streakDay: sDay
+        };
+    } else {
+        phaseResult = {
+            key: 'remission',
+            streakDay: sDay
+        };
+    }
+
+    return phaseResult;
+}
+
+function getPhaseModifiers(phaseResult) {
+    const key = phaseResult ? phaseResult.key : 'remission';
+    if (key === 'crisis') {
+        const intensity = Math.min(10, Math.max(1, Number(phaseResult.intensity) || 5));
+        return {
+            willpower: Number((1.10 + intensity * 0.02).toFixed(2)), // 1.12 .. 1.30
+            energy: Number(Math.max(0.35, 0.80 - intensity * 0.04).toFixed(2)), // 0.76 .. 0.40
+            clarity: Number(Math.max(0.25, 0.70 - intensity * 0.04).toFixed(2)),
+            secondary: Number(Math.max(0.25, 0.70 - intensity * 0.04).toFixed(2)),
+            esteem: 1.05
+        };
+    }
+    if (key === 'chaser') {
+        return { willpower: 0.80, energy: 0.80, clarity: 0.65, secondary: 0.55, esteem: 0.70 };
+    }
+    if (key === 'withdrawal') {
+        return { willpower: 1.00, energy: 0.85, clarity: 0.75, secondary: 0.70, esteem: 0.90 };
+    }
+    if (key === 'flatline') {
+        return { willpower: 1.05, energy: 0.60, clarity: 0.60, secondary: 0.40, esteem: 0.85 };
+    }
+    if (key === 'thaw') {
+        return { willpower: 1.00, energy: 1.10, clarity: 1.15, secondary: 1.20, esteem: 1.15 };
+    }
+    return { willpower: 1.00, energy: 1.00, clarity: 1.00, secondary: 1.00, esteem: 1.00 };
+}
+
+function stepCleanDayWithPhase(targetStats, mult, streakDayNumber, phaseResult) {
+    const m = getPhaseModifiers(phaseResult);
+    targetStats.selfcontrol = applyUncappedStatGrowth(targetStats.selfcontrol, 1.0 * m.willpower, mult);
+    targetStats.pfk = applyUncappedStatGrowth(targetStats.pfk, 1.0 * m.willpower, mult);
+    targetStats.energy = applyUncappedStatGrowth(targetStats.energy, 1.0 * m.energy, mult);
+    targetStats.mindfulness = applyUncappedStatGrowth(targetStats.mindfulness, 0.9 * m.willpower, mult);
+    targetStats.reward = applySecondaryStatGrowth(targetStats.reward, 0.5 * m.secondary, mult);
+    targetStats.clarity = applySecondaryStatGrowth(targetStats.clarity, 0.8 * m.clarity, mult);
+    targetStats.motivation = applySecondaryStatGrowth(targetStats.motivation, 0.6 * m.secondary, mult);
+    targetStats.esteem = applySecondaryStatGrowth(targetStats.esteem, 0.4 * m.esteem, mult);
+
+    const pKey = phaseResult ? phaseResult.key : 'remission';
+    if (pKey === 'crisis') {
+        const intensity = Math.min(10, Math.max(1, Number(phaseResult.intensity) || 5));
+        const anxDamp = Math.max(0, (100 - Math.abs(targetStats.anxiety || 0)) / 100);
+        const cravDamp = Math.max(0, (100 - Math.abs(targetStats.craving || 0)) / 100);
+        targetStats.anxiety = Math.min(100, (targetStats.anxiety || BASE_ANXIETY) + (0.15 * (intensity / 10) * anxDamp));
+        targetStats.craving = Math.min(100, (targetStats.craving || 0) + (0.25 * (intensity / 10) * cravDamp));
+    } else if (pKey === 'chaser') {
+        const cDay = phaseResult.chaserDay || 1;
+        const wave = [0.45, 0.25, 0.10][cDay - 1] || 0;
+        const crav = targetStats.craving || 0;
+        if (wave > 0) {
+            const cravDamp = Math.max(0, (100 - Math.abs(crav)) / 100);
+            targetStats.craving = Math.min(100, crav + wave * cravDamp);
+        } else {
+            const normalCrav = updateCravingForCleanDay(crav, streakDayNumber);
+            if (normalCrav < crav) targetStats.craving = Math.max(0, crav - (crav - normalCrav) * 0.5);
+            else targetStats.craving = normalCrav;
+        }
+        const anx = targetStats.anxiety || BASE_ANXIETY;
+        const normalAnx = updateAnxietyForCleanDay(anx, streakDayNumber);
+        if (normalAnx < anx) targetStats.anxiety = Math.max(MIN_ANXIETY, anx - (anx - normalAnx) * 0.5);
+        else targetStats.anxiety = normalAnx;
+    } else {
+        targetStats.anxiety = updateAnxietyForCleanDay(targetStats.anxiety, streakDayNumber);
+        targetStats.craving = updateCravingForCleanDay(targetStats.craving, streakDayNumber);
+    }
+}
+
+function applyCrisisStartImpact(targetStats, intensity) {
+    const s = targetStats || stats;
+    const lvl = Math.min(10, Math.max(1, Number(intensity) || 5));
+    const oldAnx = s.anxiety || BASE_ANXIETY;
+    const oldCrav = s.craving || 0;
+    const anxDamp = Math.max(0, (100 - Math.abs(oldAnx)) / 100);
+    const cravDamp = Math.max(0, (100 - Math.abs(oldCrav)) / 100);
+    const dAnx = (0.3 + lvl * 0.17) * anxDamp;
+    const dCrav = (0.6 + lvl * 0.28) * cravDamp;
+    s.anxiety = Math.min(100, oldAnx + dAnx);
+    s.craving = Math.min(100, oldCrav + dCrav);
+    return {
+        anxiety: s.anxiety - oldAnx,
+        craving: s.craving - oldCrav
+    };
+}
+
+function getCrisisDurationHours(startAt, endAt) {
+    if (!startAt || !endAt) return 0;
+    const sMs = new Date(startAt).getTime();
+    const eMs = new Date(endAt).getTime();
+    if (isNaN(sMs) || isNaN(eMs) || eMs <= sMs) return 0;
+    return (eMs - sMs) / 3600000;
+}
+
+function getCrisisDurationBonusFactor(durationHours) {
+    const hrs = Math.max(0, Number(durationHours) || 0);
+    if (hrs <= 0.25) return 1.0;
+    // Мягкий рост за выдержку до потолка 2.00x (~11.4ч+), чтобы длинные волны ценились выше, но без эксплойта
+    return Number((1 + Math.min(1.0, Math.sqrt(hrs - 0.25) * 0.30)).toFixed(2));
+}
+
+function applyCrisisSurvivalBonus(targetStats, intensity, dayNum = 0, durationHours = 0) {
+    const s = targetStats || stats;
+    const lvl = Math.min(10, Math.max(1, Number(intensity) || 5));
+    const dNum = Math.max(0, Number(dayNum) || 0);
+    const durHrs = Math.max(0, Number(durationHours) || 0);
+    const durFactor = getCrisisDurationBonusFactor(durHrs);
+    const reliefDurFactor = 1 + (durFactor - 1) * 0.5; // откат тревоги и тяги до 1.50x
+    const timeFactor = Math.max(0.25, Math.sqrt(getMultiplier(dNum)));
+    const baseGain = (0.12 + lvl * 0.025) * durFactor;
+
+    const old = { ...s };
+    const excessAnx = Math.max(0, (s.anxiety || MIN_ANXIETY) - MIN_ANXIETY);
+    const anxDrop = Math.min(excessAnx, (0.3 + lvl * 0.14) * reliefDurFactor * Math.min(1, Math.max(0.25, excessAnx / 10)));
+    s.anxiety = Math.max(MIN_ANXIETY, (s.anxiety || BASE_ANXIETY) - anxDrop);
+
+    const excessCrav = Math.max(0, s.craving || 0);
+    const cravDrop = Math.min(excessCrav, (0.5 + lvl * 0.22) * reliefDurFactor * Math.min(1, Math.max(0.25, excessCrav / 10)));
+    s.craving = Math.max(0, (s.craving || 0) - cravDrop);
+
+    s.pfk = applyUncappedStatGrowth(s.pfk || 0, baseGain, timeFactor);
+    s.selfcontrol = applyUncappedStatGrowth(s.selfcontrol || 0, baseGain, timeFactor);
+    s.esteem = applySecondaryStatGrowth(s.esteem || 0, baseGain * 0.7, timeFactor);
+
+    const xp = Math.round((20 + lvl * 8) * durFactor);
+    return {
+        anxiety: s.anxiety - old.anxiety,
+        craving: s.craving - old.craving,
+        pfk: s.pfk - old.pfk,
+        selfcontrol: s.selfcontrol - old.selfcontrol,
+        esteem: s.esteem - old.esteem,
+        xp,
+        durationFactor: durFactor,
+        durationHours: durHrs
+    };
+}
+
+function buildPhaseTimelineUpTo(endDateStr) {
+    const state = createPhaseTimelineState();
+    const startStr = userProfile && userProfile.startDate ? userProfile.startDate.split('T')[0] : null;
+    if (!startStr || !endDateStr) return { state, lastResult: null, streakDay: 0 };
+
+    const loopStartStr = userProfile.lowestStartDate ? userProfile.lowestStartDate.split('T')[0] : startStr;
+    const loopObj = new Date(loopStartStr + 'T00:00:00');
+    const endObj = new Date(endDateStr + 'T00:00:00');
+    let streakDay = 0;
+    let lastResult = null;
+
+    for (let d = new Date(loopObj); d <= endObj; d.setDate(d.getDate() + 1)) {
+        const dStr = getLocalDateString(d);
+        const isRelapse = typeof calendarData[dStr] === 'number';
+        if (isRelapse) {
+            streakDay = 0;
+            lastResult = advancePhaseTimelineDay(state, dStr, true, calendarData[dStr], 0);
+        } else {
+            if (dStr >= startStr) streakDay++;
+            lastResult = advancePhaseTimelineDay(state, dStr, false, 0, Math.max(1, streakDay));
+        }
+    }
+    return { state, lastResult, streakDay };
+}
+
+function getCurrentPhaseInfo() {
+    const wProf = getWithdrawalProfile();
+    const activeCrisis = getActiveCrisisEpisode();
+    if (activeCrisis) {
+        const mods = getPhaseModifiers({ key: 'crisis', intensity: activeCrisis.intensity });
+        const startMs = new Date(activeCrisis.startAt).getTime();
+        const elapsedMs = Math.max(0, Date.now() - (isNaN(startMs) ? Date.now() : startMs));
+        const hrs = Math.floor(elapsedMs / 3600000);
+        const mins = Math.floor((elapsedMs % 3600000) / 60000);
+        return {
+            key: 'crisis',
+            icon: '⚡',
+            title: `Фаза ломки (Сила ${activeCrisis.intensity}/10)`,
+            sub: `идёт ${hrs}ч ${String(mins).padStart(2, '0')}м · держитесь, это не срыв`,
+            mods,
+            tooltip: `<b>⚡ Фаза ломки (Сила ${activeCrisis.intensity}/10)</b><br>Зафиксирована вами вручную. Высший приоритет над остальными фазами.<br><br><b>Влияние на шкалы:</b><br>• ПФК / Самоконтроль / Осознанность: <b>${mods.willpower.toFixed(2)}×</b> (закалка воли)<br>• Вознаграждение / Ясность / Мотивация: <b>${mods.secondary.toFixed(2)}×</b><br>• Энергия: <b>${mods.energy.toFixed(2)}×</b><br>• При завершении без срыва — откат тяги/тревоги и бонус XP + ПФК.`
+        };
+    }
+
+    if (!userProfile || !userProfile.startDate) {
+        return {
+            key: 'remission',
+            icon: '⚙️',
+            title: 'Фаза: ожидание старта',
+            sub: 'Установите дату начала в настройках',
+            mods: getPhaseModifiers({ key: 'remission' }),
+            tooltip: '<b>Система фаз организма</b><br>После настройки даты начала здесь будет отображаться ваша текущая фаза восстановления: Ломка, Погоня, Абстиненция, Flatline, Оттепель или Стабильный рост.'
+        };
+    }
+
+    const todayStr = getLocalDateString(new Date());
+    const yestObj = new Date();
+    yestObj.setDate(yestObj.getDate() - 1);
+    const yestStr = getLocalDateString(yestObj);
+    const todayIsRelapse = typeof calendarData[todayStr] === 'number';
+
+    const { state } = buildPhaseTimelineUpTo(todayIsRelapse ? todayStr : yestStr);
+    const actualStreak = Math.max(1, getActualCurrentStreak() || (userProfile.currentStreak + 1));
+
+    let preview;
+    if (todayIsRelapse) {
+        preview = {
+            key: 'chaser',
+            chaserDay: 1,
+            chaserLeft: state.chaserDaysRemaining || CHASER_DURATION_DAYS,
+            chaserTotal: CHASER_DURATION_DAYS,
+            streakDay: 0,
+            isJustRelapsed: state.chaserDaysRemaining === 0
+        };
+        if (state.chaserDaysRemaining === 0) {
+            return {
+                key: 'withdrawal',
+                icon: '🌊',
+                title: `Фаза абстиненции (Сброс)`,
+                sub: `День 1 / ${wProf.anxietyDays} · восстановление после срыва`,
+                mods: getPhaseModifiers({ key: 'withdrawal' }),
+                tooltip: `<b>🌊 Фаза абстиненции (Профиль: ${wProf.label})</b><br>Активируется на первые ${wProf.anxietyDays} дн. после срыва или старта.<br><br><b>Влияние на шкалы:</b><br>• Тревожность и Тяга держатся на пике первые дни<br>• ПФК и Самоконтроль: <b>1.00×</b><br>• Вознаграждение и Мотивация: <b>0.70×</b>`
+            };
+        }
+    } else {
+        const simState = { ...state };
+        preview = advancePhaseTimelineDay(simState, todayStr, false, 0, actualStreak);
+    }
+
+    const mods = getPhaseModifiers(preview);
+    if (preview.key === 'chaser') {
+        return {
+            key: 'chaser',
+            icon: '🔥',
+            title: 'Фаза погони (Chaser Effect)',
+            sub: `осталось ${preview.chaserLeft} дн. · повышенная тяга к срыву`,
+            mods,
+            tooltip: `<b>🔥 Фаза погони (Chaser Effect)</b><br>Включилась, так как после серии 14+ дн. произошло несколько срывов за короткий срок (окно ${CHASER_DURATION_DAYS} дн.).<br><br><b>Влияние на шкалы:</b><br>• Тяга получает волну возврата в первые 3 дня, тревога остывает вдвое медленнее<br>• Вознаграждение / Мотивация: <b>${mods.secondary.toFixed(2)}×</b><br>• ПФК / Самоконтроль: <b>${mods.willpower.toFixed(2)}×</b><br>• Повторный срыв сейчас бьёт по дофамину на <b>+25%</b> сильнее.`
+        };
+    }
+    if (preview.key === 'withdrawal') {
+        return {
+            key: 'withdrawal',
+            icon: '🌊',
+            title: `Фаза абстиненции (${wProf.label})`,
+            sub: `День ${preview.withdrawalDay} / ${preview.withdrawalTotal}`,
+            mods,
+            tooltip: `<b>🌊 Фаза абстиненции (1–${wProf.anxietyDays} дн.)</b><br>Начальная перестройка организма после отказа.<br><br><b>Влияние на шкалы:</b><br>• Тревога растёт до ${wProf.anxietyDays}-го дня, тяга до ${wProf.cravingDays}-го, затем спадают<br>• ПФК / Самоконтроль / Осознанность: <b>1.00×</b><br>• Вознаграждение и Мотивация: <b>0.70×</b> · Энергия: <b>0.85×</b>`
+        };
+    }
+    if (preview.key === 'adaptation') {
+        return {
+            key: 'adaptation',
+            icon: '✨',
+            title: 'Фаза адаптации',
+            sub: `День ${preview.streakDay} / 20 · выход перед Flatline`,
+            mods,
+            tooltip: `<b>✨ Фаза адаптации (${wProf.anxietyDays + 1}–20 дн.)</b><br>Первая острая ломка позади, шкалы выравниваются перед глубинной перестройкой (Flatline на 21-м дне).<br><br><b>Влияние на шкалы:</b><br>• Все шкалы растут в штатном темпе <b>1.00×</b>, тревога и тяга снижаются.`
+        };
+    }
+    if (preview.key === 'flatline') {
+        return {
+            key: 'flatline',
+            icon: '🌫️',
+            title: 'Фаза Flatline',
+            sub: `День ${preview.streakDay} / 90 · глубинная перестройка`,
+            mods,
+            tooltip: `<b>🌫️ Фаза Flatline (21–90 дн.)</b><br>Снижение яркости эмоций и драйва, пока дофаминовые рецепторы восстанавливают плотность.<br><br><b>Влияние на шкалы:</b><br>• ПФК / Самоконтроль / Осознанность: <b>1.05×</b> (растут даже на плато!)<br>• Вознаграждение и Мотивация: <b>0.40×</b> · Энергия и Ясность: <b>0.60×</b>`
+        };
+    }
+    if (preview.key === 'thaw') {
+        return {
+            key: 'thaw',
+            icon: '🌱',
+            title: 'Фаза оттепели',
+            sub: `День ${preview.streakDay} / 120 · возвращение вкуса к жизни`,
+            mods,
+            tooltip: `<b>🌱 Фаза оттепели (91–120 дн.)</b><br>Flatline позади — чувствительность к естественному дофамину ускоренно восстанавливается.<br><br><b>Влияние на шкалы:</b><br>• Вознаграждение и Мотивация: <b>1.20×</b> · Ясность и Самооценка: <b>1.15×</b><br>• Базовые шкалы: <b>1.00×</b>`
+        };
+    }
+    return {
+        key: 'remission',
+        icon: '🛡️',
+        title: 'Стабильный рост',
+        sub: `День ${preview.streakDay} · устойчивая ремиссия`,
+        mods,
+        tooltip: `<b>🛡️ Стабильный рост (121+ дн.)</b><br>Основные циклы ломки и Flatline пройдены. Организм работает в сбалансированном режиме <b>1.00×</b>.`
+    };
+}
+
+function updatePhaseBannerUI() {
+    const banner = document.getElementById('phase-banner');
+    if (!banner) return;
+    if (trackerSettings && trackerSettings.hidePhase) {
+        banner.style.display = 'none';
+        return;
+    }
+    banner.style.display = 'flex';
+    const info = getCurrentPhaseInfo();
+    banner.className = 'phase-banner phase-' + info.key;
+    const iconEl = document.getElementById('phase-icon');
+    const titleEl = document.getElementById('phase-title');
+    const subEl = document.getElementById('phase-sub');
+    const ttEl = document.getElementById('tooltip-phase');
+    if (iconEl) iconEl.innerText = info.icon;
+    if (titleEl) titleEl.innerText = info.title;
+    if (subEl) subEl.innerText = info.sub;
+    if (ttEl) ttEl.innerHTML = info.tooltip;
+    updateCrisisButtonUI();
+}
+
+function updateCrisisButtonUI() {
+    const btn = document.getElementById('btn-crisis-toggle');
+    if (!btn) return;
+    if (!userProfile || !userProfile.startDate) {
+        btn.style.display = 'none';
+        return;
+    }
+    btn.style.display = 'flex';
+    const active = getActiveCrisisEpisode();
+    if (active) {
+        const startMs = new Date(active.startAt).getTime();
+        const elapsedMs = Math.max(0, Date.now() - (isNaN(startMs) ? Date.now() : startMs));
+        const hrs = Math.floor(elapsedMs / 3600000);
+        const mins = Math.floor((elapsedMs % 3600000) / 60000);
+        btn.classList.add('active-crisis');
+        btn.innerText = `✅ Ломка отступила (${hrs}ч ${String(mins).padStart(2, '0')}м · ${active.intensity}/10)`;
+    } else {
+        btn.classList.remove('active-crisis');
+        btn.innerText = '⚡ Зафиксировать ломку';
+    }
+}
+
+function handleCrisisActionClick() {
+    if (!userProfile || !userProfile.startDate) {
+        showAppNotification('Нет даты начала', 'Сначала установите дату начала в настройках.', '#f8b500');
+        return;
+    }
+    const active = getActiveCrisisEpisode();
+    if (active) openCrisisEndModal();
+    else openCrisisStartModal();
+}
+
+function openCrisisStartModal() {
+    if (isClaiming) return;
+    playSound('click');
+    const now = new Date();
+    const localDt = getLocalDateTimeString(now);
+    const [dStr, tStr] = localDt.split('T');
+    document.getElementById('crisis-start-date').value = dStr;
+    document.getElementById('crisis-start-time').value = tStr;
+    document.getElementById('crisis-intensity-input').value = 5;
+    updateCrisisStartPreview();
+    document.getElementById('crisis-start-modal').style.display = 'flex';
+}
+
+function closeCrisisStartModal(event) {
+    playSound('click');
+    document.getElementById('crisis-start-modal').style.display = 'none';
+}
+
+function updateCrisisStartPreview() {
+    const slider = document.getElementById('crisis-intensity-input');
+    const badge = document.getElementById('crisis-intensity-badge');
+    const box = document.getElementById('crisis-start-preview');
+    if (!slider || !badge || !box) return;
+    const lvl = Math.min(10, Math.max(1, parseInt(slider.value) || 5));
+    let label = 'Средняя волна', color = '#ffd166', bg = 'rgba(248,181,0,0.2)';
+    if (lvl <= 3) { label = 'Умеренная тяга'; color = '#6ee7b7'; bg = 'rgba(16,185,129,0.2)'; }
+    else if (lvl >= 8) { label = 'Сильный накат'; color = '#ff8a8a'; bg = 'rgba(255,68,68,0.22)'; }
+    badge.innerText = `${lvl} / 10 · ${label}`;
+    badge.style.color = color;
+    badge.style.background = bg;
+
+    const anxDamp = Math.max(0, (100 - Math.abs(stats.anxiety || 0)) / 100);
+    const cravDamp = Math.max(0, (100 - Math.abs(stats.craving || 0)) / 100);
+    const estAnx = (0.3 + lvl * 0.17) * anxDamp;
+    const estCrav = (0.6 + lvl * 0.28) * cravDamp;
+    const mods = getPhaseModifiers({ key: 'crisis', intensity: lvl });
+    box.innerHTML = `<b>Эффект старта при силе ${lvl}/10:</b><br>` +
+        `😰 Тревожность: <b>+${estAnx.toFixed(2)}%</b> · 🔥 Тяга: <b>+${estCrav.toFixed(2)}%</b><br>` +
+        `🛡️ Пока держитесь: ПФК и Самоконтроль растут на <b>${mods.willpower.toFixed(2)}×</b>, квесты чаще поддерживают Тягу и Тревогу.`;
+}
+
+function confirmCrisisStart() {
+    const dStr = document.getElementById('crisis-start-date').value;
+    const tStr = document.getElementById('crisis-start-time').value;
+    const intensity = Math.min(10, Math.max(1, parseInt(document.getElementById('crisis-intensity-input').value) || 5));
+    if (!dStr || !tStr) {
+        showAppNotification('Ошибка', 'Укажите дату и время начала ломки.', '#ff4444');
+        return;
+    }
+    const todayStr = getLocalDateString(new Date());
+    if (dStr > todayStr) {
+        showAppNotification('Ошибка', 'Нельзя зафиксировать ломку в будущем.', '#ff4444');
+        return;
+    }
+    const startAt = `${dStr}T${tStr}`;
+    if (!Array.isArray(userProfile.cravingEpisodes)) userProfile.cravingEpisodes = [];
+    const active = getActiveCrisisEpisode();
+    if (active) {
+        showAppNotification('Уже активна', 'Сначала завершите текущую фазу ломки.', '#f8b500');
+        return;
+    }
+
+    const ep = {
+        id: 'crisis_' + Date.now(),
+        startAt,
+        endAt: null,
+        intensity,
+        outcome: 'active'
+    };
+    userProfile.cravingEpisodes.push(ep);
+    userProfile.cravingEpisodes = sanitizeCravingEpisodes(userProfile.cravingEpisodes);
+    if (!userProfile.lowestStartDate || dStr < userProfile.lowestStartDate.split('T')[0]) {
+        userProfile.lowestStartDate = dStr;
+    }
+
+    playSound('click');
+    vibrate(60);
+    closeCrisisStartModal();
+
+    const lastClaimedStr = userProfile.lastClaimedDate ? userProfile.lastClaimedDate.split('T')[0] : '';
+    const startStr = userProfile.startDate ? userProfile.startDate.split('T')[0] : '';
+    if (lastClaimedStr && dStr <= lastClaimedStr && dStr >= startStr) {
+        if (trackerSettings.autoRecalc) {
+            recalculateAll(true);
+            updateAllStatsUI();
+            updateProfileUI();
+            updateClaimTimer();
+            saveData();
+            renderCalendar();
+            renderCalendarNotes();
+            showAppNotification('⚡ Фаза ломки активна', 'Данные и шкалы пересчитаны с учётом даты начала.', '#f8b500', 2400);
+            return;
+        }
+    }
+
+    const impact = applyCrisisStartImpact(stats, intensity);
+    ep.startImpact = impact;
+    updatePeakStats(stats, userProfile.currentStreak || 0);
+    updateAllStatsUI();
+    showFloatingText('anxiety', impact.anxiety, true, 1200);
+    showFloatingText('craving', impact.craving, true, 1200);
+
+    let statsHTML = '';
+    if (impact.craving !== 0) statsHTML += `<span style="color:#ff7a33">🔥 +${impact.craving.toFixed(2)}%</span> `;
+    if (impact.anxiety !== 0) statsHTML += `<span style="color:#ff416c">😰 +${impact.anxiety.toFixed(2)}%</span>`;
+    if (!statsHTML) statsHTML = '<span style="color:#f8b500">Зафиксирована волна тяги</span>';
+    addLog(`⚡ Началась фаза ломки (Сила ${intensity}/10)`, statsHTML, `<span style="color:#f8b500">Удержитесь без срыва!</span>`, 'crisis');
+
+    updateProfileUI();
+    renderQuests();
+    renderCalendar();
+    renderCalendarNotes();
+    renderLogs();
+    saveData();
+    showAppNotification('⚡ Фаза ломки началась', `Сила ${intensity}/10 · Держитесь! Когда отступит — нажмите кнопку завершения.`, '#f8b500', 2600);
+}
+
+function openCrisisEndModal() {
+    const active = getActiveCrisisEpisode();
+    if (!active) return;
+    playSound('click');
+    const now = new Date();
+    const [dStr, tStr] = getLocalDateTimeString(now).split('T');
+    document.getElementById('crisis-end-date').value = dStr;
+    document.getElementById('crisis-end-time').value = tStr;
+    const sDate = new Date(active.startAt);
+    const startFmt = isNaN(sDate.getTime()) ? active.startAt : sDate.toLocaleString('ru-RU', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' });
+    document.getElementById('crisis-end-summary').innerHTML = `<b>Активная ломка:</b> старт ${startFmt} · Сила <b>${active.intensity}/10</b>`;
+    updateCrisisEndPreview();
+    document.getElementById('crisis-end-modal').style.display = 'flex';
+}
+
+function closeCrisisEndModal(event) {
+    playSound('click');
+    document.getElementById('crisis-end-modal').style.display = 'none';
+}
+
+function updateCrisisEndPreview() {
+    const active = getActiveCrisisEpisode();
+    const preview = document.getElementById('crisis-end-preview');
+    if (!active || !preview) return;
+    const dStr = document.getElementById('crisis-end-date').value;
+    const tStr = document.getElementById('crisis-end-time').value;
+    if (!dStr || !tStr) {
+        preview.innerHTML = 'Укажите дату и время окончания.';
+        return;
+    }
+    const startMs = new Date(active.startAt).getTime();
+    const endMs = new Date(`${dStr}T${tStr}`).getTime();
+    if (isNaN(endMs) || endMs < startMs) {
+        preview.innerHTML = '<span style="color:#ff8a8a;">⚠️ Время окончания не может быть раньше времени начала ломки.</span>';
+        return;
+    }
+    const diffMs = endMs - startMs;
+    const hrs = Math.floor(diffMs / 3600000);
+    const mins = Math.floor((diffMs % 3600000) / 60000);
+    const durHrs = diffMs / 3600000;
+    const sim = { ...stats };
+    const bonus = applyCrisisSurvivalBonus(sim, active.intensity, getCurrentJourneyDayNum(), durHrs);
+    const durBonusHint = bonus.durationFactor > 1 ? ` <span style="color:#ffd166;">(бонус длит. ×${bonus.durationFactor.toFixed(2)})</span>` : '';
+    preview.innerHTML = `<b>Длительность волны:</b> ${hrs}ч ${mins}м${durBonusHint}<br>` +
+        `<b>Награда за стойкость:</b> 😰 ${bonus.anxiety.toFixed(2)}% · 🔥 ${bonus.craving.toFixed(2)}% · 🧠 +${bonus.pfk.toFixed(2)}% · 🛡️ +${bonus.selfcontrol.toFixed(2)}% · ⭐ +${bonus.xp} XP`;
+}
+
+function confirmCrisisEnd() {
+    const active = getActiveCrisisEpisode();
+    if (!active) { closeCrisisEndModal(); return; }
+    const dStr = document.getElementById('crisis-end-date').value;
+    const tStr = document.getElementById('crisis-end-time').value;
+    if (!dStr || !tStr) {
+        showAppNotification('Ошибка', 'Укажите дату и время окончания.', '#ff4444');
+        return;
+    }
+    const todayStr = getLocalDateString(new Date());
+    if (dStr > todayStr) {
+        showAppNotification('Ошибка', 'Дата окончания не может быть в будущем.', '#ff4444');
+        return;
+    }
+    const endAt = `${dStr}T${tStr}`;
+    const startMs = new Date(active.startAt).getTime();
+    const endMs = new Date(endAt).getTime();
+    if (isNaN(endMs) || endMs < startMs) {
+        showAppNotification('Ошибка', 'Время окончания должно быть не раньше времени начала ломки.', '#ff4444');
+        return;
+    }
+
+    active.endAt = endAt;
+    active.outcome = 'survived';
+    userProfile.cravingEpisodes = sanitizeCravingEpisodes(userProfile.cravingEpisodes);
+
+    const diffMs = endMs - startMs;
+    const hrs = Math.floor(diffMs / 3600000);
+    const mins = Math.floor((diffMs % 3600000) / 60000);
+    const durHrs = diffMs / 3600000;
+
+    playSound('claim');
+    vibrate([60, 40, 80]);
+    closeCrisisEndModal();
+
+    const lastClaimedStr = userProfile.lastClaimedDate ? userProfile.lastClaimedDate.split('T')[0] : '';
+    const startStr = userProfile.startDate ? userProfile.startDate.split('T')[0] : '';
+    if (lastClaimedStr && dStr <= lastClaimedStr && dStr >= startStr && trackerSettings.autoRecalc) {
+        recalculateAll(true);
+        updateAllStatsUI();
+        updateProfileUI();
+        updateClaimTimer();
+        saveData();
+        renderCalendar();
+        renderCalendarNotes();
+        showAppNotification('✅ Ломка пройдена!', `Длительность ${hrs}ч ${mins}м · База пересчитана с бонусом стойкости!`, '#10b981', 2600);
+        return;
+    }
+
+    const bonus = applyCrisisSurvivalBonus(stats, active.intensity, getCurrentJourneyDayNum(), durHrs);
+    active.survivalBonus = bonus;
+    userProfile.totalXP = (userProfile.totalXP || 0) + bonus.xp;
+    recalculateLevel();
+    updatePeakStats(stats, userProfile.currentStreak || 0);
+    updateAllStatsUI();
+    showFloatingText('anxiety', bonus.anxiety, true, 1200);
+    showFloatingText('craving', bonus.craving, true, 1200);
+    showFloatingText('pfk', bonus.pfk, false, 1200);
+    showFloatingText('selfcontrol', bonus.selfcontrol, false, 1200);
+
+    const statsHTML = `<span style="color:#4CAF50">🔥 ${bonus.craving.toFixed(2)}%</span> <span style="color:#4CAF50">😰 ${bonus.anxiety.toFixed(2)}%</span> <span style="color:#00f2fe">🧠 +${bonus.pfk.toFixed(2)}%</span> <span style="color:#96c93d">🛡️ +${bonus.selfcontrol.toFixed(2)}%</span>`;
+    addLog(`✅ Ломка отступила (${hrs}ч ${mins}м · Сила ${active.intensity}/10 · ×${bonus.durationFactor.toFixed(2)})`, statsHTML, `<span style="color:#b224ef; font-weight:bold;">⭐ +${bonus.xp} XP</span>`, 'crisis');
+
+    updateProfileUI();
+    renderQuests();
+    renderCalendar();
+    renderCalendarNotes();
+    renderLogs();
+    saveData();
+    checkAchievements();
+    showAppNotification('✅ Волна преодолена!', `Длительность ${hrs}ч ${mins}м · +${bonus.xp} XP и бонус к ПФК/Самоконтролю!`, '#10b981', 2800);
+}
+
+let pendingDeleteCrisisId = null;
+
+function requestDeleteCrisisEpisode(episodeId) {
+    if (!userProfile || !Array.isArray(userProfile.cravingEpisodes)) return;
+    const ep = userProfile.cravingEpisodes.find(item => item.id === episodeId);
+    if (!ep) return;
+    playSound('click');
+    pendingDeleteCrisisId = episodeId;
+    const sumEl = document.getElementById('delete-crisis-summary');
+    if (sumEl) {
+        const sTime = ep.startAt.replace('T', ' ');
+        const ePart = ep.endAt ? ep.endAt.replace('T', ' ') : 'активна';
+        const statusTxt = ep.outcome === 'survived' ? '✅ преодолена' : (ep.outcome === 'relapsed' ? '💥 срыв' : '⚡ активна');
+        sumEl.innerHTML = `<b>⚠️ Фаза ломки (${ep.intensity}/10)</b> · ${statusTxt}<br><span style="color:#aaa; font-family:monospace; font-size:12px;">${sTime} → ${ePart}</span>`;
+    }
+    const modal = document.getElementById('delete-crisis-modal');
+    if (modal) modal.style.display = 'flex';
+}
+
+function closeDeleteCrisisModal(event) {
+    playSound('click');
+    pendingDeleteCrisisId = null;
+    const modal = document.getElementById('delete-crisis-modal');
+    if (modal) modal.style.display = 'none';
+}
+
+function confirmDeleteCrisisEpisode() {
+    const idToDelete = pendingDeleteCrisisId;
+    pendingDeleteCrisisId = null;
+    const modal = document.getElementById('delete-crisis-modal');
+    if (modal) modal.style.display = 'none';
+    if (idToDelete) deleteCrisisEpisode(idToDelete);
+}
+
+function deleteCrisisEpisode(episodeId) {
+    if (!userProfile || !Array.isArray(userProfile.cravingEpisodes)) return;
+    const beforeLen = userProfile.cravingEpisodes.length;
+    userProfile.cravingEpisodes = userProfile.cravingEpisodes.filter(ep => ep.id !== episodeId);
+    if (userProfile.cravingEpisodes.length === beforeLen) return;
+    playSound('click');
+    if (trackerSettings.autoRecalc) {
+        recalculateAll(true);
+        updateAllStatsUI();
+    }
+    updateProfileUI();
+    renderCalendar();
+    renderCalendarNotes();
+    renderLogs();
+    if (currentNoteDateStr) {
+        renderNoteModalCrises(currentNoteDateStr);
+    }
+    saveData();
+    showAppNotification('Удалено', 'Запись о ломке удалена.', '#4facfe', 1800);
+}
+
+function renderNoteModalCrises(dateStr) {
+    const sec = document.getElementById('note-crises-section');
+    if (!sec) return;
+    const list = getCrisesOnDate(dateStr);
+    if (list.length === 0) {
+        sec.style.display = 'none';
+        sec.innerHTML = '';
+        return;
+    }
+    sec.style.display = 'block';
+    const rows = list.map(ep => {
+        const sTime = ep.startAt.split('T')[1] || '00:00';
+        const ePart = ep.endAt ? ep.endAt.replace('T', ' ') : 'активна';
+        const statusTxt = ep.outcome === 'survived' ? '✅ преодолена' : (ep.outcome === 'relapsed' ? '💥 срыв' : '⚡ активна');
+        return `<div class="note-crisis-row">
+            <div>
+                <div><b>⚠️ Фаза ломки (${ep.intensity}/10)</b> · ${statusTxt}</div>
+                <div style="font-size:11px; color:#aaa; font-family:monospace;">Старт: ${ep.startAt.split('T')[0]} ${sTime} → ${ePart}</div>
+            </div>
+            <button type="button" class="note-crisis-del-btn" onclick="requestDeleteCrisisEpisode('${ep.id}')">Удалить</button>
+        </div>`;
+    }).join('');
+    sec.innerHTML = rows;
 }
 
 function updateUI(id, value) {
@@ -8831,8 +10154,9 @@ function applySettings() {
     if (hofTimerLabel) { const customText = trackerSettings.customTimerLabel || 'СВОБОДА УЖЕ'; hofTimerLabel.innerHTML = `⏳ ${customText}:`; }
     const timerLabelInput = document.getElementById('custom-timer-label-input');
     if (timerLabelInput && document.activeElement !== timerLabelInput) { timerLabelInput.value = trackerSettings.customTimerLabel || 'СВОБОДА УЖЕ'; }
-    const tTimer = document.getElementById('hide-timer-toggle'); const tStreak = document.getElementById('hide-streak-toggle'); const tRank = document.getElementById('hide-rank-toggle');
-    if (tTimer) tTimer.checked = !!trackerSettings.hideTimer; if (tStreak) tStreak.checked = !!trackerSettings.hideStreak; if (tRank) tRank.checked = !!trackerSettings.hideRank;
+    const tTimer = document.getElementById('hide-timer-toggle'); const tStreak = document.getElementById('hide-streak-toggle'); const tRank = document.getElementById('hide-rank-toggle'); const tPhase = document.getElementById('hide-phase-toggle');
+    if (tTimer) tTimer.checked = !!trackerSettings.hideTimer; if (tStreak) tStreak.checked = !!trackerSettings.hideStreak; if (tRank) tRank.checked = !!trackerSettings.hideRank; if (tPhase) tPhase.checked = !!trackerSettings.hidePhase;
+    if (typeof updatePhaseBannerUI === 'function') updatePhaseBannerUI();
     
     const tvt = document.getElementById('tracker-view'); if (tvt) tvt.classList.toggle('hide-tooltips', !!trackerSettings.hideTooltipsTracker);
     const rvt = document.getElementById('risk-view'); if (rvt) rvt.classList.toggle('hide-tooltips', !!trackerSettings.hideTooltipsGlossary);
@@ -9335,9 +10659,26 @@ function renderStats() {
             analysisContainer.innerHTML = '<div style="font-size: 12px; color: #666; text-align: center;">Нет данных о срывах</div>';
         } else {
             let timeCounts = { night: 0, morning: 0, day: 0, evening: 0 };
-            relapseDates.forEach(d => { const t = relapseTimes[d] || "12:00"; const h = parseInt(t.split(':')[0]); if (h >= 0 && h < 6) timeCounts.night++; else if (h >= 6 && h < 12) timeCounts.morning++; else if (h >= 12 && h < 18) timeCounts.day++; else timeCounts.evening++; });
+            let totalTimeInstances = 0;
+            relapseDates.forEach(d => {
+                const cnt = Math.max(1, Number(calendarData[d]) || 1);
+                const rawDet = relapseDetails && relapseDetails[d];
+                const fallbackT = relapseTimes[d] || "12:00";
+                for (let idx = 0; idx < cnt; idx++) {
+                    let t = fallbackT;
+                    if (Array.isArray(rawDet) && rawDet[idx] && rawDet[idx].time) t = rawDet[idx].time;
+                    else if (!Array.isArray(rawDet) && rawDet && rawDet.time) t = rawDet.time;
+                    const h = parseInt(t.split(':')[0]);
+                    if (h >= 0 && h < 6) timeCounts.night++;
+                    else if (h >= 6 && h < 12) timeCounts.morning++;
+                    else if (h >= 12 && h < 18) timeCounts.day++;
+                    else timeCounts.evening++;
+                    totalTimeInstances++;
+                }
+            });
             let totalT = relapseDates.length;
-            let pNight = Math.round((timeCounts.night / totalT) * 100); let pMorning = Math.round((timeCounts.morning / totalT) * 100); let pDay = Math.round((timeCounts.day / totalT) * 100); let pEvening = Math.round((timeCounts.evening / totalT) * 100);
+            let timeDenom = Math.max(1, totalTimeInstances);
+            let pNight = Math.round((timeCounts.night / timeDenom) * 100); let pMorning = Math.round((timeCounts.morning / timeDenom) * 100); let pDay = Math.round((timeCounts.day / timeDenom) * 100); let pEvening = Math.round((timeCounts.evening / timeDenom) * 100);
             let tMax = Math.max(pMorning, pDay, pEvening, pNight);
             let isMorningHot = (pMorning === tMax && tMax > 0); let isDayHot = (pDay === tMax && tMax > 0); let isEveningHot = (pEvening === tMax && tMax > 0); let isNightHot = (pNight === tMax && tMax > 0);
 
@@ -9750,6 +11091,13 @@ function renderCalendar() {
         
         const dateSpan = document.createElement('span'); dateSpan.className = 'cal-date'; dateSpan.innerText = i; cell.appendChild(dateSpan);
         if (!isFuture && !isGhost && hasNote && !isBeforeLowest) { const noteIcon = document.createElement('span'); noteIcon.className = 'cal-note-indicator'; noteIcon.innerText = '✏️'; cell.appendChild(noteIcon); }
+        if (!isFuture && !isGhost && !isBeforeLowest && typeof getCrisesOnDate === 'function' && getCrisesOnDate(dateStr).length > 0) {
+            const crisisIcon = document.createElement('span');
+            crisisIcon.className = 'cal-crisis-indicator';
+            crisisIcon.innerText = '⚠️';
+            crisisIcon.title = 'Зафиксирована фаза ломки';
+            cell.appendChild(crisisIcon);
+        }
         if (!isFuture && !isGhost && trackerSettings.calendarShowDifficulty && calendarDifficulty[dateStr] && !isBeforeLowest) { cell.classList.add('has-difficulty'); cell.style.setProperty('--diff-color', getDiffColor(calendarDifficulty[dateStr])); }
         grid.appendChild(cell);
     }
@@ -9906,7 +11254,13 @@ function buildNoteItemHTML(dateStr, dObj) {
     }
     
     let dateFormatted = dObj.toLocaleDateString('ru-RU', { day: '2-digit', month: '2-digit', year: 'numeric' });
-    if (isRelapse && relapseTimes[dateStr]) dateFormatted += ` (${relapseTimes[dateStr]})`;
+    if (isRelapse) {
+        const rawDet = relapseDetails && relapseDetails[dateStr];
+        const instTimes = Array.isArray(rawDet) ? rawDet.map(x => x && x.time).filter(Boolean) : [];
+        if (instTimes.length > 1) dateFormatted += ` (${instTimes.join(', ')})`;
+        else if (instTimes.length === 1) dateFormatted += ` (${instTimes[0]})`;
+        else if (relapseTimes[dateStr]) dateFormatted += ` (${relapseTimes[dateStr]})`;
+    }
     
     let noteBody = '';
     if (noteText || noteTitle) {
@@ -10089,6 +11443,7 @@ function openNoteModal(dateStr, dayNumber) {
     
     if (cancelBtn) cancelBtn.style.display = isRelapse ? 'block' : 'none';
     if (editBtn) editBtn.style.display = isRelapse ? 'block' : 'none';
+    if (typeof renderNoteModalCrises === 'function') renderNoteModalCrises(dateStr);
 
     renderMoodGrid(); 
     
@@ -10110,6 +11465,9 @@ function saveNote() {
         
         if (currentSelectedMoods.length > 0) calendarMoods[currentNoteDateStr] = [...currentSelectedMoods]; else delete calendarMoods[currentNoteDateStr]; 
         if (currentSelectedDifficulty > 0) calendarDifficulty[currentNoteDateStr] = currentSelectedDifficulty; else delete calendarDifficulty[currentNoteDateStr]; 
+        if ((title || text || currentSelectedMoods.length > 0 || currentSelectedDifficulty > 0) && (!userProfile.lowestStartDate || currentNoteDateStr < userProfile.lowestStartDate.split('T')[0])) {
+            userProfile.lowestStartDate = currentNoteDateStr;
+        }
         
         renderCalendar(); renderCalendarNotes(); saveData(); checkAchievements(); 
     } 
@@ -10215,6 +11573,27 @@ function confirmCancelRelapse() {
 // [ЧАСТЬ 50] JS: Срыв, Перерасчёт, Инициализация (Финал)
 // =========================================================
 
+function getCurrentHHMM() {
+    const now = new Date();
+    return `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+}
+
+function normalizeRelapseTimeStr(val, fallback = '12:00') {
+    if (typeof val === 'string' && /^\d{1,2}:\d{2}$/.test(val.trim())) {
+        const parts = val.trim().split(':');
+        const hh = Math.min(23, Math.max(0, parseInt(parts[0], 10) || 0));
+        const mm = Math.min(59, Math.max(0, parseInt(parts[1], 10) || 0));
+        return `${String(hh).padStart(2, '0')}:${String(mm).padStart(2, '0')}`;
+    }
+    return fallback;
+}
+
+function syncRelapseInstanceHeaderTime(input) {
+    const block = input ? input.closest('.relapse-instance-block') : null;
+    const badge = block ? block.querySelector('.relapse-instance-time-badge') : null;
+    if (badge) badge.innerText = input.value || '--:--';
+}
+
 // ЗАЩИТА ОТ ДУРАКА: Валидация количества срывов
 function validateRelapseCount(input) {
     let val = parseInt(input.value);
@@ -10245,14 +11624,19 @@ function validateEditRelapseCount(input) {
 }
 
 // Генерация HTML для настроек срыва
-function generateRelapseInstanceHTML(index, data) {
+function generateRelapseInstanceHTML(index, data, defaultTime = '12:00') {
+    const instTime = normalizeRelapseTimeStr(data && data.time, defaultTime);
     return `
         <div class="relapse-instance-block">
             <div class="relapse-instance-header ${index === 0 ? 'active' : ''}" onclick="toggleRelapseInstance(this)">
-                <span>Срыв #${index + 1}</span>
+                <span>Срыв #${index + 1} · <span class="relapse-instance-time-badge">${instTime}</span></span>
                 <span class="relapse-instance-arrow">▼</span>
             </div>
             <div class="relapse-instance-content ${index === 0 ? 'active' : ''}">
+                <div class="relapse-instance-time-row">
+                    <label>Время срыва (чч:мм):</label>
+                    <input type="time" class="relapse-instance-time" data-index="${index}" value="${instTime}" oninput="syncRelapseInstanceHeaderTime(this)" onchange="syncRelapseInstanceHeaderTime(this)">
+                </div>
                 <div>
                     <label style="font-size: 12px; color: #aaa; display: block; margin-bottom: 5px;">Насколько сильной была ломка? (1-10)</label>
                     <div class="urge-slider-container" style="margin-bottom: 0;">
@@ -10315,43 +11699,51 @@ function toggleRelapseInstance(header) {
     }
 }
 
-function renderRelapseInstances(count, existingData = null) {
+function renderRelapseInstances(count, existingData = null, defaultTime = null) {
     const container = document.getElementById('relapse-details-container');
     if (!container) return;
+    const sourceData = existingData !== null ? existingData : getRelapseInstancesDataFromDOM('relapse-details-container', window.currentRelapseDefaultTime || getCurrentHHMM());
+    const baseTime = defaultTime || window.currentRelapseDefaultTime || getCurrentHHMM();
     container.innerHTML = '';
-    const limit = Math.min(count, 20);
+    const limit = Math.min(Math.max(1, parseInt(count, 10) || 1), 20);
     for (let i = 0; i < limit; i++) {
-        let data = { urge: 5, shame: 5, duration: 5, dopamine: 5, sleep: 5 };
-        if (existingData) {
-            if (Array.isArray(existingData) && existingData[i]) data = { ...data, ...existingData[i] };
-            else if (!Array.isArray(existingData) && i === 0) data = { ...data, ...existingData };
+        let data = { time: baseTime, urge: 5, shame: 5, duration: 5, dopamine: 5, sleep: 5 };
+        if (sourceData) {
+            if (Array.isArray(sourceData) && sourceData[i]) data = { ...data, ...sourceData[i] };
+            else if (!Array.isArray(sourceData) && i === 0) data = { ...data, ...sourceData };
         }
-        container.innerHTML += generateRelapseInstanceHTML(i, data);
+        container.innerHTML += generateRelapseInstanceHTML(i, data, baseTime);
     }
 }
 
-function renderEditRelapseInstances(count, existingData = null) {
+function renderEditRelapseInstances(count, existingData = null, defaultTime = null) {
     const container = document.getElementById('edit-relapse-details-container');
     if (!container) return;
+    const baseTime = defaultTime || window.currentEditRelapseDefaultTime || '12:00';
+    const sourceData = existingData !== null ? existingData : getRelapseInstancesDataFromDOM('edit-relapse-details-container', baseTime);
     container.innerHTML = '';
-    const limit = Math.min(count, 20);
+    const limit = Math.min(Math.max(1, parseInt(count, 10) || 1), 20);
     for (let i = 0; i < limit; i++) {
-        let data = { urge: 5, shame: 5, duration: 5, dopamine: 5, sleep: 5 };
-        if (existingData) {
-            if (Array.isArray(existingData) && existingData[i]) data = { ...data, ...existingData[i] };
-            else if (!Array.isArray(existingData) && i === 0) data = { ...data, ...existingData };
+        let data = { time: baseTime, urge: 5, shame: 5, duration: 5, dopamine: 5, sleep: 5 };
+        if (sourceData) {
+            if (Array.isArray(sourceData) && sourceData[i]) data = { ...data, ...sourceData[i] };
+            else if (!Array.isArray(sourceData) && i === 0) data = { ...data, ...sourceData };
         }
-        container.innerHTML += generateRelapseInstanceHTML(i, data);
+        container.innerHTML += generateRelapseInstanceHTML(i, data, baseTime);
     }
 }
 
-function getRelapseInstancesDataFromDOM(containerId) {
+function getRelapseInstancesDataFromDOM(containerId, fallbackTime = null) {
     const container = document.getElementById(containerId);
     if (!container) return [];
     const blocks = container.querySelectorAll('.relapse-instance-block');
+    const defTime = fallbackTime || getCurrentHHMM();
     let result = [];
     blocks.forEach(block => {
+        const timeEl = block.querySelector('.relapse-instance-time');
+        const timeVal = normalizeRelapseTimeStr(timeEl ? timeEl.value : '', defTime);
         result.push({
+            time: timeVal,
             urge: parseInt(block.querySelector('.urge-slider').value) || 5,
             shame: parseInt(block.querySelector('.shame-slider').value) || 5,
             duration: parseInt(block.querySelector('.duration-slider').value) || 5,
@@ -10379,7 +11771,9 @@ function updateRelapseCountOnDateChange() {
     } else { 
         hintEl.style.display = 'none'; 
     }
-    renderRelapseInstances(newCount, relapseDetails[dateStr] || null);
+    const existingData = relapseDetails[dateStr] || [];
+    const defaultTime = (relapseTimes && relapseTimes[dateStr]) || window.currentRelapseDefaultTime || getCurrentHHMM();
+    renderRelapseInstances(newCount, existingData, defaultTime);
 }
 
 // НОВАЯ ФУНКЦИЯ: Рендер тегов (причин срыва)
@@ -10413,8 +11807,8 @@ function openRelapseModal() {
     if (isClaiming) return; 
     playSound('click'); 
     const now = new Date(); const offset = now.getTimezoneOffset() * 60000; const isoStr = new Date(now.getTime() - offset).toISOString(); 
+    window.currentRelapseDefaultTime = isoStr.slice(11, 16);
     document.getElementById('relapse-date-picker').value = isoStr.split('T')[0]; 
-    document.getElementById('relapse-time-picker').value = isoStr.slice(11, 16); 
     document.getElementById('relapse-warning').style.display = 'none'; 
     document.getElementById('relapse-note-input').value = ''; // Очищаем текст заметки
     selectedRelapseTags = []; // ВАЖНО: Очищаем выбранные теги перед открытием!
@@ -10436,12 +11830,12 @@ function openEditRelapseModal() {
     playSound('click');
     let currentCount = calendarData[dateStr];
     if (currentCount > 20) currentCount = 20; 
-    const currentTime = relapseTimes[dateStr] || "12:00";
+    const currentTime = (relapseTimes && relapseTimes[dateStr]) || "12:00";
+    window.currentEditRelapseDefaultTime = currentTime;
     const currentReasons = relapseReasons[dateStr] ? [...relapseReasons[dateStr]] : [];
     document.getElementById('edit-relapse-date-picker').value = dateStr;
-    document.getElementById('edit-relapse-time-picker').value = currentTime;
     document.getElementById('edit-relapse-count-input').value = currentCount;
-    renderEditRelapseInstances(currentCount, relapseDetails[dateStr] || null);
+    renderEditRelapseInstances(currentCount, relapseDetails[dateStr] || [], currentTime);
     document.getElementById('edit-relapse-count-hint').style.display = 'none';
     document.getElementById('edit-relapse-warning').style.display = currentCount >= 15 ? 'block' : 'none';
     const container = document.getElementById('edit-relapse-tags-container');
@@ -10466,11 +11860,13 @@ function confirmEditRelapse() {
     if (!currentNoteDateStr) return;
     const oldDateStr = currentNoteDateStr;
     const newDateStr = document.getElementById('edit-relapse-date-picker').value;
-    const newTime = document.getElementById('edit-relapse-time-picker').value;
     let newCount = parseInt(document.getElementById('edit-relapse-count-input').value);
     if (isNaN(newCount) || newCount < 1) newCount = 1;
     if (newCount > 20) newCount = 20;
-    const newDetailsArray = getRelapseInstancesDataFromDOM('edit-relapse-details-container');
+    const fallbackT = (relapseTimes && relapseTimes[oldDateStr]) || window.currentEditRelapseDefaultTime || '12:00';
+    const newDetailsArray = getRelapseInstancesDataFromDOM('edit-relapse-details-container', fallbackT);
+    const validTimes = newDetailsArray.map(d => d.time).filter(Boolean).sort();
+    const newTime = validTimes[validTimes.length - 1] || fallbackT;
     const newReasons = window.tempEditRelapseTags || [];
     if (!newDateStr || !newTime) { showAppNotification('Ошибка', 'Заполните дату и время.', '#ff4444'); return; }
     playSound('click'); vibrate(50);
@@ -10504,32 +11900,35 @@ function confirmEditRelapse() {
     currentNoteDateStr = null; document.getElementById('edit-relapse-modal').style.display = 'none'; document.getElementById('note-modal').style.display = 'none';
 }
 
-function applyRelapsePenalty(count, detailsArray, targetStats = null) { 
+function applyRelapsePenalty(count, detailsArray, targetStats = null, options = null) { 
     const s = targetStats || stats;
+    const inChaser = !!(options && options.inChaser);
+    const chaserBoost = inChaser ? 1.25 : 1.0;
     let totalPenalty = { self: 0, anx: 0, crav: 0, pfk: 0, energy: 0, mind: 0, reward: 0, clarity: 0, mot: 0, esteem: 0 };
-    let paramsHTML = `<b style="color: #f8b500;">[Параметры]:</b><br>`;
+    let paramsHTML = inChaser ? `<b style="color: #ff7a33;">[Фаза погони: урон +25% по воле, тяге и дофамину]</b><br><b style="color: #f8b500;">[Параметры]:</b><br>` : `<b style="color: #f8b500;">[Параметры]:</b><br>`;
     let stepsHTML = `<b style="color: #f8b500;">Шаги (${count}):</b><br>`;
     let stepLogs = [];
     if (!Array.isArray(detailsArray)) { detailsArray = detailsArray ? [detailsArray] : []; }
     for (let i = 0; i < count; i++) {
         const details = detailsArray[i] || detailsArray[detailsArray.length - 1] || { urge: 5, shame: 5, duration: 5, dopamine: 5, sleep: 5 };
-        paramsHTML += `<b style="color: #ff4444;">Срыв ${i+1}</b> – Ломка: ${details.urge}, Стыд: ${details.shame}, Длит: ${details.duration}, Пик: ${details.dopamine}, Сон: ${details.sleep}<br>`;
+        const instTimeLabel = details.time ? ` (${details.time})` : '';
+        paramsHTML += `<b style="color: #ff4444;">Срыв ${i+1}${instTimeLabel}</b> – Ломка: ${details.urge}, Стыд: ${details.shame}, Длит: ${details.duration}, Пик: ${details.dopamine}, Сон: ${details.sleep}<br>`;
         const prev = { self: s.selfcontrol || 0, anx: s.anxiety || 0, crav: s.craving || 0, pfk: s.pfk || 0, energy: s.energy || 0, mind: s.mindfulness || 0, reward: s.reward || 0, clarity: s.clarity || 0, mot: s.motivation || 0, esteem: s.esteem || 0 };
         let dUrge = typeof details.urge === 'number' && !isNaN(details.urge) ? details.urge : 5;
         let dShame = typeof details.shame === 'number' && !isNaN(details.shame) ? details.shame : 5;
         let dDuration = typeof details.duration === 'number' && !isNaN(details.duration) ? details.duration : 5;
         let dDopamine = typeof details.dopamine === 'number' && !isNaN(details.dopamine) ? details.dopamine : 5;
         let dSleep = typeof details.sleep === 'number' && !isNaN(details.sleep) ? details.sleep : 5;
-        let selfRaw = -(2.5 + (10 - dSleep) * 0.5);
+        let selfRaw = -(2.5 + (10 - dSleep) * 0.5) * chaserBoost;
         let pfkRaw = -(2.5 + (10 - dSleep) * 0.5);
         let energyRaw = -(2.5 + dDuration * 0.5);
         let mindRaw = -(2.0 + dDuration * 0.45 + dUrge * 0.25);
-        let rewardRaw = -(5.0 + dDopamine * 0.5);
+        let rewardRaw = -(5.0 + dDopamine * 0.5) * chaserBoost;
         let clarityRaw = -(3.5 + dDuration * 0.5);
-        let motRaw = -(3.5 + dDopamine * 0.35 + dDuration * 0.35);
+        let motRaw = -(3.5 + dDopamine * 0.35 + dDuration * 0.35) * chaserBoost;
         let esteemRaw = -(2.5 + dShame * 0.5);
         let anxRaw = (2.5 + dUrge * 0.5);
-        let cravRaw = (3.0 + dUrge * 0.4 + dDopamine * 0.3);
+        let cravRaw = (3.0 + dUrge * 0.4 + dDopamine * 0.3) * chaserBoost;
         const selfMult = Math.max(0.25, (100 - Math.abs(prev.self)) / 100);
         const anxMult = Math.max(0, (100 - Math.abs(prev.anx)) / 100);
         const cravMult = Math.max(0, (100 - Math.abs(prev.crav)) / 100);
@@ -10581,6 +11980,8 @@ function recalculateAll(writeLogs = false) {
     const oldSuppress = _suppressLogSideEffects;
     if (writeLogs) { _suppressLogSideEffects = true; logs = []; addLog('Запущен перерасчёт базы', '<span style="color:#4facfe">История очищена для корректного пересчёта.</span>', '<span style="color:#888">Подождите...</span>', 'recalc'); }
     let segment = null; let streakDayNumber = 0;
+    const phaseTimeline = createPhaseTimelineState();
+    const crisesList = sanitizeCravingEpisodes(userProfile.cravingEpisodes);
     const flushSegment = () => {
         if (!segment) return;
         if (segment.type === 'clean') {
@@ -10617,7 +12018,8 @@ function recalculateAll(writeLogs = false) {
             let count = calendarData[dateStr]; 
             let detailsArray = relapseDetails[dateStr] || [];
             if (!Array.isArray(detailsArray)) detailsArray = [detailsArray];
-            let penaltyResult = applyRelapsePenalty(count, detailsArray);
+            const phaseRes = advancePhaseTimelineDay(phaseTimeline, dateStr, true, count, 0);
+            let penaltyResult = applyRelapsePenalty(count, detailsArray, null, { inChaser: phaseRes.wasInChaser });
             segment.self += penaltyResult.totals.self; segment.anx += penaltyResult.totals.anx; segment.crav += penaltyResult.totals.crav; segment.pfk += penaltyResult.totals.pfk; segment.energy += penaltyResult.totals.energy; segment.mind += penaltyResult.totals.mind; segment.reward += penaltyResult.totals.reward; segment.clarity += penaltyResult.totals.clarity; segment.mot += penaltyResult.totals.mot; segment.esteem += penaltyResult.totals.esteem;
             if (penaltyResult.detailsHTML) { segment.details += (segment.details ? '<br><hr style="border-color:#444; margin:5px 0;">' : '') + penaltyResult.detailsHTML; }
             userProfile.currentStreak = 0; streakDayNumber = 0;
@@ -10627,22 +12029,56 @@ function recalculateAll(writeLogs = false) {
             streakDayNumber++;
             if (!segment || segment.type !== 'clean') { flushSegment(); segment = { type: 'clean', startDay: streakDayNumber, endDay: streakDayNumber, self: 0, anx: 0, crav: 0, pfk: 0, energy: 0, mind: 0, reward: 0, clarity: 0, mot: 0, esteem: 0, totalBaseXp: 0, totalBonusXp: 0, totalXp: 0 }; } else { segment.endDay = streakDayNumber; }
             calendarData[dateStr] = 'clean'; let dayNum = Math.floor((d - startObj) / (1000 * 60 * 60 * 24)); if (dayNum < 0) dayNum = 0;
+            const phaseRes = advancePhaseTimelineDay(phaseTimeline, dateStr, false, 0, streakDayNumber);
             let mult = getMultiplier(dayNum); let oldStats = { ...stats };
-            stats.selfcontrol = applyUncappedStatGrowth(stats.selfcontrol, 1.0, mult); stats.pfk = applyUncappedStatGrowth(stats.pfk, 1.0, mult); stats.energy = applyUncappedStatGrowth(stats.energy, 1.0, mult); stats.mindfulness = applyUncappedStatGrowth(stats.mindfulness, 0.9, mult); stats.reward = applySecondaryStatGrowth(stats.reward, 0.5, mult); stats.clarity = applySecondaryStatGrowth(stats.clarity, 0.8, mult); stats.motivation = applySecondaryStatGrowth(stats.motivation, 0.6, mult); stats.esteem = applySecondaryStatGrowth(stats.esteem, 0.4, mult); 
-            stats.anxiety = updateAnxietyForCleanDay(stats.anxiety, streakDayNumber);
-            stats.craving = updateCravingForCleanDay(stats.craving, streakDayNumber);
+            stepCleanDayWithPhase(stats, mult, streakDayNumber, phaseRes);
             currentStreak++; userProfile.currentStreak = currentStreak; if (currentStreak > maxStreakInHistory) maxStreakInHistory = currentStreak; updatePeakStats(stats, currentStreak); let totalGain = 100 + currentStreak * 5; userProfile.totalXP += totalGain;
             let dSelf = stats.selfcontrol - oldStats.selfcontrol, dAnx = stats.anxiety - oldStats.anxiety, dCrav = stats.craving - oldStats.craving, dPfk = stats.pfk - oldStats.pfk, dEnergy = stats.energy - oldStats.energy, dMind = stats.mindfulness - oldStats.mindfulness, dReward = stats.reward - oldStats.reward, dClarity = stats.clarity - oldStats.clarity, dMot = stats.motivation - oldStats.motivation, dEsteem = stats.esteem - oldStats.esteem;
             segment.self += dSelf; segment.anx += dAnx; segment.crav += dCrav; segment.pfk += dPfk; segment.energy += dEnergy; segment.mind += dMind; segment.reward += dReward; segment.clarity += dClarity; segment.mot += dMot; segment.esteem += dEsteem; segment.totalBaseXp += 100; segment.totalBonusXp += currentStreak * 5; segment.totalXp += totalGain;
             newDailyStats[dateStr] = { self: dSelf, anx: dAnx, crav: dCrav, pfk: dPfk, energy: dEnergy, mind: dMind, reward: dReward, clarity: dClarity, mot: dMot, esteem: dEsteem, xp: totalGain };
         }
+        if (!isRelapse && dateStr >= startStr) {
+            const cDayNum = Math.max(0, Math.floor((d - startObj) / (1000 * 60 * 60 * 24)));
+            crisesList.forEach(ep => {
+                const epS = ep.startAt.split('T')[0];
+                const epE = ep.endAt ? ep.endAt.split('T')[0] : null;
+                if (epS === dateStr) {
+                    const startImp = applyCrisisStartImpact(stats, ep.intensity);
+                    ep.startImpact = startImp;
+                    if (writeLogs) {
+                        flushSegment();
+                        let sHtml = '';
+                        if (startImp.craving !== 0) sHtml += `<span style="color:#ff7a33">🔥 +${startImp.craving.toFixed(2)}%</span> `;
+                        if (startImp.anxiety !== 0) sHtml += `<span style="color:#ff416c">😰 +${startImp.anxiety.toFixed(2)}%</span>`;
+                        if (!sHtml) sHtml = '<span style="color:#f8b500">Зафиксирована волна тяги</span>';
+                        const ts = `${formatCrisisDateRU(epS)} ${ep.startAt.split('T')[1] || '00:00'}`;
+                        addLog(`⚡ Началась фаза ломки (Сила ${ep.intensity}/10)`, sHtml, `<span style="color:#f8b500">Удержитесь без срыва!</span>`, 'crisis', '', ts);
+                    }
+                }
+                if (ep.outcome === 'survived' && epE === dateStr) {
+                    const durHrs = getCrisisDurationHours(ep.startAt, ep.endAt);
+                    const bonus = applyCrisisSurvivalBonus(stats, ep.intensity, cDayNum, durHrs);
+                    ep.survivalBonus = bonus;
+                    userProfile.totalXP += bonus.xp;
+                    updatePeakStats(stats, currentStreak);
+                    if (writeLogs) {
+                        flushSegment();
+                        const bHtml = `<span style="color:#4CAF50">🔥 ${bonus.craving.toFixed(2)}%</span> <span style="color:#4CAF50">😰 ${bonus.anxiety.toFixed(2)}%</span> <span style="color:#00f2fe">🧠 +${bonus.pfk.toFixed(2)}%</span> <span style="color:#96c93d">🛡️ +${bonus.selfcontrol.toFixed(2)}%</span>`;
+                        const ts = `${formatCrisisDateRU(epE)} ${ep.endAt.split('T')[1] || '00:00'}`;
+                        addLog(`✅ Ломка отступила (${formatCrisisDurationShort(durHrs)} · Сила ${ep.intensity}/10 · ×${bonus.durationFactor.toFixed(2)})`, bHtml, `<span style="color:#b224ef; font-weight:bold;">⭐ +${bonus.xp} XP</span>`, 'crisis', '', ts);
+                    }
+                }
+            });
+        }
         if (!isRelapse && dateStr >= startStr && userProfile.questHistoryByDate && userProfile.questHistoryByDate[dateStr]) {
             const qList = userProfile.questHistoryByDate[dateStr];
             if (Array.isArray(qList) && qList.length > 0) {
                 if (!newDailyStats[dateStr]) newDailyStats[dateStr] = { self: 0, anx: 0, crav: 0, pfk: 0, energy: 0, mind: 0, reward: 0, clarity: 0, mot: 0, esteem: 0, xp: 0 };
+                const qDayNum = Math.max(0, Math.floor((d - startObj) / (1000 * 60 * 60 * 24)));
                 qList.forEach(q => {
                     const oldQ = { ...stats };
-                    applyQuestStatBonus(stats, q.statKey, q.delta);
+                    const effectiveDelta = q.difficulty ? getQuestRewardDelta(q.statKey, q.difficulty, stats, qDayNum) : q.delta;
+                    applyQuestStatBonus(stats, q.statKey, effectiveDelta);
                     const qXp = q.xp || 0;
                     userProfile.totalXP += qXp;
                     newDailyStats[dateStr].self += (stats.selfcontrol - oldQ.selfcontrol);
@@ -10661,9 +12097,11 @@ function recalculateAll(writeLogs = false) {
             }
         }
     }
+    userProfile.cravingEpisodes = crisesList;
     flushSegment(); userProfile.currentStreak = currentStreak; userProfile.bestStreak = Math.max(userProfile.bestStreak || 0, maxStreakInHistory); userProfile.dailyStats = newDailyStats; recalculateLevel();
     if (writeLogs) { _suppressLogSideEffects = oldSuppress; renderLogs(); }
     invalidateStreakDayCache();
+    if (typeof updatePhaseBannerUI === 'function') updatePhaseBannerUI();
 }
 
 function confirmRelapse() {
@@ -10672,9 +12110,12 @@ function confirmRelapse() {
     let count = parseInt(document.getElementById('relapse-count-input').value); 
     if (isNaN(count) || count < 1) count = 1;
     if (count > 20) count = 20; 
-    const relapseDate = document.getElementById('relapse-date-picker').value; let relapseTime = document.getElementById('relapse-time-picker').value;
-    const detailsArray = getRelapseInstancesDataFromDOM('relapse-details-container');
-    if (!relapseDate || !relapseTime) { showAppNotification('Ошибка', 'Укажите дату и время срыва.', '#ff4444'); return; }
+    const relapseDate = document.getElementById('relapse-date-picker').value;
+    const fallbackTime = window.currentRelapseDefaultTime || getCurrentHHMM();
+    const detailsArray = getRelapseInstancesDataFromDOM('relapse-details-container', fallbackTime);
+    const sortedTimes = detailsArray.map(d => d.time).filter(Boolean).sort();
+    const relapseTime = sortedTimes[sortedTimes.length - 1] || '';
+    if (!relapseDate || !relapseTime) { showAppNotification('Ошибка', 'Укажите дату и время для каждого срыва.', '#ff4444'); return; }
     const combined = `${relapseDate}T${relapseTime}`; const noteText = document.getElementById('relapse-note-input').value.trim(); closeRelapseModal();
     const todayStr = getLocalDateString(new Date()); const isPast = relapseDate < todayStr;
     userProfile.bestStreak = Math.max(userProfile.bestStreak || 0, userProfile.currentStreak); calendarData[relapseDate] = count;
@@ -10683,14 +12124,26 @@ function confirmRelapse() {
     if (noteText) calendarNotes[relapseDate] = noteText; else delete calendarNotes[relapseDate];
     if (!relapseDetails) relapseDetails = {}; 
     relapseDetails[relapseDate] = detailsArray;
+    if (Array.isArray(userProfile.cravingEpisodes)) {
+        userProfile.cravingEpisodes.forEach(ep => {
+            if (ep.outcome === 'active') {
+                const matchTime = sortedTimes.find(t => `${relapseDate}T${t}` >= ep.startAt);
+                const matchCombined = matchTime ? `${relapseDate}T${matchTime}` : combined;
+                if (matchCombined >= ep.startAt) {
+                    ep.outcome = 'relapsed';
+                    ep.endAt = matchCombined;
+                }
+            }
+        });
+    }
     invalidateStreakDayCache();
     const startStr = userProfile.startDate ? userProfile.startDate.split('T')[0] : ''; const isArchived = relapseDate < startStr;
     if (isPast) { 
-        if (isArchived) { saveData(); renderCalendar(); renderCalendarNotes(); showAppNotification('Внимание', 'Срыв добавлен в архив (перерасчёт не требуется).', '#4facfe'); return; }
+        if (isArchived) { saveData(); renderCalendar(); renderCalendarNotes(); renderLogs(); showAppNotification('Внимание', 'Срыв добавлен в архив (перерасчёт не требуется).', '#4facfe'); return; }
         if (trackerSettings.autoRecalc) {
             recalculateAll(true); updateAllStatsUI(); updateProfileUI(); updateClaimTimer(); saveData(); renderCalendar(); renderCalendarNotes(); showAppNotification('Внимание', 'Срыв добавлен. База пересчитана автоматически.', '#4facfe'); setTimeout(checkAchievements, 1900);
         } else {
-            isRecalcPending = true; stats = createZeroStats(); userProfile.totalXP = 0; userProfile.level = 1; userProfile.currentStreak = 0; userProfile.dailyStats = {}; updateAllStatsUI(); updateProfileUI(); updateClaimTimer(); saveData(); renderCalendar(); renderCalendarNotes(); showAppNotification('Внимание', 'Срыв добавлен в прошлое. Нажмите «Сделать перерасчёт» на главном экране.', '#4facfe');
+            isRecalcPending = true; stats = createZeroStats(); userProfile.totalXP = 0; userProfile.level = 1; userProfile.currentStreak = 0; userProfile.dailyStats = {}; updateAllStatsUI(); updateProfileUI(); updateClaimTimer(); saveData(); renderCalendar(); renderCalendarNotes(); renderLogs(); showAppNotification('Внимание', 'Срыв добавлен в прошлое. Нажмите «Сделать перерасчёт» на главном экране.', '#4facfe');
         }
         return; 
     }
@@ -10714,7 +12167,8 @@ function confirmRelapse() {
     if (diffSelf !== 0) statsHTML += `<span style="color:#ff4444">🛡️ ${diffSelf > 0 ? '+' : ''}${diffSelf.toFixed(2)}%</span>`; if (diffAnx !== 0) statsHTML += `<span style="color:#ff4444">😰 ${diffAnx > 0 ? '+' : ''}${diffAnx.toFixed(2)}%</span>`; if (diffCrav !== 0) statsHTML += `<span style="color:#ff4444">🔥 ${diffCrav > 0 ? '+' : ''}${diffCrav.toFixed(2)}%</span>`; if (diffPfk !== 0) statsHTML += `<span style="color:#ff4444">🧠 ${diffPfk > 0 ? '+' : ''}${diffPfk.toFixed(2)}%</span>`; if (diffEnergy !== 0) statsHTML += `<span style="color:#ff4444">⚡ ${diffEnergy > 0 ? '+' : ''}${diffEnergy.toFixed(2)}%</span>`; if (diffMind !== 0) statsHTML += `<span style="color:#ff4444">🧘 ${diffMind > 0 ? '+' : ''}${diffMind.toFixed(2)}%</span>`; if (diffReward !== 0) statsHTML += `<span style="color:#ff4444">🎯 ${diffReward > 0 ? '+' : ''}${diffReward.toFixed(2)}%</span>`; if (diffClarity !== 0) statsHTML += `<span style="color:#ff4444">💡 ${diffClarity > 0 ? '+' : ''}${diffClarity.toFixed(2)}%</span>`; if (diffMot !== 0) statsHTML += `<span style="color:#ff4444">🚀 ${diffMot > 0 ? '+' : ''}${diffMot.toFixed(2)}%</span>`; if (diffEsteem !== 0) statsHTML += `<span style="color:#ff4444">👑 ${diffEsteem > 0 ? '+' : ''}${diffEsteem.toFixed(2)}%</span>`;
     if (statsHTML === '') statsHTML = '<span style="color:#888">Штраф поглощён (статы на нуле)</span>';
     let xpHTML = `<span style="color:#F44336; font-weight:bold;">⭐ +0 XP</span>`; if (diffXp < 0) xpHTML += ` <span style="color:#b224ef; font-weight:bold;">(${formatNumber(diffXp)} XP)</span>`;
-    logStr = count === 1 ? `Срыв! (${relapseTime})` : `Срыв! (${count} раз, ${relapseTime})`;
+    const timesSummary = detailsArray.map(d => d.time).filter(Boolean).join(', ') || relapseTime;
+    logStr = count === 1 ? `Срыв! (${timesSummary})` : `Срыв! (${count} раз · ${timesSummary})`;
     const tempStats = { ...oldStats };
     const dummyPenalty = applyRelapsePenalty(count, detailsArray, tempStats);
     let logDetails = dummyPenalty.detailsHTML;
@@ -10737,6 +12191,8 @@ async function startFullRecalc() {
     const totalDaysToProcess = Math.floor((todayObj - startObj) / (1000 * 60 * 60 * 24)) + 1;
     let delay = 60; if (trackerSettings.animSpeed === 'slow') delay = 400; else if (trackerSettings.animSpeed === 'medium') delay = 150; else if (trackerSettings.animSpeed === 'fast') delay = 60; else if (trackerSettings.animSpeed === 'veryfast') delay = 15; else if (trackerSettings.animSpeed === 'adaptive') delay = Math.max(15, Math.min(400, 4000 / Math.max(1, totalDaysToProcess)));
     let textDuration = Math.max(50, delay - 10); let segment = null; let streakDayNumber = 0;
+    const phaseTimeline = createPhaseTimelineState();
+    const crisesList = sanitizeCravingEpisodes(userProfile.cravingEpisodes);
     
     const flushSegment = () => {
         if (!segment) return;
@@ -10757,7 +12213,8 @@ async function startFullRecalc() {
                 const count = calendarData[dateStr]; 
                 let detailsArray = relapseDetails[dateStr] || [];
                 if (!Array.isArray(detailsArray)) detailsArray = [detailsArray];
-                const penalty = applyRelapsePenalty(count, detailsArray);
+                const phaseRes = advancePhaseTimelineDay(phaseTimeline, dateStr, true, count, 0);
+                const penalty = applyRelapsePenalty(count, detailsArray, null, { inChaser: phaseRes.wasInChaser });
                 userProfile.currentStreak = 0; streakDayNumber = 0;
                 const dSelf = penalty.totals.self; const dAnx = penalty.totals.anx; const dCrav = penalty.totals.crav; const dPfk = penalty.totals.pfk; const dEnergy = penalty.totals.energy; const dMind = penalty.totals.mind; const dReward = penalty.totals.reward; const dClarity = penalty.totals.clarity; const dMot = penalty.totals.mot; const dEsteem = penalty.totals.esteem;
                 let statsHTML = ''; if (dSelf !== 0) statsHTML += `<span style="color:#F44336">🛡️ ${dSelf > 0 ? '+' : ''}${dSelf.toFixed(2)}%</span>`; if (dAnx !== 0) statsHTML += `<span style="color:#F44336">😰 ${dAnx > 0 ? '+' : ''}${dAnx.toFixed(2)}%</span>`; if (dCrav !== 0) statsHTML += `<span style="color:#F44336">🔥 ${dCrav > 0 ? '+' : ''}${dCrav.toFixed(2)}%</span>`; if (dPfk !== 0) statsHTML += `<span style="color:#F44336">🧠 ${dPfk > 0 ? '+' : ''}${dPfk.toFixed(2)}%</span>`; if (dEnergy !== 0) statsHTML += `<span style="color:#F44336">⚡ ${dEnergy > 0 ? '+' : ''}${dEnergy.toFixed(2)}%</span>`; if (dMind !== 0) statsHTML += `<span style="color:#F44336">🧘 ${dMind > 0 ? '+' : ''}${dMind.toFixed(2)}%</span>`; if (dReward !== 0) statsHTML += `<span style="color:#F44336">🎯 ${dReward > 0 ? '+' : ''}${dReward.toFixed(2)}%</span>`; if (dClarity !== 0) statsHTML += `<span style="color:#F44336">💡 ${dClarity > 0 ? '+' : ''}${dClarity.toFixed(2)}%</span>`; if (dMot !== 0) statsHTML += `<span style="color:#F44336">🚀 ${dMot > 0 ? '+' : ''}${dMot.toFixed(2)}%</span>`; if (dEsteem !== 0) statsHTML += `<span style="color:#F44336">👑 ${dEsteem > 0 ? '+' : ''}${dEsteem.toFixed(2)}%</span>`;
@@ -10768,19 +12225,48 @@ async function startFullRecalc() {
                 streakDayNumber++;
                 calendarData[dateStr] = 'clean';
                 if (!segment || segment.type !== 'clean') { flushSegment(); segment = { type: 'clean', startDay: streakDayNumber, endDay: streakDayNumber, self: 0, anx: 0, crav: 0, pfk: 0, energy: 0, mind: 0, reward: 0, clarity: 0, mot: 0, esteem: 0, totalBaseXp: 0, totalBonusXp: 0, totalXp: 0, startLevel: calcLevelFromXP(userProfile.totalXP) }; } else { segment.endDay = streakDayNumber; }
+                const phaseRes = advancePhaseTimelineDay(phaseTimeline, dateStr, false, 0, streakDayNumber);
                 const mult = getMultiplier(dayNum < 0 ? 0 : dayNum);
-                stats.selfcontrol = applyUncappedStatGrowth(stats.selfcontrol, 1.0, mult); stats.pfk = applyUncappedStatGrowth(stats.pfk, 1.0, mult); stats.energy = applyUncappedStatGrowth(stats.energy, 1.0, mult); stats.mindfulness = applyUncappedStatGrowth(stats.mindfulness, 0.9, mult); stats.reward = applySecondaryStatGrowth(stats.reward, 0.5, mult); stats.clarity = applySecondaryStatGrowth(stats.clarity, 0.8, mult); stats.motivation = applySecondaryStatGrowth(stats.motivation, 0.6, mult); stats.esteem = applySecondaryStatGrowth(stats.esteem, 0.4, mult);
-                stats.anxiety = updateAnxietyForCleanDay(stats.anxiety, streakDayNumber);
-                stats.craving = updateCravingForCleanDay(stats.craving, streakDayNumber);
+                stepCleanDayWithPhase(stats, mult, streakDayNumber, phaseRes);
                 userProfile.currentStreak++; if (userProfile.currentStreak > maxStreakInHistory) maxStreakInHistory = userProfile.currentStreak; updatePeakStats(stats, userProfile.currentStreak); const xpBase = 100; const xpBonus = userProfile.currentStreak * 5; const xpTotal = xpBase + xpBonus; userProfile.totalXP += xpTotal;
                 segment.self += (stats.selfcontrol - old.selfcontrol); segment.anx += (stats.anxiety - old.anxiety); segment.crav += (stats.craving - old.craving); segment.pfk += (stats.pfk - old.pfk); segment.energy += (stats.energy - old.energy); segment.mind += (stats.mindfulness - old.mindfulness); segment.reward += (stats.reward - old.reward); segment.clarity += (stats.clarity - old.clarity); segment.mot += (stats.motivation - old.motivation); segment.esteem += (stats.esteem - old.esteem);
                 segment.totalBaseXp += xpBase; segment.totalBonusXp += xpBonus; segment.totalXp += xpTotal;
                 const dSelf = stats.selfcontrol - old.selfcontrol; const dAnx = stats.anxiety - old.anxiety; const dCrav = stats.craving - old.craving; const dPfk = stats.pfk - old.pfk; const dEnergy = stats.energy - old.energy; const dMind = stats.mindfulness - old.mindfulness; const dReward = stats.reward - old.reward; const dClarity = stats.clarity - old.clarity; const dMot = stats.motivation - old.motivation; const dEsteem = stats.esteem - old.esteem;
                 if (!recalcSkipRequested) { showFloatingText('selfcontrol', dSelf, false, textDuration); showFloatingText('anxiety', dAnx, true, textDuration); showFloatingText('craving', dCrav, true, textDuration); showFloatingText('pfk', dPfk, false, textDuration); showFloatingText('energy', dEnergy, false, textDuration); showFloatingText('mindfulness', dMind, false, textDuration); showFloatingText('reward', dReward, false, textDuration); showFloatingText('clarity', dClarity, false, textDuration); showFloatingText('motivation', dMot, false, textDuration); showFloatingText('esteem', dEsteem, false, textDuration); }
             }
+            if (!isRelapse) {
+                const cDayNum = dayNum < 0 ? 0 : dayNum;
+                crisesList.forEach(ep => {
+                    const epS = ep.startAt.split('T')[0];
+                    const epE = ep.endAt ? ep.endAt.split('T')[0] : null;
+                    if (epS === dateStr) {
+                        const startImp = applyCrisisStartImpact(stats, ep.intensity);
+                        ep.startImpact = startImp;
+                        flushSegment();
+                        let sHtml = '';
+                        if (startImp.craving !== 0) sHtml += `<span style="color:#ff7a33">🔥 +${startImp.craving.toFixed(2)}%</span> `;
+                        if (startImp.anxiety !== 0) sHtml += `<span style="color:#ff416c">😰 +${startImp.anxiety.toFixed(2)}%</span>`;
+                        if (!sHtml) sHtml = '<span style="color:#f8b500">Зафиксирована волна тяги</span>';
+                        const ts = `${formatCrisisDateRU(epS)} ${ep.startAt.split('T')[1] || '00:00'}`;
+                        addLog(`⚡ Началась фаза ломки (Сила ${ep.intensity}/10)`, sHtml, `<span style="color:#f8b500">Удержитесь без срыва!</span>`, 'crisis', '', ts);
+                    }
+                    if (ep.outcome === 'survived' && epE === dateStr) {
+                        const durHrs = getCrisisDurationHours(ep.startAt, ep.endAt);
+                        const bonus = applyCrisisSurvivalBonus(stats, ep.intensity, cDayNum, durHrs);
+                        ep.survivalBonus = bonus;
+                        userProfile.totalXP += bonus.xp;
+                        updatePeakStats(stats, userProfile.currentStreak);
+                        flushSegment();
+                        const bHtml = `<span style="color:#4CAF50">🔥 ${bonus.craving.toFixed(2)}%</span> <span style="color:#4CAF50">😰 ${bonus.anxiety.toFixed(2)}%</span> <span style="color:#00f2fe">🧠 +${bonus.pfk.toFixed(2)}%</span> <span style="color:#96c93d">🛡️ +${bonus.selfcontrol.toFixed(2)}%</span>`;
+                        const ts = `${formatCrisisDateRU(epE)} ${ep.endAt.split('T')[1] || '00:00'}`;
+                        addLog(`✅ Ломка отступила (${formatCrisisDurationShort(durHrs)} · Сила ${ep.intensity}/10 · ×${bonus.durationFactor.toFixed(2)})`, bHtml, `<span style="color:#b224ef; font-weight:bold;">⭐ +${bonus.xp} XP</span>`, 'crisis', '', ts);
+                    }
+                });
+            }
             if (!isRelapse && userProfile.questHistoryByDate && userProfile.questHistoryByDate[dateStr]) {
                 userProfile.questHistoryByDate[dateStr].forEach(q => {
-                    applyQuestStatBonus(stats, q.statKey, q.delta);
+                    const effectiveDelta = q.difficulty ? getQuestRewardDelta(q.statKey, q.difficulty, stats, dayNum < 0 ? 0 : dayNum) : q.delta;
+                    applyQuestStatBonus(stats, q.statKey, effectiveDelta);
                     userProfile.totalXP += (q.xp || 0);
                 });
                 updatePeakStats(stats, userProfile.currentStreak);
@@ -10789,9 +12275,10 @@ async function startFullRecalc() {
             loopDate.setDate(loopDate.getDate() + 1);
         }
     } catch(e) { console.error("Ошибка во время перерасчёта:", e); } finally {
+        userProfile.cravingEpisodes = crisesList;
         flushSegment(); userProfile.bestStreak = Math.max(userProfile.bestStreak || 0, maxStreakInHistory); recalculateLevel(); userProfile.lastClaimedDate = getLocalDateTimeString(new Date()); isClaiming = false;
         if (btnSkip) btnSkip.style.display = 'none';
-        recalculateLevel(); updateRankUI(); updateAllStatsUI(); updateProfileUI(); updateClaimTimer(); _suppressLogSideEffects = false; renderLogs(); invalidateStreakDayCache(); saveData(); checkAchievements();
+        recalculateLevel(); updateRankUI(); updateAllStatsUI(); updateProfileUI(); updateClaimTimer(); _suppressLogSideEffects = false; renderLogs(); renderQuests(); invalidateStreakDayCache(); saveData(); checkAchievements();
         showAppNotification('Успех', 'Перерасчёт базы завершён!', '#4facfe'); playSound('claim'); vibrate(100);
     }
 }
@@ -10811,6 +12298,8 @@ async function claimReward() {
         const dayInfos = [];
         for (let i = 1; i <= unclaimedDays; i++) { const d = new Date(lastClaimed); d.setDate(d.getDate() + i); const dateStr = getLocalDateString(d); if (typeof calendarData[dateStr] !== 'number') { if (calendarData[dateStr] !== 'clean') pendingCalendarAnimations.push({ date: dateStr, type: 'clean' }); calendarData[dateStr] = 'clean'; } dayInfos.push({ dateStr: dateStr, isRelapse: typeof calendarData[dateStr] === 'number', count: typeof calendarData[dateStr] === 'number' ? calendarData[dateStr] : 0 }); }
         let multBaseDay = Math.floor((today - start) / (1000 * 60 * 60 * 24)) - unclaimedDays; if (multBaseDay < 0) multBaseDay = 0;
+        const lastClaimedStrOnly = getLocalDateString(lastClaimed);
+        const phaseTimeline = buildPhaseTimelineUpTo(lastClaimedStrOnly).state;
         let segment = null;
         const flushSegment = () => {
             if (!segment) return;
@@ -10824,7 +12313,8 @@ async function claimReward() {
                 if (!segment || segment.type !== 'relapse') { flushSegment(); segment = { type: 'relapse', startDay: dayNumber, endDay: dayNumber, count: info.count, details: '' }; } else { segment.endDay = dayNumber; segment.count += info.count; } 
                 let detailsArray = relapseDetails[info.dateStr] || []; 
                 if (!Array.isArray(detailsArray)) detailsArray = [detailsArray];
-                const penalty = applyRelapsePenalty(info.count, detailsArray);
+                const phaseRes = advancePhaseTimelineDay(phaseTimeline, info.dateStr, true, info.count, 0);
+                const penalty = applyRelapsePenalty(info.count, detailsArray, null, { inChaser: phaseRes.wasInChaser });
                 if (penalty.detailsHTML) segment.details += (segment.details ? '<br><hr style="border-color:#444; margin:5px 0;">' : '') + penalty.detailsHTML;
                 updateAllStatsUI(); 
                 showFloatingText('selfcontrol', penalty.totals.self, false, textDuration); showFloatingText('anxiety', penalty.totals.anx, true, textDuration); showFloatingText('craving', penalty.totals.crav, true, textDuration); showFloatingText('pfk', penalty.totals.pfk, false, textDuration); showFloatingText('energy', penalty.totals.energy, false, textDuration); showFloatingText('mindfulness', penalty.totals.mind, false, textDuration); showFloatingText('reward', penalty.totals.reward, false, textDuration); showFloatingText('clarity', penalty.totals.clarity, false, textDuration); showFloatingText('motivation', penalty.totals.mot, false, textDuration); showFloatingText('esteem', penalty.totals.esteem, false, textDuration); 
@@ -10832,17 +12322,17 @@ async function claimReward() {
             } 
             else { 
                 if (!segment || segment.type !== 'clean') { flushSegment(); segment = { type: 'clean', startDay: dayNumber, endDay: dayNumber, self: 0, anx: 0, crav: 0, pfk: 0, energy: 0, mind: 0, reward: 0, clarity: 0, mot: 0, esteem: 0, totalBaseXp: 0, totalBonusXp: 0, totalXp: 0, startLevel: calcLevelFromXP(userProfile.totalXP) }; } else { segment.endDay = dayNumber; } 
-                let d = multBaseDay + i; let mult = getMultiplier(d); const old = { ...stats }; stats.selfcontrol = applyUncappedStatGrowth(stats.selfcontrol, 1.0, mult); 
+                let d = multBaseDay + i; let mult = getMultiplier(d); const old = { ...stats };
                 let dayInStreak = userProfile.currentStreak + 1;
-                stats.anxiety = updateAnxietyForCleanDay(stats.anxiety, dayInStreak);
-                stats.craving = updateCravingForCleanDay(stats.craving, dayInStreak);
-                stats.pfk = applyUncappedStatGrowth(stats.pfk, 1.0, mult); stats.energy = applyUncappedStatGrowth(stats.energy, 1.0, mult); stats.mindfulness = applyUncappedStatGrowth(stats.mindfulness, 0.9, mult); stats.reward = applySecondaryStatGrowth(stats.reward, 0.5, mult); stats.clarity = applySecondaryStatGrowth(stats.clarity, 0.8, mult); stats.motivation = applySecondaryStatGrowth(stats.motivation, 0.6, mult); stats.esteem = applySecondaryStatGrowth(stats.esteem, 0.4, mult); updateAllStatsUI(); const dSelf = stats.selfcontrol - old.selfcontrol; const dAnx = stats.anxiety - old.anxiety; const dCrav = stats.craving - old.craving; const dPfk = stats.pfk - old.pfk; const dEnergy = stats.energy - old.energy; const dMind = stats.mindfulness - old.mindfulness; const dReward = stats.reward - old.reward; const dClarity = stats.clarity - old.clarity; const dMot = stats.motivation - old.motivation; const dEsteem = stats.esteem - old.esteem; showFloatingText('selfcontrol', dSelf, false, textDuration); showFloatingText('anxiety', dAnx, true, textDuration); showFloatingText('craving', dCrav, true, textDuration); showFloatingText('pfk', dPfk, false, textDuration); showFloatingText('energy', dEnergy, false, textDuration); showFloatingText('mindfulness', dMind, false, textDuration); showFloatingText('reward', dReward, false, textDuration); showFloatingText('clarity', dClarity, false, textDuration); showFloatingText('motivation', dMot, false, textDuration); showFloatingText('esteem', dEsteem, false, textDuration); let xpGained = addXPForDay(textDuration); updatePeakStats(stats, userProfile.currentStreak); userProfile.dailyStats[info.dateStr] = { self: dSelf, anx: dAnx, crav: dCrav, pfk: dPfk, energy: dEnergy, mind: dMind, reward: dReward, clarity: dClarity, mot: dMot, esteem: dEsteem, xp: xpGained.total }; segment.self += dSelf; segment.anx += dAnx; segment.crav += dCrav; segment.pfk += dPfk; segment.energy += dEnergy; segment.mind += dMind; segment.reward += dReward; segment.clarity += dClarity; segment.mot += dMot; segment.esteem += dEsteem; segment.totalBaseXp += xpGained.base; segment.totalBonusXp += xpGained.bonus; segment.totalXp += xpGained.total; 
+                const phaseRes = advancePhaseTimelineDay(phaseTimeline, info.dateStr, false, 0, dayInStreak);
+                stepCleanDayWithPhase(stats, mult, dayInStreak, phaseRes);
+                updateAllStatsUI(); const dSelf = stats.selfcontrol - old.selfcontrol; const dAnx = stats.anxiety - old.anxiety; const dCrav = stats.craving - old.craving; const dPfk = stats.pfk - old.pfk; const dEnergy = stats.energy - old.energy; const dMind = stats.mindfulness - old.mindfulness; const dReward = stats.reward - old.reward; const dClarity = stats.clarity - old.clarity; const dMot = stats.motivation - old.motivation; const dEsteem = stats.esteem - old.esteem; showFloatingText('selfcontrol', dSelf, false, textDuration); showFloatingText('anxiety', dAnx, true, textDuration); showFloatingText('craving', dCrav, true, textDuration); showFloatingText('pfk', dPfk, false, textDuration); showFloatingText('energy', dEnergy, false, textDuration); showFloatingText('mindfulness', dMind, false, textDuration); showFloatingText('reward', dReward, false, textDuration); showFloatingText('clarity', dClarity, false, textDuration); showFloatingText('motivation', dMot, false, textDuration); showFloatingText('esteem', dEsteem, false, textDuration); let xpGained = addXPForDay(textDuration); updatePeakStats(stats, userProfile.currentStreak); userProfile.dailyStats[info.dateStr] = { self: dSelf, anx: dAnx, crav: dCrav, pfk: dPfk, energy: dEnergy, mind: dMind, reward: dReward, clarity: dClarity, mot: dMot, esteem: dEsteem, xp: xpGained.total }; segment.self += dSelf; segment.anx += dAnx; segment.crav += dCrav; segment.pfk += dPfk; segment.energy += dEnergy; segment.mind += dMind; segment.reward += dReward; segment.clarity += dClarity; segment.mot += dMot; segment.esteem += dEsteem; segment.totalBaseXp += xpGained.base; segment.totalBonusXp += xpGained.bonus; segment.totalXp += xpGained.total; 
             }
             await new Promise(r => setTimeout(r, delay));
         }
         flushSegment(); userProfile.bestStreak = Math.max(userProfile.bestStreak || 0, userProfile.currentStreak); userProfile.totalClaims = (userProfile.totalClaims || 0) + 1; lastClaimed.setDate(lastClaimed.getDate() + unclaimedDays); userProfile.lastClaimedDate = getLocalDateTimeString(lastClaimed);
         invalidateStreakDayCache(); renderCalendarNotes(); renderCalendar(); checkAchievements();
-    } catch (e) { console.error("Ошибка при начислении:", e); } finally { _suppressLogSideEffects = false; renderLogs(); isClaiming = false; const btnR = document.getElementById('btn-relapse'); if (btnR) btnR.disabled = false; updateClaimTimer(); saveData(); }
+    } catch (e) { console.error("Ошибка при начислении:", e); } finally { _suppressLogSideEffects = false; renderLogs(); renderQuests(); if (typeof updatePhaseBannerUI === 'function') updatePhaseBannerUI(); isClaiming = false; const btnR = document.getElementById('btn-relapse'); if (btnR) btnR.disabled = false; updateClaimTimer(); saveData(); }
 }
 
 function openStartDateModal() { if (isClaiming) return; playSound('click'); let dateStr, timeStr; if (userProfile.startDate) { [dateStr, timeStr] = userProfile.startDate.split('T'); } else { const now = new Date(); const offset = now.getTimezoneOffset() * 60000; const isoStr = new Date(now.getTime() - offset).toISOString(); dateStr = isoStr.split('T')[0]; timeStr = isoStr.slice(11, 16); } const [hh, mm] = timeStr.split(':'); const daysInput = document.getElementById('days-ago-input'); if (daysInput) daysInput.value = ''; document.getElementById('start-date-picker').value = dateStr; document.getElementById('start-hour-picker').value = hh; document.getElementById('start-minute-picker').value = mm; document.getElementById('start-date-modal').style.display = 'flex'; }
@@ -10858,7 +12348,24 @@ function applyStartDate() {
     if (hh < 0 || hh > 23 || mm < 0 || mm > 59) { showAppNotification('Ошибка', 'Некорректное время (Часы: 0-23, Минуты: 0-59).', '#ff4444'); return; }
     const pad = (n) => String(n).padStart(2, '0'); const combined = `${dateVal}T${pad(hh)}:${pad(mm)}`;
     if (combined !== userProfile.startDate) {
-        userProfile.startDate = combined; if (!userProfile.lowestStartDate || new Date(combined) < new Date(userProfile.lowestStartDate)) userProfile.lowestStartDate = combined; invalidateStreakDayCache();
+        userProfile.startDate = combined;
+        userProfile.startDateConfigured = true;
+        let earliestEntry = combined;
+        const considerDateMap = (obj) => {
+            if (!obj) return;
+            for (let k in obj) {
+                if (!earliestEntry || k < earliestEntry.split('T')[0]) earliestEntry = k;
+            }
+        };
+        considerDateMap(calendarData);
+        considerDateMap(calendarNotes);
+        considerDateMap(calendarNoteTitles);
+        considerDateMap(calendarMoods);
+        considerDateMap(calendarDifficulty);
+        if (!userProfile.lowestStartDate || earliestEntry.split('T')[0] < userProfile.lowestStartDate.split('T')[0]) {
+            userProfile.lowestStartDate = earliestEntry;
+        }
+        invalidateStreakDayCache();
         if (trackerSettings.autoRecalc) {
             userProfile.lastClaimedDate = getLocalDateTimeString(new Date()); recalculateAll(true); isRecalcPending = false;
             updateAllStatsUI();
@@ -10870,7 +12377,13 @@ function applyStartDate() {
             updateProfileUI(); syncStartDateInputs(); updateClaimTimer(); updateElapsedTime(); saveData(); closeStartDateModal();
             if (trackerSettings.showRecalcIndicator) { showAppNotification('Дата обновлена', 'Требуется перерасчёт базы', '#f8b500', 1750); }
         }
-    } else closeStartDateModal();
+    } else {
+        if (userProfile.startDate && !userProfile.startDateConfigured) {
+            userProfile.startDateConfigured = true;
+            saveData();
+        }
+        closeStartDateModal();
+    }
 }
 
 function updateClaimTimer() {
@@ -10878,6 +12391,7 @@ function updateClaimTimer() {
     tickQuestTimers();
     const standardActions = document.getElementById('standard-actions'); const recalcActions = document.getElementById('recalc-actions');
     const btn = document.getElementById('btn-claim'); const btnRelapse = document.getElementById('btn-relapse'); const progress = document.getElementById('claim-progress'); const timerText = document.getElementById('claim-timer'); const wrapper = document.getElementById('claim-btn-wrapper');
+    if (typeof updateCrisisButtonUI === 'function') updateCrisisButtonUI();
     if (!userProfile.startDate) { if (wrapper) wrapper.style.display = 'none'; if (btnRelapse) btnRelapse.style.display = 'none'; if (timerText) { timerText.innerText = '⚙️ Установите дату начала в настройках'; timerText.classList.remove('ready'); } if (progress) progress.style.width = '0%'; return; }
     if (isRecalcPending) { if(standardActions) standardActions.classList.add('hidden'); if(recalcActions) { recalcActions.classList.remove('hidden'); recalcActions.style.display = 'flex'; } if (timerText) { timerText.innerText = '⚠️ Требуется перерасчёт базы'; timerText.classList.add('ready'); timerText.style.color = '#4facfe'; } return; } else { if(standardActions) standardActions.classList.remove('hidden'); if(recalcActions) recalcActions.classList.add('hidden'); if(timerText) timerText.style.color = '#888'; }
     if (wrapper) wrapper.style.display = ''; if (btnRelapse) btnRelapse.style.display = '';
@@ -10999,31 +12513,47 @@ function stopMonthHold() {
 
 function safeParse(str, fallback) { if (!str || str === 'undefined' || str === 'null') return fallback; try { return JSON.parse(str); } catch(e) { return fallback; } }
 function loadData() {
+    isLoadingData = true;
     try {
+        // 1. Сначала загружаем ВСЕ данные из localStorage до любых UI-обновлений и saveData()
         const savedProfile = localStorage.getItem('userProfile');
         if (savedProfile) {
-            const parsed = safeParse(savedProfile, null); if (parsed) userProfile = parsed;
+            const parsed = safeParse(savedProfile, null);
+            if (parsed && typeof parsed === 'object') {
+                userProfile = { ...userProfile, ...parsed };
+            }
             if (!userProfile.dailyStats) userProfile.dailyStats = {}; 
             if (!userProfile.achievements) userProfile.achievements = {}; 
-            if (!userProfile.readGlossary) userProfile.readGlossary = [];
-            if (!userProfile.favorites) userProfile.favorites = [];
+            if (!userProfile.readGlossary) userProfile.readGlossary = []; 
+            if (!userProfile.favorites) userProfile.favorites = []; 
             if (userProfile.totalClaims === undefined) userProfile.totalClaims = 0; 
-            const isUntouched = userProfile.startDate && !userProfile.startDateConfigured && userProfile.lastClaimedDate === userProfile.startDate && (userProfile.totalXP || 0) === 0 && (userProfile.level || 1) === 1 && (userProfile.currentStreak || 0) === 0;
-            if (isUntouched) { userProfile.startDate = null; userProfile.lastClaimedDate = null; }
-            if (userProfile.startDate && userProfile.startDate.length === 10) { const d = new Date(userProfile.startDate); userProfile.startDate = getLocalDateTimeString(d); userProfile.lastClaimedDate = getLocalDateTimeString(d); userProfile.startDateConfigured = true; }
-            if (userProfile.nickname && userProfile.nickname.length > 8) userProfile.nickname = userProfile.nickname.slice(0, 8); if (userProfile.bestStreak === undefined) userProfile.bestStreak = userProfile.currentStreak || 0;
-            if (userProfile.initialStats && typeof userProfile.initialStats === 'object') { userProfile.initialStats = sanitizeInitialStats(userProfile.initialStats); } else { userProfile.initialStats = null; }
+            if (userProfile.startDate && userProfile.startDate.length === 10) {
+                const d = new Date(userProfile.startDate);
+                userProfile.startDate = getLocalDateTimeString(d);
+                userProfile.lastClaimedDate = getLocalDateTimeString(d);
+                userProfile.startDateConfigured = true;
+            }
+            if (userProfile.nickname && userProfile.nickname.length > 8) userProfile.nickname = userProfile.nickname.slice(0, 8);
+            if (userProfile.bestStreak === undefined) userProfile.bestStreak = userProfile.currentStreak || 0;
+            if (userProfile.initialStats && typeof userProfile.initialStats === 'object') {
+                userProfile.initialStats = sanitizeInitialStats(userProfile.initialStats);
+            } else {
+                userProfile.initialStats = null;
+            }
             if (userProfile.diagnosticCompleted === undefined) userProfile.diagnosticCompleted = !!userProfile.initialStats;
             if (userProfile.questTokens === undefined) userProfile.questTokens = 0;
             if (userProfile.questTotalCompleted === undefined) userProfile.questTotalCompleted = 0;
             if (userProfile.questHardCompleted === undefined) userProfile.questHardCompleted = 0;
             if (userProfile.questPerfectDays === undefined) userProfile.questPerfectDays = 0;
             if (!userProfile.questHistoryByDate || typeof userProfile.questHistoryByDate !== 'object') userProfile.questHistoryByDate = {};
+            userProfile.cravingEpisodes = sanitizeCravingEpisodes(userProfile.cravingEpisodes);
             ensureBestStats();
-        } else { userProfile.startDate = null; userProfile.lastClaimedDate = null; userProfile.dailyStats = {}; userProfile.achievements = {}; userProfile.totalClaims = 0; userProfile.readGlossary = []; userProfile.favorites = []; userProfile.initialStats = null; userProfile.diagnosticCompleted = false; userProfile.diagnosticSeverity = null; userProfile.questTokens = 0; userProfile.questTotalCompleted = 0; userProfile.questHardCompleted = 0; userProfile.questPerfectDays = 0; userProfile.questHistoryByDate = {}; userProfile.questDailyState = null; ensureBestStats(); }
-        if (!userProfile.lowestStartDate) { let earliest = userProfile.startDate; const savedCData = localStorage.getItem('trackerCalendar'); const savedNotes = localStorage.getItem('trackerNotes'); if (savedCData || savedNotes) { const cData = safeParse(savedCData, {}); const nData = safeParse(savedNotes, {}); let minDate = earliest; for (let k in cData) { if (!minDate || k < minDate) minDate = k; } for (let k in nData) { if (!minDate || k < minDate) minDate = k; } earliest = minDate; } userProfile.lowestStartDate = earliest; }
-        
+        } else {
+            userProfile.startDate = null; userProfile.lastClaimedDate = null; userProfile.dailyStats = {}; userProfile.achievements = {}; userProfile.totalClaims = 0; userProfile.readGlossary = []; userProfile.favorites = []; userProfile.initialStats = null; userProfile.diagnosticCompleted = false; userProfile.diagnosticSeverity = null; userProfile.questTokens = 0; userProfile.questTotalCompleted = 0; userProfile.questHardCompleted = 0; userProfile.questPerfectDays = 0; userProfile.questHistoryByDate = {}; userProfile.questDailyState = null; userProfile.cravingEpisodes = []; ensureBestStats();
+        }
+
         const savedSettings = localStorage.getItem('trackerSettings'); 
+        let needsSaveAfterLoad = false;
         if (savedSettings) { 
             const parsed = safeParse(savedSettings, {}); 
             const defaultVis = { ...trackerSettings.statsVisibility };
@@ -11045,7 +12575,7 @@ function loadData() {
                 trackerSettings.heatmapYear = currentRealYear;
             }
 
-            if (trackerSettings.theme === 'default' || !trackerSettings.theme) { trackerSettings.theme = 'white'; saveData(); }
+            if (trackerSettings.theme === 'default' || !trackerSettings.theme) { trackerSettings.theme = 'white'; needsSaveAfterLoad = true; }
             if (!WITHDRAWAL_PROFILES[trackerSettings.withdrawalSeverity]) trackerSettings.withdrawalSeverity = 'light';
         }
 
@@ -11057,53 +12587,152 @@ function loadData() {
         if (isWithdrawalLockedByDiagnostic()) {
             trackerSettings.withdrawalSeverity = 'heavy';
         }
-        
-        if (!trackerSettings.calDateColor || trackerSettings.calDateColor === '#777777') trackerSettings.calDateColor = '#ffffff'; if (trackerSettings.calDateStroke === undefined || trackerSettings.calDateStroke === false) trackerSettings.calDateStroke = true; if (!trackerSettings.calDateStrokeColor) trackerSettings.calDateStrokeColor = '#000000'; if (!trackerSettings.calDateStrokeWidth || trackerSettings.calDateStrokeWidth === 1) trackerSettings.calDateStrokeWidth = 2;
-        applySettings(); restoreAccordions(); 
-        relapseTags = [...DEFAULT_RELAPSE_TAGS]; isRecalcPending = localStorage.getItem('trackerIsRecalcPending') === 'true';
-        updateProfileUI(); setupNicknameInput(); syncStartDateInputs(); updateClaimTimer();
-        if (timerInterval) clearInterval(timerInterval); timerInterval = setInterval(updateClaimTimer, 1000);
-        if (elapsedTimeInterval) clearInterval(elapsedTimeInterval); elapsedTimeInterval = setInterval(updateElapsedTime, 1000); updateElapsedTime();
-        const savedStats = localStorage.getItem('trackerStats'); 
-        if (savedStats) { 
-            const parsed = safeParse(savedStats, null); 
-            if (parsed) { stats = { ...createZeroStats(), ...parsed }; } 
+        if (!trackerSettings.calDateColor || trackerSettings.calDateColor === '#777777') trackerSettings.calDateColor = '#ffffff';
+        if (trackerSettings.calDateStroke === undefined || trackerSettings.calDateStroke === false) trackerSettings.calDateStroke = true;
+        if (!trackerSettings.calDateStrokeColor) trackerSettings.calDateStrokeColor = '#000000';
+        if (!trackerSettings.calDateStrokeWidth || trackerSettings.calDateStrokeWidth === 1) trackerSettings.calDateStrokeWidth = 2;
+
+        relapseTags = [...DEFAULT_RELAPSE_TAGS];
+        isRecalcPending = localStorage.getItem('trackerIsRecalcPending') === 'true';
+
+        // Загружаем календарь, сложности, заметки, эмоции и срывы ДО stats и UI
+        const savedLogs = localStorage.getItem('trackerLogs');
+        if (savedLogs) { let parsedLogs = safeParse(savedLogs, []); logs = (parsedLogs.length > 0 && typeof parsedLogs[0] === 'string') ? [] : (Array.isArray(parsedLogs) ? parsedLogs : []); }
+        const savedQuestLogs = localStorage.getItem('trackerQuestLogs');
+        if (savedQuestLogs) { let parsedQL = safeParse(savedQuestLogs, []); if (Array.isArray(parsedQL)) questLogs = parsedQL; }
+        const savedNotes = localStorage.getItem('trackerNotes');
+        if (savedNotes) calendarNotes = safeParse(savedNotes, {}) || {};
+        const savedNoteTitles = localStorage.getItem('trackerNoteTitles');
+        if (savedNoteTitles) calendarNoteTitles = safeParse(savedNoteTitles, {}) || {};
+        const savedMoods = localStorage.getItem('trackerMoods');
+        if (savedMoods) calendarMoods = safeParse(savedMoods, {}) || {};
+        const savedDifficulty = localStorage.getItem('trackerDifficulty');
+        if (savedDifficulty) calendarDifficulty = safeParse(savedDifficulty, {}) || {};
+        const savedDetails = localStorage.getItem('trackerRelapseDetails');
+        if (savedDetails) {
+            relapseDetails = safeParse(savedDetails, {}) || {};
+        } else {
+            relapseDetails = {};
+            const oldUrges = safeParse(localStorage.getItem('trackerUrges'), {}) || {};
+            const oldShames = safeParse(localStorage.getItem('trackerShames'), {}) || {};
+            let keys = new Set([...Object.keys(oldUrges), ...Object.keys(oldShames)]);
+            for (let key of keys) { relapseDetails[key] = { urge: oldUrges[key] || 5, shame: oldShames[key] || 5, duration: 5, dopamine: 5, sleep: 5 }; }
+        }
+        const savedReasons = localStorage.getItem('trackerRelapseReasons');
+        if (savedReasons) relapseReasons = safeParse(savedReasons, {}) || {};
+        const savedTimes = localStorage.getItem('trackerRelapseTimes');
+        if (savedTimes) relapseTimes = safeParse(savedTimes, {}) || {};
+        const savedCalendar = localStorage.getItem('trackerCalendar');
+        if (savedCalendar) {
+            calendarData = safeParse(savedCalendar, {}) || {};
+            for (let key in calendarData) { if (calendarData[key] === 'relapse') calendarData[key] = 1; }
+        }
+
+        // Проверяем isUntouched только после загрузки всех карт календаря и диагностики,
+        // чтобы случайно не обнулить настроенную дату старта!
+        const hasAnyCalendarEntries = Object.keys(calendarData).length > 0 || Object.keys(calendarDifficulty).length > 0 || Object.keys(calendarNotes).length > 0 || Object.keys(calendarMoods).length > 0;
+        const isUntouched = userProfile.startDate && !userProfile.startDateConfigured && !userProfile.diagnosticCompleted && !userProfile.initialStats && !hasAnyCalendarEntries && userProfile.lastClaimedDate === userProfile.startDate && (userProfile.totalXP || 0) === 0 && (userProfile.level || 1) === 1 && (userProfile.currentStreak || 0) === 0;
+        if (isUntouched) {
+            userProfile.startDate = null;
+            userProfile.lastClaimedDate = null;
+        } else if (userProfile.startDate && !userProfile.startDateConfigured) {
+            userProfile.startDateConfigured = true;
+            needsSaveAfterLoad = true;
+        }
+
+        // Вычисляем lowestStartDate с учётом всех записей календаря (включая сложности)
+        let minDate = userProfile.lowestStartDate || userProfile.startDate;
+        const scanMinDate = (obj) => {
+            if (!obj) return;
+            for (let k in obj) {
+                if (!minDate || k < minDate.split('T')[0]) minDate = k;
+            }
+        };
+        scanMinDate(calendarData);
+        scanMinDate(calendarNotes);
+        scanMinDate(calendarNoteTitles);
+        scanMinDate(calendarMoods);
+        scanMinDate(calendarDifficulty);
+        if (Array.isArray(userProfile.cravingEpisodes)) {
+            userProfile.cravingEpisodes.forEach(ep => {
+                const sD = ep.startAt ? ep.startAt.split('T')[0] : null;
+                if (sD && (!minDate || sD < minDate.split('T')[0])) minDate = sD;
+            });
+        }
+        if (minDate && minDate !== userProfile.lowestStartDate) {
+            userProfile.lowestStartDate = minDate;
+            needsSaveAfterLoad = true;
+        }
+
+        // Загружаем шкалы ПОСЛЕ userProfile, calendarData и initialStats
+        const savedStats = localStorage.getItem('trackerStats');
+        if (savedStats) {
+            const parsed = safeParse(savedStats, null);
+            if (parsed && typeof parsed === 'object') {
+                stats = { ...createZeroStats(), ...parsed };
+            } else {
+                stats = createZeroStats();
+            }
             for (let key in stats) { if (typeof stats[key] !== 'number' || isNaN(stats[key])) stats[key] = (key === 'anxiety' ? BASE_ANXIETY : 0); }
-            if (stats.anxiety < MIN_ANXIETY) {
+            const positiveKeys = ['selfcontrol', 'pfk', 'energy', 'mindfulness', 'reward', 'clarity', 'motivation', 'esteem'];
+            const allPosZero = positiveKeys.every(k => stats[k] === 0);
+            const noProgressYet = !userProfile.startDate || (userProfile.totalClaims === 0 && Object.keys(calendarData).length === 0);
+            if (userProfile.initialStats && allPosZero && stats.craving === 0 && (stats.anxiety === BASE_ANXIETY || stats.anxiety <= MIN_ANXIETY) && Object.keys(calendarData).length === 0) {
+                stats = createZeroStats();
+                needsSaveAfterLoad = true;
+            } else if (stats.anxiety < MIN_ANXIETY) {
                 const defaultAnx = userProfile.initialStats ? userProfile.initialStats.anxiety : BASE_ANXIETY;
-                stats.anxiety = (!userProfile.startDate || (userProfile.totalClaims === 0 && Object.keys(calendarData).length === 0)) ? defaultAnx : MIN_ANXIETY;
+                stats.anxiety = noProgressYet ? defaultAnx : MIN_ANXIETY;
             }
             updatePeakStats(stats, userProfile.currentStreak || 0);
-            updateAllStatsUI(); 
         } else {
             stats = createZeroStats();
-            updateAllStatsUI();
         }
-        const savedLogs = localStorage.getItem('trackerLogs'); if (savedLogs) { let parsedLogs = safeParse(savedLogs, []); if (parsedLogs.length > 0 && typeof parsedLogs[0] === 'string') logs = []; else { logs = parsedLogs; renderLogs(); } } else renderLogs();
-        const savedQuestLogs = localStorage.getItem('trackerQuestLogs'); if (savedQuestLogs) { let parsedQL = safeParse(savedQuestLogs, []); if (Array.isArray(parsedQL)) questLogs = parsedQL; }
-        const savedNotes = localStorage.getItem('trackerNotes'); if (savedNotes) calendarNotes = safeParse(savedNotes, {});
-        const savedNoteTitles = localStorage.getItem('trackerNoteTitles'); if (savedNoteTitles) calendarNoteTitles = safeParse(savedNoteTitles, {}); const savedMoods = localStorage.getItem('trackerMoods'); if (savedMoods) calendarMoods = safeParse(savedMoods, {}); const savedDifficulty = localStorage.getItem('trackerDifficulty'); if (savedDifficulty) calendarDifficulty = safeParse(savedDifficulty, {});
-        const savedDetails = localStorage.getItem('trackerRelapseDetails'); 
-        if (savedDetails) { relapseDetails = safeParse(savedDetails, {}); } 
-        else { 
-            relapseDetails = {}; 
-            const oldUrges = safeParse(localStorage.getItem('trackerUrges'), {}); 
-            const oldShames = safeParse(localStorage.getItem('trackerShames'), {}); 
-            let keys = new Set([...Object.keys(oldUrges), ...Object.keys(oldShames)]); 
-            for (let key of keys) { relapseDetails[key] = { urge: oldUrges[key] || 5, shame: oldShames[key] || 5, duration: 5, dopamine: 5, sleep: 5 }; } 
-        }
-        const savedReasons = localStorage.getItem('trackerRelapseReasons'); if (savedReasons) relapseReasons = safeParse(savedReasons, {}); const savedTimes = localStorage.getItem('trackerRelapseTimes'); if (savedTimes) relapseTimes = safeParse(savedTimes, {}); const savedCalendar = localStorage.getItem('trackerCalendar'); if (savedCalendar) { calendarData = safeParse(savedCalendar, {}); for (let key in calendarData) { if (calendarData[key] === 'relapse') calendarData[key] = 1; } }
-        
+
         invalidateStreakDayCache();
+
+        // 2. Разрешаем сохранение только после загрузки всех данных в память
+        isLoadingData = false;
+
+        applySettings();
+        restoreAccordions();
         ensureQuestDailyState();
+        updateProfileUI();
+        setupNicknameInput();
+        syncStartDateInputs();
+        updateClaimTimer();
+        if (timerInterval) clearInterval(timerInterval); timerInterval = setInterval(updateClaimTimer, 1000);
+        if (elapsedTimeInterval) clearInterval(elapsedTimeInterval); elapsedTimeInterval = setInterval(updateElapsedTime, 1000);
+        updateElapsedTime();
+        updateAllStatsUI();
         renderQuests();
         renderLogs();
-        if (!userProfile.startDate) { switchTab('settings'); trackerSettings.accordionState.profile = true; trackerSettings.accordionState.appearance = false; trackerSettings.accordionState.scales = false; trackerSettings.accordionState.calendar = false; trackerSettings.accordionState.notifications = false; trackerSettings.accordionState.tooltips = false; trackerSettings.accordionState.data = false; saveData(); restoreAccordions(); } else { switchTab('tracker'); }
+
+        if (!userProfile.startDate) {
+            switchTab('settings');
+            trackerSettings.accordionState.profile = true;
+            trackerSettings.accordionState.appearance = false;
+            trackerSettings.accordionState.scales = false;
+            trackerSettings.accordionState.calendar = false;
+            trackerSettings.accordionState.notifications = false;
+            trackerSettings.accordionState.tooltips = false;
+            trackerSettings.accordionState.data = false;
+            saveData();
+            restoreAccordions();
+        } else {
+            switchTab('tracker');
+            if (needsSaveAfterLoad) saveData();
+        }
         if (!localStorage.getItem('trackerHasSeenGuide')) { setTimeout(() => { openGuide(); }, 800); }
         setTimeout(checkAchievements, 1000);
-    } catch (err) { console.error('Критическая ошибка загрузки данных:', err); document.body.innerHTML = `<div style="color:#fff;padding:40px;text-align:center;font-family:sans-serif;background:#121212;min-height:100vh;box-sizing:border-box;"><h2>⚠️ Ошибка при загрузке</h2><p style="color:#ff4444;font-family:monospace;font-size:14px;word-break:break-all;margin-bottom:20px;">${err.name}: ${err.message}<br><br>${err.stack}</p><button onclick="localStorage.clear(); location.reload();" style="padding:12px 24px; background:#ff4444; color:white; border:none; border-radius:8px; cursor:pointer; font-size:16px; font-weight:bold;">Сбросить данные и перезагрузить</button></div>`; }
+    } catch (err) {
+        isLoadingData = false;
+        console.error('Критическая ошибка загрузки данных:', err);
+        document.body.innerHTML = `<div style="color:#fff;padding:40px;text-align:center;font-family:sans-serif;background:#121212;min-height:100vh;box-sizing:border-box;"><h2>⚠️ Ошибка при загрузке</h2><p style="color:#ff4444;font-family:monospace;font-size:14px;word-break:break-all;margin-bottom:20px;">${err.name}: ${err.message}<br><br>${err.stack}</p><button onclick="localStorage.clear(); location.reload();" style="padding:12px 24px; background:#ff4444; color:white; border:none; border-radius:8px; cursor:pointer; font-size:16px; font-weight:bold;">Сбросить данные и перезагрузить</button></div>`;
+    }
 }
 function saveData() {
+    if (isLoadingData || isImportingData) return;
     localStorage.setItem('userProfile', JSON.stringify(userProfile)); localStorage.setItem('trackerSettings', JSON.stringify(trackerSettings)); localStorage.setItem('trackerStats', JSON.stringify(stats)); localStorage.setItem('trackerLogs', JSON.stringify(logs)); localStorage.setItem('trackerQuestLogs', JSON.stringify(questLogs)); localStorage.setItem('trackerCalendar', JSON.stringify(calendarData)); localStorage.setItem('trackerNotes', JSON.stringify(calendarNotes)); localStorage.setItem('trackerNoteTitles', JSON.stringify(calendarNoteTitles)); localStorage.setItem('trackerMoods', JSON.stringify(calendarMoods)); localStorage.setItem('trackerDifficulty', JSON.stringify(calendarDifficulty)); localStorage.setItem('trackerRelapseDetails', JSON.stringify(relapseDetails)); localStorage.removeItem('trackerUrges'); localStorage.removeItem('trackerShames'); localStorage.setItem('trackerRelapseReasons', JSON.stringify(relapseReasons)); localStorage.setItem('trackerRelapseTimes', JSON.stringify(relapseTimes)); localStorage.setItem('trackerRelapseTags', JSON.stringify(relapseTags));
     localStorage.setItem('trackerIsRecalcPending', isRecalcPending ? 'true' : 'false');
 }
