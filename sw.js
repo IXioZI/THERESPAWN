@@ -1,4 +1,4 @@
-const CACHE_NAME = 'respawn-tracker-v3'espawn-tracker-v2'';
+const CACHE_NAME = 'respawn-tracker-v4'espawn-tracker-v2'';
 const ASSETS = [
   './',
   './index.html',
